@@ -7,11 +7,7 @@ entity ins_dec is
 	ins_dec_reg: in std_logic_vector(15 downto 0);
 	clk: in std_logic	
 	op_code: in std_logic_vector(3 downto 0);
-		reg_1: out std_logic_vector(2 downto 0);
-		reg_2: out std_logic_vector(2 downto 0);
-		reg_3: out std_logic_vector(2 downto 0);
-		imm_6: out std_logic_vector(5 downto 0);
-		imm_9: out std_logic_vector(8 downto 0);
+	id_reg: out std_logic_vector(15 downto 0)
 	) ;
 end ins_dec;
 
