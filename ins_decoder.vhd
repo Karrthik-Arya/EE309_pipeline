@@ -7,11 +7,7 @@ entity ins_dec is
 	ins_dec_reg: in std_logic_vector(15 downto 0);
 	clk: in std_logic	
 	op_code: in std_logic_vector(3 downto 0);
-		reg_1: out std_logic_vector(2 downto 0);
-		reg_2: out std_logic_vector(2 downto 0);
-		reg_3: out std_logic_vector(2 downto 0);
-		imm_6: out std_logic_vector(5 downto 0);
-		imm_9: out std_logic_vector(8 downto 0);
+		id_reg: out std_logic_vector(15 downto 0)
 	) ;
 end ins_dec;
 
@@ -28,9 +24,9 @@ begin
 	read_proc: process(ins_store)
 	begin
 	if(op_code="0001") then
-		reg_1<=ins_store(11 downto 9);
-		reg_2 <= ins_store(8 downto 6);
-		reg_3 <= ins_store(5 downto 3);
+		id_reg(11 downto 9) <=ins_store(11 downto 9);
+		id_reg(8 downto 6)  <= ins_store(8 downto 6);
+		id_reg(5 downto 3)  <= ins_store(5 downto 3);
 	end if;
 	end process;
 
