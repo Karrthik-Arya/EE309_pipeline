@@ -43,7 +43,7 @@ architecture working of mem is
 		
 	end if;	
 	end process;
-	mem_read: process(mem_extrastore, opcode5)
+	mem_read: process( opcode5)
 	begin
 		
 	end process;

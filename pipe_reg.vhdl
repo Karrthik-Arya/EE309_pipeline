@@ -147,7 +147,7 @@ entity memory_reg is
 		opcode5: in std_logic_vector(3 downto 0);
 		opcode6: in std_logic_vector(3 downto 0);
 		clk: in std_logic;
-		wb_in: out std_logic_vector(18 downto 0);
+		wb_in: out std_logic_vector(18 downto 0)
 	);
 end memory_reg;
 

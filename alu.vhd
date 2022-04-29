@@ -7,7 +7,7 @@ entity alu is
 	port(opcode4: in std_logic_vector(3 downto 0);
 	 alu_a: in std_logic_vector(15 downto 0);
 	 alu_b: in std_logic_vector(15 downto 0);
-	 ex_reg: out std_logic_vector(15 downto 0);
+	 ex_reg: out std_logic_vector(15 downto 0)
 	 );
 	 end entity;
 	 

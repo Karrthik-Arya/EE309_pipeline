@@ -10,8 +10,8 @@ entity registers is
 			reg_a3: in std_logic_vector(2 downto 0);
 			reg_rd: out std_logic_vector(34 downto 0);
 			opcode3: in std_logic_vector(3 downto 0);
-			--reg_rd_reg3: out std_logic_vector(15 downto 0);
-			clk: in std_logic;
+			reg_wb: in std_logic_vector(18 downto 0);
+			clk: in std_logic
 	);
 	end entity;
 	
