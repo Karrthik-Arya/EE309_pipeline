@@ -12,7 +12,8 @@ entity ir is
 		opcode3: out std_logic_vector(3 downto 0);
 		opcode4: out std_logic_vector(3 downto 0);
 		opcode5: out std_logic_vector(3 downto 0);
-		opcode6: out std_logic_vector(3 downto 0)
+		opcode6: out std_logic_vector(3 downto 0);
+		cz: out std_logic_vector(1 downto 0)
 	) ;
 end ir;
 
@@ -39,6 +40,7 @@ begin
 	opcode4<= ir_store(3)(15 downto 12);
 	opcode5<= ir_store(4)(15 downto 12);
 	opcode6<= ir_store(5)(15 downto 12);
+	cz <= ir_store(3)(1 downto 0);
 	
 
 end working;

@@ -12,7 +12,8 @@ entity registers is
 			opcode3: in std_logic_vector(3 downto 0);
 			opcode6: in std_logic_vector(3 downto 0);
 			reg_wb: in std_logic_vector(18 downto 0);
-			clk: in std_logic
+			clk: in std_logic;
+			no_write: in std_logic
 	);
 	end entity;
 	
@@ -37,7 +38,7 @@ regs_write: process(clk)
 variable temp : integer;
 begin
 	if (falling_edge(clk)) then
-		if(opcode6="0001")then
+		if(opcode6="0001" and no_write='0')then
 			temp := to_integer(unsigned(reg_wb(18 downto 16)));
 			regs(temp)<= reg_wb(15 downto 0);
 		end if;

@@ -113,13 +113,17 @@ entity execute_reg is
 		opcode4: in std_logic_vector(3 downto 0);
 		opcode5: in std_logic_vector(3 downto  0);
 		mem_reg: out std_logic_vector(18 downto 0);
-		clk: in std_logic
+		clk: in std_logic;
+		no_write_in: in std_logic;
+			no_write_out: out std_logic
 	);
 end execute_reg;
 
 architecture working of execute_reg is
 signal exe_store: std_logic_vector(18 downto 0);
+signal no_write: std_logic;
 begin
+	no_write_out<=no_write;
 	read_proc: process(opcode5, exe_store )
 	begin
 		if (opcode5="0001") then
@@ -135,6 +139,7 @@ begin
 				exe_store(15 downto 0)<= alu;
 				exe_store(18 downto 16)<= rd_reg;
 			end if;
+			no_write<=no_write_in;
 		end if;
 	end process;
 end working;
@@ -151,13 +156,17 @@ entity memory_reg is
 		opcode5: in std_logic_vector(3 downto 0);
 		opcode6: in std_logic_vector(3 downto 0);
 		clk: in std_logic;
-		wb_in: out std_logic_vector(18 downto 0)
+		wb_in: out std_logic_vector(18 downto 0);
+		no_write_in: in std_logic;
+			no_write_out: out std_logic
 	);
 end memory_reg;
 
 architecture working of memory_reg is
 signal mem_store: std_logic_vector(18 downto 0);
+signal no_write:std_logic;
 begin
+	no_write_out<= no_write;
 	read_proc: process(opcode6, mem_store )-- if the same load inst is used simultaneously a problem arises as 
 	                                        -- sensitivity list not triggered. look into it 
 	begin
@@ -171,6 +180,7 @@ begin
 		if(falling_edge(clk)) then
 			if (opcode5="0001") then
 				mem_store<= exec_reg;
+				no_write<=no_write_in;
 			end if;
 		end if;
 	end process;
