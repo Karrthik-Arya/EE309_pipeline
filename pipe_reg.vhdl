@@ -43,9 +43,9 @@ end id_reg;
 architecture working of id_reg is
 signal id_store: std_logic_vector(15 downto 0);
 begin
-	read_proc: process(opcode, id_store)
+	read_proc: process(opcode3, id_store)
 	begin 
-		if(opcode="0001") then
+		if(opcode3="0001") then
 			reg_a1<=id_store(11 downto 9);
 			reg_a2<=id_store(8 downto 6);
 			reg_a3<=id_store(5 downto 3);
