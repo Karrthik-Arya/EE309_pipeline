@@ -168,6 +168,11 @@ component memory_reg is
 	);
 end memory_reg;
 
+signal w_ir_if, w_if_id, w_id_reg, w_rd_alua, w_rd_alub, w_ex_alu, curr_ins, w_pc_mem: std_logic_vector(15 downto 0);
+signal w_reg_a1, w_reg_a2, w_reg_a3, w_rd_ex: std_logic_vector(2 downto 0);
+signal w_wb, w_exec_mem: std_logic_vector(18 downto 0);
+signal w_rd_reg: std_logic_vector(34 downto 0);
+
 
 begin
 		
@@ -272,34 +277,6 @@ begin
 					opcode=> opcode1,
 					clk=> input_vector(0),
 					ins_mem=>w_pc_mem,
-					);
-					
-				shift1_instance: shifter_1
-					port map (
-						state=> state,
-						t2=> w_t2_1s,
-						alu_a=>w_1s
-					);
-					
-				shift7_instance: shifter_7
-					port map (
-					 state=> state,
-					 ir_8_0=> w4,
-					 rf_d3=>w_shift7_reg
-					);
-					
-				sign_ex10_instance: sign_extender_10_component
-					port map (
-						state=> state,
-						ir_5_0=> w5,
-						alu=> w_se10
-					);
-					
-				sign_ex7_instance: sign_extender_7_component
-					port map (
-						state=> state,
-						ir_8_0=> w4,
-						alu=> w_se7
 					);
 				
 					
