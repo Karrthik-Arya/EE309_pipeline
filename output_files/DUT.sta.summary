@@ -3,11 +3,11 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Setup 'input_vector[0]'
-Slack : -2.245
-TNS   : -8.844
+Slack : -2.932
+TNS   : -26.038
 
 Type  : Hold 'input_vector[0]'
-Slack : 1.356
+Slack : 1.127
 TNS   : 0.000
 
 Type  : Minimum Pulse Width 'input_vector[0]'

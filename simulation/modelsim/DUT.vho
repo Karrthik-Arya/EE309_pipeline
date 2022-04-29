@@ -15,9 +15,9 @@
 
 -- VENDOR "Altera"
 -- PROGRAM "Quartus Prime"
--- VERSION "Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition"
+-- VERSION "Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition"
 
--- DATE "04/30/2022 02:58:40"
+-- DATE "04/30/2022 03:55:52"
 
 -- 
 -- Device: Altera 5M2210ZF256C4 Package FBGA256
@@ -54,17 +54,30 @@ SIGNAL ww_devclrn : std_logic;
 SIGNAL ww_devpor : std_logic;
 SIGNAL ww_input_vector : std_logic_vector(0 DOWNTO 0);
 SIGNAL ww_output_vector : std_logic_vector(3 DOWNTO 0);
+SIGNAL \ir_instance|ir_store[1][15]~regout\ : std_logic;
 SIGNAL \pc_instance|pc[1]~1\ : std_logic;
 SIGNAL \pc_instance|pc[1]~1COUT1_10\ : std_logic;
 SIGNAL \pc_instance|pc[2]~3\ : std_logic;
 SIGNAL \pc_instance|pc[2]~3COUT1_11\ : std_logic;
 SIGNAL \pc_instance|pc[3]~5\ : std_logic;
 SIGNAL \pc_instance|pc[3]~5COUT1_12\ : std_logic;
-SIGNAL \mem_instance|mem_ins~0_combout\ : std_logic;
-SIGNAL \mem_instance|mem_ins~1_combout\ : std_logic;
-SIGNAL \input_vector~combout\ : std_logic_vector(0 DOWNTO 0);
+SIGNAL \mem_instance|mem_ins~2_combout\ : std_logic;
+SIGNAL \mem_instance|mem_ins~3_combout\ : std_logic;
+SIGNAL \ir_instance|ir_store[0][6]~regout\ : std_logic;
+SIGNAL \ir_instance|ir_store[1][6]~regout\ : std_logic;
+SIGNAL \ir_instance|ir_store[1][13]~regout\ : std_logic;
+SIGNAL \mem_instance|mem_ins~4_combout\ : std_logic;
+SIGNAL \ir_instance|ir_store[0][7]~regout\ : std_logic;
+SIGNAL \ir_instance|ir_store[1][7]~regout\ : std_logic;
+SIGNAL \ir_instance|Equal0~0\ : std_logic;
+SIGNAL \ir_instance|ir_store[0][13]~regout\ : std_logic;
+SIGNAL \pc_instance|Equal0~0_combout\ : std_logic;
+SIGNAL \mem_instance|mem_ins~0\ : std_logic;
+SIGNAL \ir_instance|ir_store[0][15]~regout\ : std_logic;
+SIGNAL \mem_instance|mem_ins~1\ : std_logic;
 SIGNAL \pc_instance|pc\ : std_logic_vector(15 DOWNTO 0);
-SIGNAL \mem_instance|ALT_INV_mem_ins~1_combout\ : std_logic;
+SIGNAL \input_vector~combout\ : std_logic_vector(0 DOWNTO 0);
+SIGNAL \mem_instance|ALT_INV_mem_ins~3_combout\ : std_logic;
 
 BEGIN
 
@@ -73,7 +86,7 @@ output_vector <= ww_output_vector;
 ww_devoe <= devoe;
 ww_devclrn <= devclrn;
 ww_devpor <= devpor;
-\mem_instance|ALT_INV_mem_ins~1_combout\ <= NOT \mem_instance|mem_ins~1_combout\;
+\mem_instance|ALT_INV_mem_ins~3_combout\ <= NOT \mem_instance|mem_ins~3_combout\;
 
 -- Location: PIN_H5,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
 \input_vector[0]~I\ : maxv_io
@@ -86,32 +99,10 @@ PORT MAP (
 	padio => ww_input_vector(0),
 	combout => \input_vector~combout\(0));
 
--- Location: LC_X1_Y13_N8
-\pc_instance|pc[0]\ : maxv_lcell
--- Equation(s):
--- \pc_instance|pc\(0) = DFFEAS((((!\pc_instance|pc\(0)))), GLOBAL(\input_vector~combout\(0)), VCC, , , , , , )
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "00ff",
-	operation_mode => "normal",
-	output_mode => "reg_only",
-	register_cascade_mode => "off",
-	sum_lutc_input => "datac",
-	synch_mode => "off")
--- pragma translate_on
-PORT MAP (
-	clk => \input_vector~combout\(0),
-	datad => \pc_instance|pc\(0),
-	aclr => GND,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \pc_instance|pc\(0));
-
--- Location: LC_X1_Y13_N0
+-- Location: LC_X1_Y10_N0
 \pc_instance|pc[1]\ : maxv_lcell
 -- Equation(s):
--- \pc_instance|pc\(1) = DFFEAS(\pc_instance|pc\(0) $ ((\pc_instance|pc\(1))), GLOBAL(\input_vector~combout\(0)), VCC, , , , , , )
+-- \pc_instance|pc\(1) = DFFEAS(\pc_instance|pc\(0) $ ((\pc_instance|pc\(1))), GLOBAL(\input_vector~combout\(0)), VCC, , \pc_instance|Equal0~0_combout\, , , , )
 -- \pc_instance|pc[1]~1\ = CARRY((\pc_instance|pc\(0) & (\pc_instance|pc\(1))))
 -- \pc_instance|pc[1]~1COUT1_10\ = CARRY((\pc_instance|pc\(0) & (\pc_instance|pc\(1))))
 
@@ -129,16 +120,17 @@ PORT MAP (
 	dataa => \pc_instance|pc\(0),
 	datab => \pc_instance|pc\(1),
 	aclr => GND,
+	ena => \pc_instance|Equal0~0_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	regout => \pc_instance|pc\(1),
 	cout0 => \pc_instance|pc[1]~1\,
 	cout1 => \pc_instance|pc[1]~1COUT1_10\);
 
--- Location: LC_X1_Y13_N1
+-- Location: LC_X1_Y10_N1
 \pc_instance|pc[2]\ : maxv_lcell
 -- Equation(s):
--- \pc_instance|pc\(2) = DFFEAS((\pc_instance|pc\(2) $ ((\pc_instance|pc[1]~1\))), GLOBAL(\input_vector~combout\(0)), VCC, , , , , , )
+-- \pc_instance|pc\(2) = DFFEAS((\pc_instance|pc\(2) $ ((\pc_instance|pc[1]~1\))), GLOBAL(\input_vector~combout\(0)), VCC, , \pc_instance|Equal0~0_combout\, , , , )
 -- \pc_instance|pc[2]~3\ = CARRY(((!\pc_instance|pc[1]~1\) # (!\pc_instance|pc\(2))))
 -- \pc_instance|pc[2]~3COUT1_11\ = CARRY(((!\pc_instance|pc[1]~1COUT1_10\) # (!\pc_instance|pc\(2))))
 
@@ -157,6 +149,7 @@ PORT MAP (
 	clk => \input_vector~combout\(0),
 	datab => \pc_instance|pc\(2),
 	aclr => GND,
+	ena => \pc_instance|Equal0~0_combout\,
 	cin0 => \pc_instance|pc[1]~1\,
 	cin1 => \pc_instance|pc[1]~1COUT1_10\,
 	devclrn => ww_devclrn,
@@ -165,10 +158,10 @@ PORT MAP (
 	cout0 => \pc_instance|pc[2]~3\,
 	cout1 => \pc_instance|pc[2]~3COUT1_11\);
 
--- Location: LC_X1_Y13_N2
+-- Location: LC_X1_Y10_N2
 \pc_instance|pc[3]\ : maxv_lcell
 -- Equation(s):
--- \pc_instance|pc\(3) = DFFEAS((\pc_instance|pc\(3) $ ((!\pc_instance|pc[2]~3\))), GLOBAL(\input_vector~combout\(0)), VCC, , , , , , )
+-- \pc_instance|pc\(3) = DFFEAS((\pc_instance|pc\(3) $ ((!\pc_instance|pc[2]~3\))), GLOBAL(\input_vector~combout\(0)), VCC, , \pc_instance|Equal0~0_combout\, , , , )
 -- \pc_instance|pc[3]~5\ = CARRY(((\pc_instance|pc\(3) & !\pc_instance|pc[2]~3\)))
 -- \pc_instance|pc[3]~5COUT1_12\ = CARRY(((\pc_instance|pc\(3) & !\pc_instance|pc[2]~3COUT1_11\)))
 
@@ -187,6 +180,7 @@ PORT MAP (
 	clk => \input_vector~combout\(0),
 	datab => \pc_instance|pc\(3),
 	aclr => GND,
+	ena => \pc_instance|Equal0~0_combout\,
 	cin0 => \pc_instance|pc[2]~3\,
 	cin1 => \pc_instance|pc[2]~3COUT1_11\,
 	devclrn => ww_devclrn,
@@ -195,10 +189,10 @@ PORT MAP (
 	cout0 => \pc_instance|pc[3]~5\,
 	cout1 => \pc_instance|pc[3]~5COUT1_12\);
 
--- Location: LC_X1_Y13_N3
+-- Location: LC_X1_Y10_N3
 \pc_instance|pc[4]\ : maxv_lcell
 -- Equation(s):
--- \pc_instance|pc\(4) = DFFEAS(((\pc_instance|pc[3]~5\ $ (\pc_instance|pc\(4)))), GLOBAL(\input_vector~combout\(0)), VCC, , , , , , )
+-- \pc_instance|pc\(4) = DFFEAS(((\pc_instance|pc[3]~5\ $ (\pc_instance|pc\(4)))), GLOBAL(\input_vector~combout\(0)), VCC, , \pc_instance|Equal0~0_combout\, , , , )
 
 -- pragma translate_off
 GENERIC MAP (
@@ -215,20 +209,138 @@ PORT MAP (
 	clk => \input_vector~combout\(0),
 	datad => \pc_instance|pc\(4),
 	aclr => GND,
+	ena => \pc_instance|Equal0~0_combout\,
 	cin0 => \pc_instance|pc[3]~5\,
 	cin1 => \pc_instance|pc[3]~5COUT1_12\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	regout => \pc_instance|pc\(4));
 
--- Location: LC_X1_Y13_N7
-\mem_instance|mem_ins~0\ : maxv_lcell
+-- Location: LC_X1_Y10_N5
+\mem_instance|mem_ins~2\ : maxv_lcell
 -- Equation(s):
--- \mem_instance|mem_ins~0_combout\ = (\pc_instance|pc\(2)) # ((\pc_instance|pc\(3)) # ((\pc_instance|pc\(1) & \pc_instance|pc\(0))))
+-- \mem_instance|mem_ins~2_combout\ = (\pc_instance|pc\(3)) # ((\pc_instance|pc\(2)) # ((\pc_instance|pc\(1) & \pc_instance|pc\(0))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "fff8",
+	lut_mask => "feee",
+	operation_mode => "normal",
+	output_mode => "comb_only",
+	register_cascade_mode => "off",
+	sum_lutc_input => "datac",
+	synch_mode => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \pc_instance|pc\(3),
+	datab => \pc_instance|pc\(2),
+	datac => \pc_instance|pc\(1),
+	datad => \pc_instance|pc\(0),
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	combout => \mem_instance|mem_ins~2_combout\);
+
+-- Location: LC_X1_Y10_N6
+\mem_instance|mem_ins~3\ : maxv_lcell
+-- Equation(s):
+-- \mem_instance|mem_ins~3_combout\ = (\pc_instance|pc\(4)) # (((\mem_instance|mem_ins~2_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "ffaa",
+	operation_mode => "normal",
+	output_mode => "comb_only",
+	register_cascade_mode => "off",
+	sum_lutc_input => "datac",
+	synch_mode => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \pc_instance|pc\(4),
+	datad => \mem_instance|mem_ins~2_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	combout => \mem_instance|mem_ins~3_combout\);
+
+-- Location: LC_X2_Y10_N7
+\ir_instance|ir_store[0][6]\ : maxv_lcell
+-- Equation(s):
+-- \mem_instance|mem_ins~0\ = (!\pc_instance|pc\(0) & (!\pc_instance|pc\(3) & (!\pc_instance|pc\(2) & !\pc_instance|pc\(4))))
+-- \ir_instance|ir_store[0][6]~regout\ = DFFEAS(\mem_instance|mem_ins~0\, GLOBAL(\input_vector~combout\(0)), VCC, , \ir_instance|Equal0~0\, , , , )
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0001",
+	operation_mode => "normal",
+	output_mode => "reg_and_comb",
+	register_cascade_mode => "off",
+	sum_lutc_input => "datac",
+	synch_mode => "off")
+-- pragma translate_on
+PORT MAP (
+	clk => \input_vector~combout\(0),
+	dataa => \pc_instance|pc\(0),
+	datab => \pc_instance|pc\(3),
+	datac => \pc_instance|pc\(2),
+	datad => \pc_instance|pc\(4),
+	aclr => GND,
+	ena => \ir_instance|Equal0~0\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	combout => \mem_instance|mem_ins~0\,
+	regout => \ir_instance|ir_store[0][6]~regout\);
+
+-- Location: LC_X2_Y10_N5
+\ir_instance|ir_store[1][6]\ : maxv_lcell
+-- Equation(s):
+-- \ir_instance|ir_store[1][6]~regout\ = DFFEAS(GND, GLOBAL(\input_vector~combout\(0)), VCC, , , \ir_instance|ir_store[0][6]~regout\, , , VCC)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000",
+	operation_mode => "normal",
+	output_mode => "reg_only",
+	register_cascade_mode => "off",
+	sum_lutc_input => "datac",
+	synch_mode => "on")
+-- pragma translate_on
+PORT MAP (
+	clk => \input_vector~combout\(0),
+	datac => \ir_instance|ir_store[0][6]~regout\,
+	aclr => GND,
+	sload => VCC,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \ir_instance|ir_store[1][6]~regout\);
+
+-- Location: LC_X2_Y10_N0
+\ir_instance|ir_store[1][13]\ : maxv_lcell
+-- Equation(s):
+-- \ir_instance|ir_store[1][13]~regout\ = DFFEAS((((\ir_instance|ir_store[0][13]~regout\))), GLOBAL(\input_vector~combout\(0)), VCC, , , , , , )
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "ff00",
+	operation_mode => "normal",
+	output_mode => "reg_only",
+	register_cascade_mode => "off",
+	sum_lutc_input => "datac",
+	synch_mode => "off")
+-- pragma translate_on
+PORT MAP (
+	clk => \input_vector~combout\(0),
+	datad => \ir_instance|ir_store[0][13]~regout\,
+	aclr => GND,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \ir_instance|ir_store[1][13]~regout\);
+
+-- Location: LC_X2_Y10_N3
+\mem_instance|mem_ins~4\ : maxv_lcell
+-- Equation(s):
+-- \mem_instance|mem_ins~4_combout\ = (!\pc_instance|pc\(2) & (!\pc_instance|pc\(3) & (\pc_instance|pc\(1) $ (\pc_instance|pc\(0)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0006",
 	operation_mode => "normal",
 	output_mode => "comb_only",
 	register_cascade_mode => "off",
@@ -242,16 +354,113 @@ PORT MAP (
 	datad => \pc_instance|pc\(3),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	combout => \mem_instance|mem_ins~0_combout\);
+	combout => \mem_instance|mem_ins~4_combout\);
 
--- Location: LC_X1_Y13_N9
-\mem_instance|mem_ins~1\ : maxv_lcell
+-- Location: LC_X2_Y10_N4
+\ir_instance|ir_store[0][7]\ : maxv_lcell
 -- Equation(s):
--- \mem_instance|mem_ins~1_combout\ = (\pc_instance|pc\(4)) # (((\mem_instance|mem_ins~0_combout\)))
+-- \ir_instance|ir_store[0][7]~regout\ = DFFEAS(((!\pc_instance|pc\(4) & ((\mem_instance|mem_ins~4_combout\)))), GLOBAL(\input_vector~combout\(0)), VCC, , \ir_instance|Equal0~0\, , , , )
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "fafa",
+	lut_mask => "3300",
+	operation_mode => "normal",
+	output_mode => "reg_only",
+	register_cascade_mode => "off",
+	sum_lutc_input => "datac",
+	synch_mode => "off")
+-- pragma translate_on
+PORT MAP (
+	clk => \input_vector~combout\(0),
+	datab => \pc_instance|pc\(4),
+	datad => \mem_instance|mem_ins~4_combout\,
+	aclr => GND,
+	ena => \ir_instance|Equal0~0\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \ir_instance|ir_store[0][7]~regout\);
+
+-- Location: LC_X2_Y10_N8
+\ir_instance|ir_store[1][7]\ : maxv_lcell
+-- Equation(s):
+-- \ir_instance|ir_store[1][7]~regout\ = DFFEAS(GND, GLOBAL(\input_vector~combout\(0)), VCC, , , \ir_instance|ir_store[0][7]~regout\, , , VCC)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000",
+	operation_mode => "normal",
+	output_mode => "reg_only",
+	register_cascade_mode => "off",
+	sum_lutc_input => "datac",
+	synch_mode => "on")
+-- pragma translate_on
+PORT MAP (
+	clk => \input_vector~combout\(0),
+	datac => \ir_instance|ir_store[0][7]~regout\,
+	aclr => GND,
+	sload => VCC,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \ir_instance|ir_store[1][7]~regout\);
+
+-- Location: LC_X2_Y10_N9
+\ir_instance|ir_store[1][15]\ : maxv_lcell
+-- Equation(s):
+-- \ir_instance|Equal0~0\ = (((!\ir_instance|ir_store[1][7]~regout\) # (!G1_ir_store[1][15])) # (!\ir_instance|ir_store[1][13]~regout\)) # (!\ir_instance|ir_store[1][6]~regout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "7fff",
+	operation_mode => "normal",
+	output_mode => "comb_only",
+	register_cascade_mode => "off",
+	sum_lutc_input => "qfbk",
+	synch_mode => "on")
+-- pragma translate_on
+PORT MAP (
+	clk => \input_vector~combout\(0),
+	dataa => \ir_instance|ir_store[1][6]~regout\,
+	datab => \ir_instance|ir_store[1][13]~regout\,
+	datac => \ir_instance|ir_store[0][15]~regout\,
+	datad => \ir_instance|ir_store[1][7]~regout\,
+	aclr => GND,
+	sload => VCC,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	combout => \ir_instance|Equal0~0\,
+	regout => \ir_instance|ir_store[1][15]~regout\);
+
+-- Location: LC_X1_Y10_N7
+\ir_instance|ir_store[0][13]\ : maxv_lcell
+-- Equation(s):
+-- \ir_instance|ir_store[0][13]~regout\ = DFFEAS((((!\mem_instance|mem_ins~3_combout\))), GLOBAL(\input_vector~combout\(0)), VCC, , \ir_instance|Equal0~0\, , , , )
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "00ff",
+	operation_mode => "normal",
+	output_mode => "reg_only",
+	register_cascade_mode => "off",
+	sum_lutc_input => "datac",
+	synch_mode => "off")
+-- pragma translate_on
+PORT MAP (
+	clk => \input_vector~combout\(0),
+	datad => \mem_instance|mem_ins~3_combout\,
+	aclr => GND,
+	ena => \ir_instance|Equal0~0\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \ir_instance|ir_store[0][13]~regout\);
+
+-- Location: LC_X1_Y10_N8
+\pc_instance|Equal0~0\ : maxv_lcell
+-- Equation(s):
+-- \pc_instance|Equal0~0_combout\ = (((!\ir_instance|ir_store[0][15]~regout\) # (!\ir_instance|ir_store[0][13]~regout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0fff",
 	operation_mode => "normal",
 	output_mode => "comb_only",
 	register_cascade_mode => "off",
@@ -259,53 +468,103 @@ GENERIC MAP (
 	synch_mode => "off")
 -- pragma translate_on
 PORT MAP (
-	dataa => \pc_instance|pc\(4),
-	datac => \mem_instance|mem_ins~0_combout\,
+	datac => \ir_instance|ir_store[0][13]~regout\,
+	datad => \ir_instance|ir_store[0][15]~regout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	combout => \mem_instance|mem_ins~1_combout\);
+	combout => \pc_instance|Equal0~0_combout\);
 
--- Location: PIN_D3,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 16mA
+-- Location: LC_X1_Y10_N9
+\ir_instance|ir_store[0][15]\ : maxv_lcell
+-- Equation(s):
+-- \mem_instance|mem_ins~1\ = (((\pc_instance|pc\(1) & \mem_instance|mem_ins~0\)))
+-- \ir_instance|ir_store[0][15]~regout\ = DFFEAS(\mem_instance|mem_ins~1\, GLOBAL(\input_vector~combout\(0)), VCC, , \ir_instance|Equal0~0\, , , , )
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "f000",
+	operation_mode => "normal",
+	output_mode => "reg_and_comb",
+	register_cascade_mode => "off",
+	sum_lutc_input => "datac",
+	synch_mode => "off")
+-- pragma translate_on
+PORT MAP (
+	clk => \input_vector~combout\(0),
+	datac => \pc_instance|pc\(1),
+	datad => \mem_instance|mem_ins~0\,
+	aclr => GND,
+	ena => \ir_instance|Equal0~0\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	combout => \mem_instance|mem_ins~1\,
+	regout => \ir_instance|ir_store[0][15]~regout\);
+
+-- Location: LC_X2_Y10_N6
+\pc_instance|pc[0]\ : maxv_lcell
+-- Equation(s):
+-- \pc_instance|pc\(0) = DFFEAS(\pc_instance|pc\(0) $ ((((!\ir_instance|ir_store[0][13]~regout\) # (!\ir_instance|ir_store[0][15]~regout\)))), GLOBAL(\input_vector~combout\(0)), VCC, , , , , , )
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "a555",
+	operation_mode => "normal",
+	output_mode => "reg_only",
+	register_cascade_mode => "off",
+	sum_lutc_input => "datac",
+	synch_mode => "off")
+-- pragma translate_on
+PORT MAP (
+	clk => \input_vector~combout\(0),
+	dataa => \pc_instance|pc\(0),
+	datac => \ir_instance|ir_store[0][15]~regout\,
+	datad => \ir_instance|ir_store[0][13]~regout\,
+	aclr => GND,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \pc_instance|pc\(0));
+
+-- Location: PIN_G2,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 16mA
 \output_vector[0]~I\ : maxv_io
 -- pragma translate_off
 GENERIC MAP (
 	operation_mode => "output")
 -- pragma translate_on
 PORT MAP (
-	datain => \mem_instance|ALT_INV_mem_ins~1_combout\,
+	datain => \mem_instance|mem_ins~1\,
 	oe => VCC,
 	padio => ww_output_vector(0));
 
--- Location: PIN_E15,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 16mA
+-- Location: PIN_G3,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 16mA
 \output_vector[1]~I\ : maxv_io
 -- pragma translate_off
 GENERIC MAP (
 	operation_mode => "output")
 -- pragma translate_on
 PORT MAP (
-	datain => GND,
+	datain => \mem_instance|ALT_INV_mem_ins~3_combout\,
 	oe => VCC,
 	padio => ww_output_vector(1));
 
--- Location: PIN_G2,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 16mA
+-- Location: PIN_F2,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 16mA
 \output_vector[2]~I\ : maxv_io
 -- pragma translate_off
 GENERIC MAP (
 	operation_mode => "output")
 -- pragma translate_on
 PORT MAP (
-	datain => GND,
+	datain => \mem_instance|mem_ins~1\,
 	oe => VCC,
 	padio => ww_output_vector(2));
 
--- Location: PIN_N7,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 16mA
+-- Location: PIN_F5,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 16mA
 \output_vector[3]~I\ : maxv_io
 -- pragma translate_off
 GENERIC MAP (
 	operation_mode => "output")
 -- pragma translate_on
 PORT MAP (
-	datain => GND,
+	datain => \mem_instance|mem_ins~1\,
 	oe => VCC,
 	padio => ww_output_vector(3));
 END structure;

@@ -1,9 +1,9 @@
-Analysis & Synthesis Status : Successful - Sat Apr 30 02:58:35 2022
-Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Analysis & Synthesis Status : Successful - Sat Apr 30 03:55:39 2022
+Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 Revision Name : DUT
 Top-level Entity Name : DUT
 Family : MAX V
-Total logic elements : 7
+Total logic elements : 20
 Total pins : 5
 Total virtual pins : 0
 UFM blocks : 0 / 1 ( 0 % )

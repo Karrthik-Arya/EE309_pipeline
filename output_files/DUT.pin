@@ -60,7 +60,7 @@
  -- Pin directions (input, output or bidir) are based on device operating in user mode.
  ---------------------------------------------------------------------------------
 
-Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 CHIP  "DUT"  ASSIGNED TO AN: 5M2210ZF256C4
 
 Pin Name/Usage               : Location  : Dir.   : I/O Standard      : Voltage : I/O Bank  : User Assignment
@@ -115,7 +115,7 @@ GND*                         : C15       :        :                   :         
 VCCIO3                       : C16       : power  :                   : 3.3V    : 3         :                
 GND*                         : D1        :        :                   :         : 1         :                
 GND*                         : D2        :        :                   :         : 1         :                
-output_vector[0]             : D3        : output : 3.3-V LVTTL       :         : 1         : N              
+GND*                         : D3        :        :                   :         : 1         :                
 GND*                         : D4        :        :                   :         : 2         :                
 GND*                         : D5        :        :                   :         : 2         :                
 GND*                         : D6        :        :                   :         : 2         :                
@@ -143,13 +143,13 @@ GND*                         : E11       :        :                   :         
 GND*                         : E12       :        :                   :         : 3         :                
 GND*                         : E13       :        :                   :         : 3         :                
 GND*                         : E14       :        :                   :         : 3         :                
-output_vector[1]             : E15       : output : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : E15       :        :                   :         : 3         :                
 GND*                         : E16       :        :                   :         : 3         :                
 GND*                         : F1        :        :                   :         : 1         :                
-GND*                         : F2        :        :                   :         : 1         :                
+output_vector[2]             : F2        : output : 3.3-V LVTTL       :         : 1         : N              
 GND*                         : F3        :        :                   :         : 1         :                
 GND*                         : F4        :        :                   :         : 1         :                
-GND*                         : F5        :        :                   :         : 1         :                
+output_vector[3]             : F5        : output : 3.3-V LVTTL       :         : 1         : N              
 GND*                         : F6        :        :                   :         : 1         :                
 GNDINT                       : F7        : gnd    :                   :         :           :                
 VCCIO2                       : F8        : power  :                   : 3.3V    : 2         :                
@@ -162,8 +162,8 @@ GND*                         : F14       :        :                   :         
 GND*                         : F15       :        :                   :         : 3         :                
 GND*                         : F16       :        :                   :         : 3         :                
 GND*                         : G1        :        :                   :         : 1         :                
-output_vector[2]             : G2        : output : 3.3-V LVTTL       :         : 1         : N              
-GND*                         : G3        :        :                   :         : 1         :                
+output_vector[0]             : G2        : output : 3.3-V LVTTL       :         : 1         : N              
+output_vector[1]             : G3        : output : 3.3-V LVTTL       :         : 1         : N              
 GND*                         : G4        :        :                   :         : 1         :                
 GND*                         : G5        :        :                   :         : 1         :                
 GNDINT                       : G6        : gnd    :                   :         :           :                
@@ -263,7 +263,7 @@ GND*                         : N3        :        :                   :         
 TMS                          : N4        : input  :                   :         : 1         :                
 GND*                         : N5        :        :                   :         : 4         :                
 GND*                         : N6        :        :                   :         : 4         :                
-output_vector[3]             : N7        : output : 3.3-V LVTTL       :         : 4         : N              
+GND*                         : N7        :        :                   :         : 4         :                
 GND*                         : N8        :        :                   :         : 4         :                
 GND*                         : N9        :        :                   :         : 4         :                
 GND*                         : N10       :        :                   :         : 4         :                

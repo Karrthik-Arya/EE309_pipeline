@@ -27,7 +27,7 @@ begin
 
 regs_read: process(reg_a1, reg_a2, reg_a3, opcode3)
 begin 
-	if(opcode3="0001")then
+	if(opcode3="0001" or opcode3="0010")then
 		reg_rd(15 downto 0)<= regs(to_integer(unsigned(reg_a1)));
 		reg_rd(31 downto 16)<= regs(to_integer(unsigned(reg_a2)));
 		reg_rd(34 downto 32)<= reg_a3;
@@ -38,7 +38,7 @@ regs_write: process(clk)
 variable temp : integer;
 begin
 	if (falling_edge(clk)) then
-		if(opcode6="0001" and no_write='0')then
+		if((opcode6="0001" and no_write='0') or (opcode6="0010" and no_write='0'))then
 			temp := to_integer(unsigned(reg_wb(18 downto 16)));
 			regs(temp)<= reg_wb(15 downto 0);
 		end if;

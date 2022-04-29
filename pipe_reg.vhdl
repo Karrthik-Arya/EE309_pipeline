@@ -45,7 +45,7 @@ signal id_store: std_logic_vector(15 downto 0);
 begin
 	read_proc: process(opcode3, id_store)
 	begin 
-		if(opcode3="0001") then
+		if(opcode3="0001" or opcode3 = "0010") then
 			reg_a1<=id_store(11 downto 9);
 			reg_a2<=id_store(8 downto 6);
 			reg_a3<=id_store(5 downto 3);
@@ -84,7 +84,7 @@ signal rd_store: std_logic_vector(34 downto 0);
 begin
 	read_proc: process(opcode4, rd_store )
 	begin
-		if(opcode4="0001") then
+		if(opcode4="0001" or opcode4 = "0010") then
 			alu_a<= rd_store(15 downto 0);
 			alu_b<=rd_store(31 downto 16);
 			ex_reg<=rd_store(34 downto 32);
@@ -93,7 +93,7 @@ begin
 	write_proc: process(clk)
 	begin 
 		if(falling_edge(clk)) then
-			if (opcode3="0001") then
+			if (opcode3="0001" or opcode3 = "0010") then
 				rd_store<= reg;
 			end if;
 		end if;
@@ -126,7 +126,7 @@ begin
 	no_write_out<=no_write;
 	read_proc: process(opcode5, exe_store )
 	begin
-		if (opcode5="0001") then
+		if (opcode5="0001" or opcode5 = "0010") then
 		  mem_reg <= exe_store;
 		
 		
@@ -135,7 +135,7 @@ begin
 	write_proc: process(clk)
 	begin 
 		if(falling_edge(clk)) then
-			if (opcode4="0001") then
+			if (opcode4="0001" or opcode4 = "0010") then
 				exe_store(15 downto 0)<= alu;
 				exe_store(18 downto 16)<= rd_reg;
 			end if;
@@ -170,7 +170,7 @@ begin
 	read_proc: process(opcode6, mem_store )-- if the same load inst is used simultaneously a problem arises as 
 	                                        -- sensitivity list not triggered. look into it 
 	begin
-		   if(opcode6="0001") then
+		   if(opcode6="0001" or opcode6 = "0010") then
 				wb_in<= mem_store;
 			end if;
 	end process;
@@ -178,7 +178,7 @@ begin
 	write_proc: process(clk)
 	begin 
 		if(falling_edge(clk)) then
-			if (opcode5="0001") then
+			if (opcode5="0001" or opcode5 = "0010") then
 				mem_store<= exec_reg;
 				no_write<=no_write_in;
 			end if;

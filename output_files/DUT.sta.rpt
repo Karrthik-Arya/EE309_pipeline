@@ -1,6 +1,6 @@
 Timing Analyzer report for DUT
-Sat Apr 30 02:58:39 2022
-Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Sat Apr 30 03:55:50 2022
+Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
 ---------------------
@@ -53,7 +53,7 @@ https://fpgasoftware.intel.com/eula.
 +-----------------------------------------------------------------------------+
 ; Timing Analyzer Summary                                                     ;
 +-----------------------+-----------------------------------------------------+
-; Quartus Prime Version ; Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Quartus Prime Version ; Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Timing Analyzer       ; Legacy Timing Analyzer                              ;
 ; Revision Name         ; DUT                                                 ;
 ; Device Family         ; MAX V                                               ;
@@ -73,11 +73,10 @@ https://fpgasoftware.intel.com/eula.
 ; Maximum allowed            ; 8           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 2           ;
+; Maximum used               ; 1           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -90,13 +89,13 @@ https://fpgasoftware.intel.com/eula.
 +-----------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------+
-; Fmax Summary                                                                                                   ;
-+------------+-----------------+-----------------+---------------------------------------------------------------+
-; Fmax       ; Restricted Fmax ; Clock Name      ; Note                                                          ;
-+------------+-----------------+-----------------+---------------------------------------------------------------+
-; 308.17 MHz ; 304.04 MHz      ; input_vector[0] ; limit due to minimum period restriction (max I/O toggle rate) ;
-+------------+-----------------+-----------------+---------------------------------------------------------------+
++-------------------------------------------------------+
+; Fmax Summary                                          ;
++------------+-----------------+-----------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name      ; Note ;
++------------+-----------------+-----------------+------+
+; 254.32 MHz ; 254.32 MHz      ; input_vector[0] ;      ;
++------------+-----------------+-----------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
@@ -105,7 +104,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-----------------+--------+---------------+
 ; Clock           ; Slack  ; End Point TNS ;
 +-----------------+--------+---------------+
-; input_vector[0] ; -2.245 ; -8.844        ;
+; input_vector[0] ; -2.932 ; -26.038       ;
 +-----------------+--------+---------------+
 
 
@@ -114,7 +113,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-----------------+-------+---------------+
 ; Clock           ; Slack ; End Point TNS ;
 +-----------------+-------+---------------+
-; input_vector[0] ; 1.356 ; 0.000         ;
+; input_vector[0] ; 1.127 ; 0.000         ;
 +-----------------+-------+---------------+
 
 
@@ -139,50 +138,148 @@ No paths to report.
 +-----------------+--------+---------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------+
-; Setup: 'input_vector[0]'                                                                                                          ;
-+--------+----------------------+----------------------+-----------------+-----------------+--------------+------------+------------+
-; Slack  ; From Node            ; To Node              ; Launch Clock    ; Latch Clock     ; Relationship ; Clock Skew ; Data Delay ;
-+--------+----------------------+----------------------+-----------------+-----------------+--------------+------------+------------+
-; -2.245 ; pc:pc_instance|pc[0] ; pc:pc_instance|pc[4] ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 2.974      ;
-; -2.145 ; pc:pc_instance|pc[0] ; pc:pc_instance|pc[3] ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 2.874      ;
-; -2.058 ; pc:pc_instance|pc[1] ; pc:pc_instance|pc[4] ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 2.787      ;
-; -2.045 ; pc:pc_instance|pc[0] ; pc:pc_instance|pc[2] ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 2.774      ;
-; -1.966 ; pc:pc_instance|pc[2] ; pc:pc_instance|pc[4] ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 2.695      ;
-; -1.958 ; pc:pc_instance|pc[1] ; pc:pc_instance|pc[3] ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 2.687      ;
-; -1.875 ; pc:pc_instance|pc[3] ; pc:pc_instance|pc[4] ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 2.604      ;
-; -1.866 ; pc:pc_instance|pc[2] ; pc:pc_instance|pc[3] ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 2.595      ;
-; -1.858 ; pc:pc_instance|pc[1] ; pc:pc_instance|pc[2] ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 2.587      ;
-; -1.268 ; pc:pc_instance|pc[0] ; pc:pc_instance|pc[1] ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 1.997      ;
-; -1.186 ; pc:pc_instance|pc[3] ; pc:pc_instance|pc[3] ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 1.915      ;
-; -1.177 ; pc:pc_instance|pc[2] ; pc:pc_instance|pc[2] ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 1.906      ;
-; -1.169 ; pc:pc_instance|pc[1] ; pc:pc_instance|pc[1] ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 1.898      ;
-; -1.141 ; pc:pc_instance|pc[0] ; pc:pc_instance|pc[0] ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 1.870      ;
-; -0.806 ; pc:pc_instance|pc[4] ; pc:pc_instance|pc[4] ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 1.535      ;
-+--------+----------------------+----------------------+-----------------+-----------------+--------------+------------+------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'input_vector[0]'                                                                                                                              ;
++--------+--------------------------------+--------------------------------+-----------------+-----------------+--------------+------------+------------+
+; Slack  ; From Node                      ; To Node                        ; Launch Clock    ; Latch Clock     ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------------------------+--------------------------------+-----------------+-----------------+--------------+------------+------------+
+; -2.932 ; ir:ir_instance|ir_store[1][6]  ; ir:ir_instance|ir_store[0][13] ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 3.661      ;
+; -2.932 ; ir:ir_instance|ir_store[1][6]  ; ir:ir_instance|ir_store[0][15] ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 3.661      ;
+; -2.922 ; ir:ir_instance|ir_store[1][6]  ; ir:ir_instance|ir_store[0][6]  ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 3.651      ;
+; -2.922 ; ir:ir_instance|ir_store[1][6]  ; ir:ir_instance|ir_store[0][7]  ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 3.651      ;
+; -2.792 ; ir:ir_instance|ir_store[1][13] ; ir:ir_instance|ir_store[0][13] ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 3.521      ;
+; -2.792 ; ir:ir_instance|ir_store[1][13] ; ir:ir_instance|ir_store[0][15] ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 3.521      ;
+; -2.782 ; ir:ir_instance|ir_store[1][13] ; ir:ir_instance|ir_store[0][6]  ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 3.511      ;
+; -2.782 ; ir:ir_instance|ir_store[1][13] ; ir:ir_instance|ir_store[0][7]  ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 3.511      ;
+; -2.630 ; pc:pc_instance|pc[3]           ; ir:ir_instance|ir_store[0][15] ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 3.359      ;
+; -2.587 ; pc:pc_instance|pc[0]           ; pc:pc_instance|pc[4]           ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 3.316      ;
+; -2.516 ; pc:pc_instance|pc[3]           ; ir:ir_instance|ir_store[0][13] ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 3.245      ;
+; -2.487 ; pc:pc_instance|pc[0]           ; pc:pc_instance|pc[3]           ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 3.216      ;
+; -2.472 ; pc:pc_instance|pc[2]           ; ir:ir_instance|ir_store[0][15] ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 3.201      ;
+; -2.451 ; pc:pc_instance|pc[0]           ; ir:ir_instance|ir_store[0][15] ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 3.180      ;
+; -2.387 ; pc:pc_instance|pc[0]           ; pc:pc_instance|pc[2]           ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 3.116      ;
+; -2.344 ; ir:ir_instance|ir_store[1][7]  ; ir:ir_instance|ir_store[0][13] ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 3.073      ;
+; -2.344 ; ir:ir_instance|ir_store[1][7]  ; ir:ir_instance|ir_store[0][15] ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 3.073      ;
+; -2.341 ; ir:ir_instance|ir_store[0][13] ; pc:pc_instance|pc[1]           ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 3.070      ;
+; -2.341 ; ir:ir_instance|ir_store[0][13] ; pc:pc_instance|pc[2]           ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 3.070      ;
+; -2.341 ; ir:ir_instance|ir_store[0][13] ; pc:pc_instance|pc[3]           ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 3.070      ;
+; -2.341 ; ir:ir_instance|ir_store[0][13] ; pc:pc_instance|pc[4]           ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 3.070      ;
+; -2.334 ; ir:ir_instance|ir_store[1][7]  ; ir:ir_instance|ir_store[0][6]  ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 3.063      ;
+; -2.334 ; ir:ir_instance|ir_store[1][7]  ; ir:ir_instance|ir_store[0][7]  ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 3.063      ;
+; -2.320 ; pc:pc_instance|pc[0]           ; ir:ir_instance|ir_store[0][13] ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 3.049      ;
+; -2.242 ; pc:pc_instance|pc[2]           ; ir:ir_instance|ir_store[0][7]  ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 2.971      ;
+; -2.192 ; pc:pc_instance|pc[4]           ; ir:ir_instance|ir_store[0][15] ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 2.921      ;
+; -2.086 ; pc:pc_instance|pc[1]           ; pc:pc_instance|pc[4]           ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 2.815      ;
+; -2.078 ; pc:pc_instance|pc[2]           ; ir:ir_instance|ir_store[0][13] ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 2.807      ;
+; -2.067 ; pc:pc_instance|pc[1]           ; ir:ir_instance|ir_store[0][7]  ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 2.796      ;
+; -2.051 ; ir:ir_instance|ir_store[0][15] ; pc:pc_instance|pc[1]           ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 2.780      ;
+; -2.051 ; ir:ir_instance|ir_store[0][15] ; pc:pc_instance|pc[2]           ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 2.780      ;
+; -2.051 ; ir:ir_instance|ir_store[0][15] ; pc:pc_instance|pc[3]           ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 2.780      ;
+; -2.051 ; ir:ir_instance|ir_store[0][15] ; pc:pc_instance|pc[4]           ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 2.780      ;
+; -2.000 ; pc:pc_instance|pc[0]           ; ir:ir_instance|ir_store[0][7]  ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 2.729      ;
+; -1.986 ; pc:pc_instance|pc[1]           ; pc:pc_instance|pc[3]           ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 2.715      ;
+; -1.980 ; pc:pc_instance|pc[2]           ; pc:pc_instance|pc[4]           ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 2.709      ;
+; -1.941 ; pc:pc_instance|pc[1]           ; ir:ir_instance|ir_store[0][13] ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 2.670      ;
+; -1.938 ; ir:ir_instance|ir_store[1][15] ; ir:ir_instance|ir_store[0][13] ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 2.667      ;
+; -1.938 ; ir:ir_instance|ir_store[1][15] ; ir:ir_instance|ir_store[0][15] ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 2.667      ;
+; -1.928 ; ir:ir_instance|ir_store[1][15] ; ir:ir_instance|ir_store[0][6]  ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 2.657      ;
+; -1.928 ; ir:ir_instance|ir_store[1][15] ; ir:ir_instance|ir_store[0][7]  ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 2.657      ;
+; -1.886 ; pc:pc_instance|pc[1]           ; pc:pc_instance|pc[2]           ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 2.615      ;
+; -1.880 ; pc:pc_instance|pc[2]           ; pc:pc_instance|pc[3]           ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 2.609      ;
+; -1.873 ; pc:pc_instance|pc[3]           ; pc:pc_instance|pc[4]           ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 2.602      ;
+; -1.785 ; pc:pc_instance|pc[4]           ; ir:ir_instance|ir_store[0][13] ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 2.514      ;
+; -1.610 ; pc:pc_instance|pc[0]           ; pc:pc_instance|pc[1]           ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 2.339      ;
+; -1.526 ; pc:pc_instance|pc[3]           ; ir:ir_instance|ir_store[0][7]  ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 2.255      ;
+; -1.501 ; pc:pc_instance|pc[3]           ; ir:ir_instance|ir_store[0][6]  ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 2.230      ;
+; -1.497 ; pc:pc_instance|pc[4]           ; ir:ir_instance|ir_store[0][7]  ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 2.226      ;
+; -1.323 ; ir:ir_instance|ir_store[0][15] ; pc:pc_instance|pc[0]           ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 2.052      ;
+; -1.320 ; pc:pc_instance|pc[2]           ; ir:ir_instance|ir_store[0][6]  ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 2.049      ;
+; -1.280 ; pc:pc_instance|pc[0]           ; ir:ir_instance|ir_store[0][6]  ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 2.009      ;
+; -1.279 ; pc:pc_instance|pc[0]           ; pc:pc_instance|pc[0]           ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 2.008      ;
+; -1.197 ; pc:pc_instance|pc[1]           ; pc:pc_instance|pc[1]           ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 1.926      ;
+; -1.191 ; pc:pc_instance|pc[2]           ; pc:pc_instance|pc[2]           ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 1.920      ;
+; -1.184 ; pc:pc_instance|pc[3]           ; pc:pc_instance|pc[3]           ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 1.913      ;
+; -1.137 ; ir:ir_instance|ir_store[0][13] ; ir:ir_instance|ir_store[1][13] ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 1.866      ;
+; -1.129 ; ir:ir_instance|ir_store[0][13] ; pc:pc_instance|pc[0]           ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 1.858      ;
+; -1.119 ; pc:pc_instance|pc[4]           ; ir:ir_instance|ir_store[0][6]  ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 1.848      ;
+; -1.038 ; pc:pc_instance|pc[1]           ; ir:ir_instance|ir_store[0][15] ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 1.767      ;
+; -0.897 ; ir:ir_instance|ir_store[0][15] ; ir:ir_instance|ir_store[1][15] ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 1.626      ;
+; -0.806 ; pc:pc_instance|pc[4]           ; pc:pc_instance|pc[4]           ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 1.535      ;
+; -0.594 ; ir:ir_instance|ir_store[0][7]  ; ir:ir_instance|ir_store[1][7]  ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 1.323      ;
+; -0.577 ; ir:ir_instance|ir_store[0][6]  ; ir:ir_instance|ir_store[1][6]  ; input_vector[0] ; input_vector[0] ; 1.000        ; 0.000      ; 1.306      ;
++--------+--------------------------------+--------------------------------+-----------------+-----------------+--------------+------------+------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------+
-; Hold: 'input_vector[0]'                                                                                                          ;
-+-------+----------------------+----------------------+-----------------+-----------------+--------------+------------+------------+
-; Slack ; From Node            ; To Node              ; Launch Clock    ; Latch Clock     ; Relationship ; Clock Skew ; Data Delay ;
-+-------+----------------------+----------------------+-----------------+-----------------+--------------+------------+------------+
-; 1.356 ; pc:pc_instance|pc[4] ; pc:pc_instance|pc[4] ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 1.535      ;
-; 1.691 ; pc:pc_instance|pc[0] ; pc:pc_instance|pc[0] ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 1.870      ;
-; 1.719 ; pc:pc_instance|pc[1] ; pc:pc_instance|pc[1] ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 1.898      ;
-; 1.727 ; pc:pc_instance|pc[2] ; pc:pc_instance|pc[2] ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 1.906      ;
-; 1.736 ; pc:pc_instance|pc[3] ; pc:pc_instance|pc[3] ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 1.915      ;
-; 1.818 ; pc:pc_instance|pc[0] ; pc:pc_instance|pc[1] ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 1.997      ;
-; 2.395 ; pc:pc_instance|pc[1] ; pc:pc_instance|pc[2] ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 2.574      ;
-; 2.403 ; pc:pc_instance|pc[2] ; pc:pc_instance|pc[3] ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 2.582      ;
-; 2.412 ; pc:pc_instance|pc[3] ; pc:pc_instance|pc[4] ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 2.591      ;
-; 2.485 ; pc:pc_instance|pc[1] ; pc:pc_instance|pc[3] ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 2.664      ;
-; 2.493 ; pc:pc_instance|pc[2] ; pc:pc_instance|pc[4] ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 2.672      ;
-; 2.575 ; pc:pc_instance|pc[1] ; pc:pc_instance|pc[4] ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 2.754      ;
-; 2.583 ; pc:pc_instance|pc[0] ; pc:pc_instance|pc[2] ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 2.762      ;
-; 2.673 ; pc:pc_instance|pc[0] ; pc:pc_instance|pc[3] ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 2.852      ;
-; 2.763 ; pc:pc_instance|pc[0] ; pc:pc_instance|pc[4] ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 2.942      ;
-+-------+----------------------+----------------------+-----------------+-----------------+--------------+------------+------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'input_vector[0]'                                                                                                                              ;
++-------+--------------------------------+--------------------------------+-----------------+-----------------+--------------+------------+------------+
+; Slack ; From Node                      ; To Node                        ; Launch Clock    ; Latch Clock     ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------------------------+--------------------------------+-----------------+-----------------+--------------+------------+------------+
+; 1.127 ; ir:ir_instance|ir_store[0][6]  ; ir:ir_instance|ir_store[1][6]  ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 1.306      ;
+; 1.144 ; ir:ir_instance|ir_store[0][7]  ; ir:ir_instance|ir_store[1][7]  ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 1.323      ;
+; 1.356 ; pc:pc_instance|pc[4]           ; pc:pc_instance|pc[4]           ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 1.535      ;
+; 1.447 ; ir:ir_instance|ir_store[0][15] ; ir:ir_instance|ir_store[1][15] ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 1.626      ;
+; 1.588 ; pc:pc_instance|pc[1]           ; ir:ir_instance|ir_store[0][15] ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 1.767      ;
+; 1.669 ; pc:pc_instance|pc[4]           ; ir:ir_instance|ir_store[0][6]  ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 1.848      ;
+; 1.679 ; ir:ir_instance|ir_store[0][13] ; pc:pc_instance|pc[0]           ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 1.858      ;
+; 1.687 ; ir:ir_instance|ir_store[0][13] ; ir:ir_instance|ir_store[1][13] ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 1.866      ;
+; 1.734 ; pc:pc_instance|pc[3]           ; pc:pc_instance|pc[3]           ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 1.913      ;
+; 1.741 ; pc:pc_instance|pc[2]           ; pc:pc_instance|pc[2]           ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 1.920      ;
+; 1.747 ; pc:pc_instance|pc[1]           ; pc:pc_instance|pc[1]           ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 1.926      ;
+; 1.829 ; pc:pc_instance|pc[0]           ; pc:pc_instance|pc[0]           ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 2.008      ;
+; 1.830 ; pc:pc_instance|pc[0]           ; ir:ir_instance|ir_store[0][6]  ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 2.009      ;
+; 1.870 ; pc:pc_instance|pc[2]           ; ir:ir_instance|ir_store[0][6]  ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 2.049      ;
+; 1.873 ; ir:ir_instance|ir_store[0][15] ; pc:pc_instance|pc[0]           ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 2.052      ;
+; 2.047 ; pc:pc_instance|pc[4]           ; ir:ir_instance|ir_store[0][7]  ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 2.226      ;
+; 2.051 ; pc:pc_instance|pc[3]           ; ir:ir_instance|ir_store[0][6]  ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 2.230      ;
+; 2.076 ; pc:pc_instance|pc[3]           ; ir:ir_instance|ir_store[0][7]  ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 2.255      ;
+; 2.160 ; pc:pc_instance|pc[0]           ; pc:pc_instance|pc[1]           ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 2.339      ;
+; 2.335 ; pc:pc_instance|pc[4]           ; ir:ir_instance|ir_store[0][13] ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 2.514      ;
+; 2.410 ; pc:pc_instance|pc[3]           ; pc:pc_instance|pc[4]           ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 2.589      ;
+; 2.417 ; pc:pc_instance|pc[2]           ; pc:pc_instance|pc[3]           ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 2.596      ;
+; 2.423 ; pc:pc_instance|pc[1]           ; pc:pc_instance|pc[2]           ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 2.602      ;
+; 2.478 ; ir:ir_instance|ir_store[1][15] ; ir:ir_instance|ir_store[0][6]  ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 2.657      ;
+; 2.478 ; ir:ir_instance|ir_store[1][15] ; ir:ir_instance|ir_store[0][7]  ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 2.657      ;
+; 2.488 ; ir:ir_instance|ir_store[1][15] ; ir:ir_instance|ir_store[0][13] ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 2.667      ;
+; 2.488 ; ir:ir_instance|ir_store[1][15] ; ir:ir_instance|ir_store[0][15] ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 2.667      ;
+; 2.491 ; pc:pc_instance|pc[1]           ; ir:ir_instance|ir_store[0][13] ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 2.670      ;
+; 2.507 ; pc:pc_instance|pc[2]           ; pc:pc_instance|pc[4]           ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 2.686      ;
+; 2.513 ; pc:pc_instance|pc[1]           ; pc:pc_instance|pc[3]           ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 2.692      ;
+; 2.550 ; pc:pc_instance|pc[0]           ; ir:ir_instance|ir_store[0][7]  ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 2.729      ;
+; 2.601 ; ir:ir_instance|ir_store[0][15] ; pc:pc_instance|pc[1]           ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 2.780      ;
+; 2.601 ; ir:ir_instance|ir_store[0][15] ; pc:pc_instance|pc[2]           ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 2.780      ;
+; 2.601 ; ir:ir_instance|ir_store[0][15] ; pc:pc_instance|pc[3]           ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 2.780      ;
+; 2.601 ; ir:ir_instance|ir_store[0][15] ; pc:pc_instance|pc[4]           ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 2.780      ;
+; 2.603 ; pc:pc_instance|pc[1]           ; pc:pc_instance|pc[4]           ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 2.782      ;
+; 2.617 ; pc:pc_instance|pc[1]           ; ir:ir_instance|ir_store[0][7]  ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 2.796      ;
+; 2.628 ; pc:pc_instance|pc[2]           ; ir:ir_instance|ir_store[0][13] ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 2.807      ;
+; 2.742 ; pc:pc_instance|pc[4]           ; ir:ir_instance|ir_store[0][15] ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 2.921      ;
+; 2.792 ; pc:pc_instance|pc[2]           ; ir:ir_instance|ir_store[0][7]  ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 2.971      ;
+; 2.870 ; pc:pc_instance|pc[0]           ; ir:ir_instance|ir_store[0][13] ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 3.049      ;
+; 2.884 ; ir:ir_instance|ir_store[1][7]  ; ir:ir_instance|ir_store[0][6]  ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 3.063      ;
+; 2.884 ; ir:ir_instance|ir_store[1][7]  ; ir:ir_instance|ir_store[0][7]  ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 3.063      ;
+; 2.891 ; ir:ir_instance|ir_store[0][13] ; pc:pc_instance|pc[1]           ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 3.070      ;
+; 2.891 ; ir:ir_instance|ir_store[0][13] ; pc:pc_instance|pc[2]           ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 3.070      ;
+; 2.891 ; ir:ir_instance|ir_store[0][13] ; pc:pc_instance|pc[3]           ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 3.070      ;
+; 2.891 ; ir:ir_instance|ir_store[0][13] ; pc:pc_instance|pc[4]           ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 3.070      ;
+; 2.894 ; ir:ir_instance|ir_store[1][7]  ; ir:ir_instance|ir_store[0][13] ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 3.073      ;
+; 2.894 ; ir:ir_instance|ir_store[1][7]  ; ir:ir_instance|ir_store[0][15] ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 3.073      ;
+; 2.925 ; pc:pc_instance|pc[0]           ; pc:pc_instance|pc[2]           ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 3.104      ;
+; 3.001 ; pc:pc_instance|pc[0]           ; ir:ir_instance|ir_store[0][15] ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 3.180      ;
+; 3.015 ; pc:pc_instance|pc[0]           ; pc:pc_instance|pc[3]           ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 3.194      ;
+; 3.022 ; pc:pc_instance|pc[2]           ; ir:ir_instance|ir_store[0][15] ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 3.201      ;
+; 3.066 ; pc:pc_instance|pc[3]           ; ir:ir_instance|ir_store[0][13] ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 3.245      ;
+; 3.105 ; pc:pc_instance|pc[0]           ; pc:pc_instance|pc[4]           ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 3.284      ;
+; 3.180 ; pc:pc_instance|pc[3]           ; ir:ir_instance|ir_store[0][15] ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 3.359      ;
+; 3.332 ; ir:ir_instance|ir_store[1][13] ; ir:ir_instance|ir_store[0][6]  ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 3.511      ;
+; 3.332 ; ir:ir_instance|ir_store[1][13] ; ir:ir_instance|ir_store[0][7]  ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 3.511      ;
+; 3.342 ; ir:ir_instance|ir_store[1][13] ; ir:ir_instance|ir_store[0][13] ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 3.521      ;
+; 3.342 ; ir:ir_instance|ir_store[1][13] ; ir:ir_instance|ir_store[0][15] ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 3.521      ;
+; 3.472 ; ir:ir_instance|ir_store[1][6]  ; ir:ir_instance|ir_store[0][6]  ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 3.651      ;
+; 3.472 ; ir:ir_instance|ir_store[1][6]  ; ir:ir_instance|ir_store[0][7]  ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 3.651      ;
+; 3.482 ; ir:ir_instance|ir_store[1][6]  ; ir:ir_instance|ir_store[0][13] ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 3.661      ;
+; 3.482 ; ir:ir_instance|ir_store[1][6]  ; ir:ir_instance|ir_store[0][15] ; input_vector[0] ; input_vector[0] ; 0.000        ; 0.000      ; 3.661      ;
++-------+--------------------------------+--------------------------------+-----------------+-----------------+--------------+------------+------------+
 
 
 +-------------------------------------------------------------------------------+
@@ -190,7 +287,7 @@ No paths to report.
 +-----------------+-----------------+----------+----------+----------+----------+
 ; From Clock      ; To Clock        ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +-----------------+-----------------+----------+----------+----------+----------+
-; input_vector[0] ; input_vector[0] ; 24       ; 0        ; 0        ; 0        ;
+; input_vector[0] ; input_vector[0] ; 73       ; 0        ; 0        ; 0        ;
 +-----------------+-----------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -200,7 +297,7 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +-----------------+-----------------+----------+----------+----------+----------+
 ; From Clock      ; To Clock        ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +-----------------+-----------------+----------+----------+----------+----------+
-; input_vector[0] ; input_vector[0] ; 24       ; 0        ; 0        ; 0        ;
+; input_vector[0] ; input_vector[0] ; 73       ; 0        ; 0        ; 0        ;
 +-----------------+-----------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -226,8 +323,8 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; Unconstrained Clocks            ; 0     ; 0    ;
 ; Unconstrained Input Ports       ; 0     ; 0    ;
 ; Unconstrained Input Port Paths  ; 0     ; 0    ;
-; Unconstrained Output Ports      ; 1     ; 1    ;
-; Unconstrained Output Port Paths ; 5     ; 5    ;
+; Unconstrained Output Ports      ; 4     ; 4    ;
+; Unconstrained Output Port Paths ; 20    ; 20   ;
 +---------------------------------+-------+------+
 
 
@@ -246,6 +343,9 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; Output Port      ; Comment                                                                               ;
 +------------------+---------------------------------------------------------------------------------------+
 ; output_vector[0] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; output_vector[1] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; output_vector[2] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; output_vector[3] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 +------------------+---------------------------------------------------------------------------------------+
 
 
@@ -255,6 +355,9 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; Output Port      ; Comment                                                                               ;
 +------------------+---------------------------------------------------------------------------------------+
 ; output_vector[0] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; output_vector[1] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; output_vector[2] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; output_vector[3] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 +------------------+---------------------------------------------------------------------------------------+
 
 
@@ -263,8 +366,8 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +--------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
-    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Sat Apr 30 02:58:38 2022
+    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+    Info: Processing started: Sat Apr 30 03:55:48 2022
 Info: Command: quartus_sta pipeline -c DUT
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -280,14 +383,14 @@ Info (332105): Deriving Clocks
 Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -2.245
+Info (332146): Worst-case setup slack is -2.932
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -2.245              -8.844 input_vector[0] 
-Info (332146): Worst-case hold slack is 1.356
+    Info (332119):    -2.932             -26.038 input_vector[0] 
+Info (332146): Worst-case hold slack is 1.127
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     1.356               0.000 input_vector[0] 
+    Info (332119):     1.127               0.000 input_vector[0] 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -2.289
@@ -298,9 +401,9 @@ Info (332001): The selected device family is not supported by the report_metasta
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 349 megabytes
-    Info: Processing ended: Sat Apr 30 02:58:39 2022
-    Info: Elapsed time: 00:00:01
-    Info: Total CPU time (on all processors): 00:00:01
+    Info: Peak virtual memory: 4682 megabytes
+    Info: Processing ended: Sat Apr 30 03:55:50 2022
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
 
 
