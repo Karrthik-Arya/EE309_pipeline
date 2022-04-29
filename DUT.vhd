@@ -23,14 +23,12 @@ architecture DutWrap of DUT is
 	end component;
 	
 	component mem is 
-	port(  exe_out_reg_a3: in std_logic_vector(2 downto 0);
-	 exe_out_alu: in std_logic_vector(15 downto 0);
+	port(exe_out_alu: in std_logic_vector(15 downto 0);
 	 opcode5: in std_logic_vector(3 downto 0);
 	 clk : in std_logic;
 	 ins_addr: in std_logic_vector(15 downto 0);
 	 ir_data: out std_logic_vector(15 downto 0);
-	 mem_data: out std_logic_vector(15 downto 0);
-	 memreg_out_reg_a3: out std_logic_vector(2 downto 0);
+	 mem_data: out std_logic_vector(15 downto 0)	
 	 );
 	end component;
 	
@@ -41,8 +39,7 @@ architecture DutWrap of DUT is
 			reg_rd: out std_logic_vector(34 downto 0);
 			opcode3: in std_logic_vector(3 downto 0);
 			--reg_rd_reg3: out std_logic_vector(15 downto 0);
-			write_reg: in std_logic;
-			clk: in std_logic;
+			clk: in std_logic
 	);
 	end component;
 	
@@ -90,24 +87,16 @@ component alu is
 	port(opcode4: in std_logic_vector(3 downto 0);
 	 alu_a: in std_logic_vector(15 downto 0);
 	 alu_b: in std_logic_vector(15 downto 0);
-	 reg_a3: in std_logic_vector(2 downto 0);
-	 ex_reg: out std_logic_vector(15 downto 0);
-	 alu_reg_a3: out std_logic_vector(2 downto 0)
+	 ex_reg: out std_logic_vector(15 downto 0)
 	 );
 	 end component;
 	 
 component ins_dec is
 	port (
-	ins_dec_reg: in std_logic_vector(15 downto 0);
+		ins_dec_reg: in std_logic_vector(15 downto 0);
 	clk: in std_logic	
 	op_code: in std_logic_vector(3 downto 0);
-		reg_1: out std_logic_vector(2 downto 0);
-		reg_2: out std_logic_vector(2 downto 0);
-		reg_3: out std_logic_vector(2 downto 0);
-		cz: out std_logic_vector(1 downto 0);
-		imm_6: out std_logic_vector(5 downto 0);
-		imm_9: out std_logic_vector(8 downto 0);
-		write_reg: out std_logic
+		id_reg: out std_logic_vector(15 downto 0)
 			
 	) ;
 end component;
@@ -117,7 +106,7 @@ component if_reg is
 	port(
 		ir : in std_logic_vector(15 downto 0);
 		id : out std_logic_vector(15 downto 0);
-		clk: in std_logic;
+		clk: in std_logic
 	);
 end component;
 
@@ -136,35 +125,33 @@ end component;
 component rd_reg is 
 	port(
 		reg : in std_logic_vector(34 downto 0);
-		ex_reg : out std_logic_vector(18 downto 0);
+		ex_reg : out std_logic_vector(2 downto 0);
 		alu_a: out std_logic_vector(15 downto 0);
 		alu_b: out std_logic_vector(15 downto 0);
 		opcode3: in std_logic_vector(15 downto 0);
 		opcode4: in std_logic_vector(15 downto  0);
-		clk: in std_logic;
+		clk: in std_logic
 	);
 end component;
 
 component execute_reg is 
 	port(
-		mem_reg_a3: out std_logic_vector(2 downto 0);
-		alu_result: out std_logic_vector(15 downto 0);
-		alu_out: in std_logic_vector(15 downto 0);
-		exe_reg_a3:  in std_logic_vector(2 downto 0);-- execute stage reg_a3 ki value
+		alu : in std_logic_vector(15 downto 0);
+		rd_reg: in std_logic_vector(2 downto 0);
 		opcode4: in std_logic_vector(15 downto 0);
 		opcode5: in std_logic_vector(15 downto  0);
-		clk: in std_logic;
+		mem_reg: out std_logic_vector(18 downto 0);
+		clk: in std_logic
 	);
 end execute_reg;
 
 component memory_reg is 
 	port(
-		mem_out_dat: in std_logic_vector(15 downto 0);
-	   mem_out_reg_a3: in std_logic_vector(2 downto 0);
+		exec_reg: in std_logic_vector(18 downto 0);
 		opcode5: in std_logic_vector(3 downto 0);
 		opcode6: in std_logic_vector(3 downto 0);
 		clk: in std_logic;
-		wb_in: out std_logic_vector(18 downto 0);
+		wb_in: out std_logic_vector(18 downto 0)
 	);
 end memory_reg;
 
@@ -230,6 +217,18 @@ begin
 				opcode4 => opcode4
 				
 			);
+			
+		execute_reg_instance: execute_reg
+			port map(
+				mem_reg_a3: out std_logic_vector(2 downto 0);
+		alu_result: out std_logic_vector(15 downto 0);
+		alu_out: in std_logic_vector(15 downto 0);
+		exe_reg_a3 => -- execute stage reg_a3 ki value
+		opcode4 => opcode4,
+		opcode5 => opcode5,
+		clk => input_vector(0)
+			);	
+			
 		
 		alu_instance: alu
 					port map(
@@ -255,44 +254,7 @@ begin
 				ir_data => curr_ins,
 				ins_addr => w_ins_addr
 			);
-			
-			
-				
-			t1_instance: temp_1
-				port map (
-					state => state,
-					clk => input_vector(0),
-					reg => w_t1,
-					data_2 => w_dout,
-					alu_in => w_alu_t1,
-					alu => w_t1_alu,
-					data_1 => w_din_t1,
-					reg_out => w_t1_reg_forg,
-					mem_a => w_addr1
-				);
-				
-				
-				t2_instance: temp_2
-					port map (
-						state => state,
-						clk => input_vector(0),
-						data_2 => w_dout,
-						reg_in => w_t2,
-						reg_out => w_t2_in,
-						data_1 => w_din_t2,
-						alu => w_t2_alu,
-						shift1 => w_t2_1s
-					);
-				
-				t3_instance: temp_3
-					port map(
-						state=> state,
-						clk => input_vector(0),
-						alu => w_alu_t3,
-						reg => w_t3_in,
-						data_1 => w_addr3
-					);
-					
+								
 				
 				pc_instance: pc
 					port map (

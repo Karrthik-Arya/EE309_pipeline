@@ -7,7 +7,7 @@ entity if_reg is
 	port(
 		ir : in std_logic_vector(15 downto 0);
 		id : out std_logic_vector(15 downto 0);
-		clk: in std_logic;
+		clk: in std_logic
 	);
 end if_reg;
 
@@ -75,7 +75,7 @@ entity rd_reg is
 		alu_b: out std_logic_vector(15 downto 0);
 		opcode3: in std_logic_vector(15 downto 0);
 		opcode4: in std_logic_vector(15 downto  0);
-		clk: in std_logic;
+		clk: in std_logic
 	);
 end rd_reg;
 
@@ -147,7 +147,7 @@ entity memory_reg is
 		opcode5: in std_logic_vector(3 downto 0);
 		opcode6: in std_logic_vector(3 downto 0);
 		clk: in std_logic;
-		wb_in: out std_logic_vector(18 downto 0);
+		wb_in: out std_logic_vector(18 downto 0)
 	);
 end memory_reg;
 

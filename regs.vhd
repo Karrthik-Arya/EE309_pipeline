@@ -11,7 +11,7 @@ entity registers is
 			reg_rd: out std_logic_vector(34 downto 0);
 			opcode3: in std_logic_vector(3 downto 0);
 			--reg_rd_reg3: out std_logic_vector(15 downto 0);
-			clk: in std_logic;
+			clk: in std_logic
 	);
 	end entity;
 	
