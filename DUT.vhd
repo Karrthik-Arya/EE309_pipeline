@@ -10,7 +10,7 @@ architecture DutWrap of DUT is
 	
 	component ir is 
 		port (
-		id: out std_logic(3 downto 0);
+		id: out std_logic_vector(15 downto 0);
 		mem: in std_logic_vector(15 downto 0);
 		clk: in std_logic;
 		opcode1: out std_logic_vector(3 downto 0);
@@ -23,14 +23,13 @@ architecture DutWrap of DUT is
 	end component;
 	
 	component mem is 
-	port(  exe_out_reg_a3: in std_logic_vector(2 downto 0);
-	 exe_out_alu: in std_logic_vector(15 downto 0);
+	port(
+	--exe_out_alu: in std_logic_vector(15 downto 0);
 	 opcode5: in std_logic_vector(3 downto 0);
 	 clk : in std_logic;
 	 ins_addr: in std_logic_vector(15 downto 0);
 	 ir_data: out std_logic_vector(15 downto 0);
-	 mem_data: out std_logic_vector(15 downto 0);
-	 memreg_out_reg_a3: out std_logic_vector(2 downto 0);
+	 mem_data: out std_logic_vector(15 downto 0)	
 	 );
 	end component;
 	
@@ -40,9 +39,9 @@ architecture DutWrap of DUT is
 			reg_a3: in std_logic_vector(2 downto 0);
 			reg_rd: out std_logic_vector(34 downto 0);
 			opcode3: in std_logic_vector(3 downto 0);
-			--reg_rd_reg3: out std_logic_vector(15 downto 0);
-			write_reg: in std_logic;
-			clk: in std_logic;
+			reg_wb: in std_logic_vector(18 downto 0);
+			opcode6: in std_logic_vector(3 downto 0);
+			clk: in std_logic
 	);
 	end component;
 	
@@ -80,7 +79,7 @@ architecture DutWrap of DUT is
 	
 	component pc is 
 	port (if_reg: out std_logic_vector(15 downto 0);
-			opcode: in std_logic(3 downto 0);
+			opcode: in std_logic_vector(3 downto 0);
 			ins_mem: out std_logic_vector(15 downto 0);
 			clk: in std_logic
 	);
@@ -90,24 +89,16 @@ component alu is
 	port(opcode4: in std_logic_vector(3 downto 0);
 	 alu_a: in std_logic_vector(15 downto 0);
 	 alu_b: in std_logic_vector(15 downto 0);
-	 reg_a3: in std_logic_vector(2 downto 0);
-	 ex_reg: out std_logic_vector(15 downto 0);
-	 alu_reg_a3: out std_logic_vector(2 downto 0)
+	 ex_reg: out std_logic_vector(15 downto 0)
 	 );
 	 end component;
 	 
 component ins_dec is
 	port (
-	ins_dec_reg: in std_logic_vector(15 downto 0);
-	clk: in std_logic	
+		ins_dec_reg: in std_logic_vector(15 downto 0);
+	clk: in std_logic	;
 	op_code: in std_logic_vector(3 downto 0);
-		reg_1: out std_logic_vector(2 downto 0);
-		reg_2: out std_logic_vector(2 downto 0);
-		reg_3: out std_logic_vector(2 downto 0);
-		cz: out std_logic_vector(1 downto 0);
-		imm_6: out std_logic_vector(5 downto 0);
-		imm_9: out std_logic_vector(8 downto 0);
-		write_reg: out std_logic
+		id_reg: out std_logic_vector(15 downto 0)
 			
 	) ;
 end component;
@@ -117,17 +108,17 @@ component if_reg is
 	port(
 		ir : in std_logic_vector(15 downto 0);
 		id : out std_logic_vector(15 downto 0);
-		clk: in std_logic;
+		clk: in std_logic
 	);
 end component;
 
 component id_reg is 
 	port(
-		id : in std_logic_vector(47 downto 0);
-		reg_a1 : out std_logic_vector(15 downto 0);
-		reg_a2 : out std_logic_vector(15 downto 0);
-		reg_a3 : out std_logic_vector(15 downto 0);
-		opcode: in std_logic_vector(3 downto 0);
+		id : in std_logic_vector(15 downto 0);
+		reg_a1 : out std_logic_vector(2 downto 0);
+		reg_a2 : out std_logic_vector(2 downto 0);
+		reg_a3 : out std_logic_vector(2 downto 0);
+		opcode3: in std_logic_vector(3 downto 0);
 		clk: in std_logic
 	);
 end component;
@@ -136,46 +127,45 @@ end component;
 component rd_reg is 
 	port(
 		reg : in std_logic_vector(34 downto 0);
-		ex_reg : out std_logic_vector(18 downto 0);
+		ex_reg : out std_logic_vector(2 downto 0);
 		alu_a: out std_logic_vector(15 downto 0);
 		alu_b: out std_logic_vector(15 downto 0);
-		opcode3: in std_logic_vector(15 downto 0);
-		opcode4: in std_logic_vector(15 downto  0);
-		clk: in std_logic;
+		opcode3: in std_logic_vector(3 downto 0);
+		opcode4: in std_logic_vector(3 downto  0);
+		clk: in std_logic
 	);
 end component;
 
 component execute_reg is 
 	port(
-		mem_reg_a3: out std_logic_vector(2 downto 0);
-		alu_result: out std_logic_vector(15 downto 0);
-		alu_out: in std_logic_vector(15 downto 0);
-		exe_reg_a3:  in std_logic_vector(2 downto 0);-- execute stage reg_a3 ki value
-		opcode4: in std_logic_vector(15 downto 0);
-		opcode5: in std_logic_vector(15 downto  0);
-		clk: in std_logic;
+		alu : in std_logic_vector(15 downto 0);
+		rd_reg: in std_logic_vector(2 downto 0);
+		opcode4: in std_logic_vector(3 downto 0);
+		opcode5: in std_logic_vector(3 downto  0);
+		mem_reg: out std_logic_vector(18 downto 0);
+		clk: in std_logic
 	);
-end execute_reg;
+end component;
 
 component memory_reg is 
 	port(
-		mem_out_dat: in std_logic_vector(15 downto 0);
-	   mem_out_reg_a3: in std_logic_vector(2 downto 0);
+		exec_reg: in std_logic_vector(18 downto 0);
 		opcode5: in std_logic_vector(3 downto 0);
 		opcode6: in std_logic_vector(3 downto 0);
 		clk: in std_logic;
-		wb_in: out std_logic_vector(18 downto 0);
+		wb_in: out std_logic_vector(18 downto 0)
 	);
-end memory_reg;
+end component;
 
 signal w_ir_if, w_if_id, w_id_reg, w_rd_alua, w_rd_alub, w_ex_alu, curr_ins, w_pc_mem: std_logic_vector(15 downto 0);
 signal w_reg_a1, w_reg_a2, w_reg_a3, w_rd_ex: std_logic_vector(2 downto 0);
 signal w_wb, w_exec_mem: std_logic_vector(18 downto 0);
 signal w_rd_reg: std_logic_vector(34 downto 0);
+signal opcode1, opcode2, opcode3, opcode4, opcode5, opcode6: std_logic_vector(3 downto 0);
 
 
 begin
-		
+		output_vector<=curr_ins(15 downto 12);
 		ir_instance: ir
 			port map(
 			clk => input_vector(0),
@@ -206,8 +196,9 @@ begin
 		
 		id_reg_instance: id_reg
 		port map(
+			clk => input_vector(0),
 			id => w_id_reg,
-			opcode => opcode3,
+			opcode3 => opcode3,
 			reg_a1 => w_reg_a1,
 			reg_a2 => w_reg_a2,
 			reg_a3 => w_reg_a3
@@ -221,7 +212,8 @@ begin
 					reg_rd => w_rd_reg,
 					opcode3 => opcode3,
 					clk => input_vector(0),
-					reg_wb => w_wb
+					reg_wb => w_wb, 
+					opcode6 => opcode6
 				);	
 				
 				
@@ -236,6 +228,16 @@ begin
 				opcode4 => opcode4
 				
 			);
+			
+		execute_reg_instance: execute_reg
+			port map(
+		alu => w_ex_alu,
+		rd_reg=> w_rd_ex,
+		mem_reg=> w_exec_mem,
+		opcode4 => opcode4,
+		opcode5 => opcode5,
+		clk => input_vector(0)
+			);	
 		
 		alu_instance: alu
 					port map(
@@ -245,7 +247,7 @@ begin
 						 ex_reg=> w_ex_alu
 					);
 					
-		exec_reg_instance: exec_reg
+		exec_reg_instance: execute_reg
 			port map(
 				alu =>w_ex_alu,
 				rd_reg => w_rd_ex,
@@ -263,7 +265,7 @@ begin
 				ir_data=>curr_ins
 				);
 			
-		mem_reg_instance: mem_reg
+		mem_reg_instance: memory_reg
 			port map (
 			clk=> input_vector(0),
 			opcode5 => opcode5,
@@ -276,7 +278,7 @@ begin
 					port map (
 					opcode=> opcode1,
 					clk=> input_vector(0),
-					ins_mem=>w_pc_mem,
+					ins_mem=>w_pc_mem
 					);
 				
 					

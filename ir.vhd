@@ -4,7 +4,7 @@ use ieee.numeric_std.all;
 
 entity ir is
 	port (
-		id: out std_logic(15 downto 0);
+		id: out std_logic_vector(15 downto 0);
 		mem: in std_logic_vector(15 downto 0);
 		clk: in std_logic;
 		opcode1: out std_logic_vector(3 downto 0);
@@ -18,7 +18,7 @@ end ir;
 
 architecture working of ir is
 type ins_array is array (0 to 5 ) of std_logic_vector (15 downto 0);
-signal ir_store: ins_array ;= [x"0000", x"0000", x"0000", x"0000", x"0000", x"0000"];
+signal ir_store: ins_array := ( x"0000", x"0000", x"0000", x"0000", x"0000", x"0000");
 begin
 	write_proc: process(clk)
 	begin
@@ -30,7 +30,7 @@ begin
 	end if;
 	end process;
 	
-	id<= ir_store(0)
+	id<= ir_store(0);
 	opcode1<= ir_store(0)(15 downto 12);
 	opcode2<= ir_store(1)(15 downto 12);
 	opcode3<= ir_store(2)(15 downto 12);

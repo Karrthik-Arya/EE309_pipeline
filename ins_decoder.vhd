@@ -5,7 +5,7 @@ use ieee.numeric_std.all;
 entity ins_dec is
 	port (
 	ins_dec_reg: in std_logic_vector(15 downto 0);
-	clk: in std_logic	
+	clk: in std_logic	;
 	op_code: in std_logic_vector(3 downto 0);
 		id_reg: out std_logic_vector(15 downto 0)
 	) ;

@@ -7,7 +7,7 @@ entity if_reg is
 	port(
 		ir : in std_logic_vector(15 downto 0);
 		id : out std_logic_vector(15 downto 0);
-		clk: in std_logic;
+		clk: in std_logic
 	);
 end if_reg;
 
@@ -18,7 +18,7 @@ begin
 	write_proc: process(clk)
 	begin 
 		if(falling_edge(clk)) then
-			ir_store<= pc
+			if_store<= ir;
 		end if;
 	end process;
 end working;
@@ -31,10 +31,10 @@ use ieee.numeric_std.all;
 
 entity id_reg is 
 	port(
-		id : in std_logic_vector(47 downto 0);
-		reg_a1 : out std_logic_vector(3 downto 0);
-		reg_a2 : out std_logic_vector(3 downto 0);
-		reg_a3 : out std_logic_vector(3 downto 0);
+		id : in std_logic_vector(15 downto 0);
+		reg_a1 : out std_logic_vector(2 downto 0);
+		reg_a2 : out std_logic_vector(2 downto 0);
+		reg_a3 : out std_logic_vector(2 downto 0);
 		opcode3: in std_logic_vector(3 downto 0);
 		clk: in std_logic
 	);
@@ -73,9 +73,9 @@ entity rd_reg is
 		ex_reg : out std_logic_vector(2 downto 0);
 		alu_a: out std_logic_vector(15 downto 0);
 		alu_b: out std_logic_vector(15 downto 0);
-		opcode3: in std_logic_vector(15 downto 0);
-		opcode4: in std_logic_vector(15 downto  0);
-		clk: in std_logic;
+		opcode3: in std_logic_vector(3 downto 0);
+		opcode4: in std_logic_vector(3 downto  0);
+		clk: in std_logic
 	);
 end rd_reg;
 
@@ -87,7 +87,7 @@ begin
 		if(opcode4="0001") then
 			alu_a<= rd_store(15 downto 0);
 			alu_b<=rd_store(31 downto 16);
-			ex_reg<=rd_store(34 downto 32)
+			ex_reg<=rd_store(34 downto 32);
 		end if;
 	end process;
 	write_proc: process(clk)
@@ -110,8 +110,8 @@ entity execute_reg is
 	port(
 		alu : in std_logic_vector(15 downto 0);
 		rd_reg: in std_logic_vector(2 downto 0);
-		opcode4: in std_logic_vector(15 downto 0);
-		opcode5: in std_logic_vector(15 downto  0);
+		opcode4: in std_logic_vector(3 downto 0);
+		opcode5: in std_logic_vector(3 downto  0);
 		mem_reg: out std_logic_vector(18 downto 0);
 		clk: in std_logic
 	);
@@ -123,7 +123,7 @@ begin
 	read_proc: process(opcode5, exe_store )
 	begin
 		if (opcode5="0001") then
-		  wb_reg <= exe_store;
+		  mem_reg <= exe_store;
 		
 		
 		end if;
@@ -132,14 +132,18 @@ begin
 	begin 
 		if(falling_edge(clk)) then
 			if (opcode4="0001") then
-				exe_store(15 downto 0)<= alu_out;
-				exe_store(18 downto 16)<= rd_reg3;
+				exe_store(15 downto 0)<= alu;
+				exe_store(18 downto 16)<= rd_reg;
 			end if;
 		end if;
 	end process;
 end working;
 
 --Mem reg ka output is the input for the registers
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
 
 entity memory_reg is 
 	port(
@@ -151,7 +155,7 @@ entity memory_reg is
 	);
 end memory_reg;
 
-architecture working of mem_reg is
+architecture working of memory_reg is
 signal mem_store: std_logic_vector(18 downto 0);
 begin
 	read_proc: process(opcode6, mem_store )-- if the same load inst is used simultaneously a problem arises as 

@@ -6,7 +6,7 @@ use ieee.numeric_std.all;
 
 entity pc is 
 	port ( if_reg: out std_logic_vector(15 downto 0);
-			opcode: in std_logic(3 downto 0);
+			opcode: in std_logic_vector(3 downto 0);
 			ins_mem: out std_logic_vector(15 downto 0);
 			clk: in std_logic
 	);
@@ -17,11 +17,14 @@ signal pc: std_logic_vector(15 downto 0) := x"0000";
 begin
 if_reg <=pc; 
 ins_mem <= pc;
+
 regs_write: process(clk)
+variable a : integer;
 begin
  if (falling_edge(clk)) then
 	if (not(opcode="1111")) then
-		pc <= pc+x"0001";
+		a := to_integer(unsigned(pc)) + 1;
+		pc <= std_logic_vector(to_unsigned(a,16));
 	end if;
 end if;	
 end process;

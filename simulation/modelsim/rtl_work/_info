@@ -1,0 +1,566 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/simulation/modelsim
+Ealu
+Z1 w1651241287
+Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 6
+R0
+Z5 8/home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/alu.vhd
+Z6 F/home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/alu.vhd
+l0
+L6 1
+Vg@A6?cc@e_0AY6E1m::F23
+!s100 `=<c`DjYiWfcEYY<Cj9J`1
+Z7 OV;C;2020.1;71
+31
+Z8 !s110 1651254992
+!i10b 1
+Z9 !s108 1651254992.000000
+Z10 !s90 -reportprogress|300|-93|-work|work|/home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/alu.vhd|
+Z11 !s107 /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/alu.vhd|
+!i113 1
+Z12 o-93 -work work
+Z13 tExplicit 1 CvgOpt 0
+Aworking
+R2
+R3
+R4
+DEx4 work 3 alu 0 22 g@A6?cc@e_0AY6E1m::F23
+!i122 6
+l17
+L14 28
+Vk_LhYkzh;XAR3ZG;Ec>0F0
+!s100 V797HI_FA8OgUD]222]412
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Edut
+Z14 w1651254068
+R3
+R4
+!i122 5
+R0
+Z15 8/home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/DUT.vhd
+Z16 F/home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/DUT.vhd
+l0
+L3 1
+VTkieo<f5A[SaNVBg64`KK3
+!s100 A`:8daAZ]R^3O8DJlMWZ>3
+R7
+31
+R8
+!i10b 1
+R9
+Z17 !s90 -reportprogress|300|-93|-work|work|/home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/DUT.vhd|
+Z18 !s107 /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/DUT.vhd|
+!i113 1
+R12
+R13
+Adutwrap
+R3
+R4
+DEx4 work 3 dut 0 22 Tkieo<f5A[SaNVBg64`KK3
+!i122 5
+l167
+L8 278
+VV27l?Y1<_QBjQ9j3o>^F;3
+!s100 QXGP]<SkQE7=PcgaDL6^U0
+R7
+31
+R8
+!i10b 1
+R9
+R17
+R18
+!i113 1
+R12
+R13
+Eexecute_reg
+Z19 w1651248043
+R2
+R3
+R4
+!i122 7
+R0
+Z20 8/home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl
+Z21 F/home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl
+l0
+L109 1
+V@EDfbao7onOAdH;8JcPI>1
+!s100 `mkl;OXF06l4_PhWgPaj42
+R7
+31
+Z22 !s110 1651254993
+!i10b 1
+Z23 !s108 1651254993.000000
+Z24 !s90 -reportprogress|300|-93|-work|work|/home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl|
+Z25 !s107 /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl|
+!i113 1
+R12
+R13
+Aworking
+R2
+R3
+R4
+DEx4 work 11 execute_reg 0 22 @EDfbao7onOAdH;8JcPI>1
+!i122 7
+l122
+L120 21
+Vb2UndbLo@nef@5T7TAKC]0
+!s100 CYT9ZQQl3dE:F1SEo>^dz0
+R7
+31
+R22
+!i10b 1
+R23
+R24
+R25
+!i113 1
+R12
+R13
+Eid_reg
+R19
+R2
+R3
+R4
+!i122 7
+R0
+R20
+R21
+l0
+L32 1
+VaK32RMMQ<IJ;eSWSLd[iS3
+!s100 l1PQceJCVcVoCjSY3MM;j0
+R7
+31
+R22
+!i10b 1
+R23
+R24
+R25
+!i113 1
+R12
+R13
+Aworking
+R2
+R3
+R4
+DEx4 work 6 id_reg 0 22 aK32RMMQ<IJ;eSWSLd[iS3
+!i122 7
+l45
+L43 20
+V92YWTX697ATATAF1>2fSz2
+!s100 RbKVi4c4F`3D>10@<N<Z`3
+R7
+31
+R22
+!i10b 1
+R23
+R24
+R25
+!i113 1
+R12
+R13
+Eif_reg
+R19
+R2
+R3
+R4
+!i122 7
+R0
+R20
+R21
+l0
+L6 1
+Vc^zKXImil1YOoKb:HaKW?1
+!s100 4ojN<IZTzg8_H2nj^;aO>1
+R7
+31
+R22
+!i10b 1
+R23
+R24
+R25
+!i113 1
+R12
+R13
+Aworking
+R2
+R3
+R4
+DEx4 work 6 if_reg 0 22 c^zKXImil1YOoKb:HaKW?1
+!i122 7
+l16
+L14 11
+VBLo<LQQn6VNzRQG_VRT3i1
+!s100 oYWU<`?ZEA:5N[DziM:I72
+R7
+31
+R22
+!i10b 1
+R23
+R24
+R25
+!i113 1
+R12
+R13
+Eins_dec
+Z26 w1651245268
+R2
+R3
+R4
+!i122 0
+R0
+Z27 8/home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/ins_decoder.vhd
+Z28 F/home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/ins_decoder.vhd
+l0
+L5 1
+VT>j?k@b6Xb1h1TNIJc?f`2
+!s100 7Un;de^<z47coh?]GOFQR2
+R7
+31
+R8
+!i10b 1
+R9
+Z29 !s90 -reportprogress|300|-93|-work|work|/home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/ins_decoder.vhd|
+Z30 !s107 /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/ins_decoder.vhd|
+!i113 1
+R12
+R13
+Aworking
+R2
+R3
+R4
+DEx4 work 7 ins_dec 0 22 T>j?k@b6Xb1h1TNIJc?f`2
+!i122 0
+l16
+L14 20
+VL>gHJM>:UQ8;G@`E0V?Sm0
+!s100 CNea3aEYZMjg4Z0Cd748j0
+R7
+31
+R8
+!i10b 1
+R9
+R29
+R30
+!i113 1
+R12
+R13
+Eir
+Z31 w1651246218
+R2
+R3
+R4
+!i122 4
+R0
+Z32 8/home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/ir.vhd
+Z33 F/home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/ir.vhd
+l0
+L5 1
+VW@1blbBj2dZBM6X^o>IPz1
+!s100 KRbmVd6S[ikZgN911W0YQ1
+R7
+31
+R8
+!i10b 1
+R9
+Z34 !s90 -reportprogress|300|-93|-work|work|/home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/ir.vhd|
+Z35 !s107 /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/ir.vhd|
+!i113 1
+R12
+R13
+Aworking
+R2
+R3
+R4
+DEx4 work 2 ir 0 22 W@1blbBj2dZBM6X^o>IPz1
+!i122 4
+l22
+L19 24
+VHgZGJF]DS9ldHb68Szi]`1
+!s100 T0nFai7PK?ace^1U5LRGf1
+R7
+31
+R8
+!i10b 1
+R9
+R34
+R35
+!i113 1
+R12
+R13
+Emem
+Z36 w1651254955
+R2
+R3
+R4
+!i122 3
+R0
+Z37 8/home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/mem.vhd
+Z38 F/home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/mem.vhd
+l0
+L5 1
+V>[Rf7BEZ5[oM>fYfmh@HN1
+!s100 OzKX61PJnkJW7?OQ`^`G=3
+R7
+31
+R8
+!i10b 1
+R9
+Z39 !s90 -reportprogress|300|-93|-work|work|/home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/mem.vhd|
+Z40 !s107 /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/mem.vhd|
+!i113 1
+R12
+R13
+Aworking
+R2
+R3
+R4
+DEx4 work 3 mem 0 22 >[Rf7BEZ5[oM>fYfmh@HN1
+!i122 3
+l39
+L16 36
+ViQg@80nbB3MVL^W<lDm[m1
+!s100 QQzM`3`mjYC`8[6>_4DeJ3
+R7
+31
+R8
+!i10b 1
+R9
+R39
+R40
+!i113 1
+R12
+R13
+Ememory_reg
+R19
+R2
+R3
+R4
+!i122 7
+R0
+R20
+R21
+l0
+L148 1
+V03U^_c=@fZQUWS8WHdM;U0
+!s100 LKQMccoWAgaYSJj<Bkfe02
+R7
+31
+R22
+!i10b 1
+R23
+R24
+R25
+!i113 1
+R12
+R13
+Aworking
+R2
+R3
+R4
+DEx4 work 10 memory_reg 0 22 03U^_c=@fZQUWS8WHdM;U0
+!i122 7
+l160
+L158 21
+VTkM;bG<>lKd5aS`DijXVA3
+!s100 PKNRG4A><ml>CUU9BikLK3
+R7
+31
+R22
+!i10b 1
+R23
+R24
+R25
+!i113 1
+R12
+R13
+Epc
+Z41 w1651246145
+R2
+R3
+R4
+!i122 2
+R0
+Z42 8/home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pc.vhdl
+Z43 F/home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pc.vhdl
+l0
+L7 1
+VK?:Uci>AW>8X3_15VZ_Ge1
+!s100 kVIQ[h9^dEmbI?Tcj]HDf1
+R7
+31
+R8
+!i10b 1
+R9
+Z44 !s90 -reportprogress|300|-93|-work|work|/home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pc.vhdl|
+Z45 !s107 /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pc.vhdl|
+!i113 1
+R12
+R13
+Aworking
+R2
+R3
+R4
+DEx4 work 2 pc 0 22 K?:Uci>AW>8X3_15VZ_Ge1
+!i122 2
+l17
+L15 17
+VJDNdAJ[1@2;MBlzOKRYV43
+!s100 Bd:9k5GUB00SYNdIAmEaS3
+R7
+31
+R8
+!i10b 1
+R9
+R44
+R45
+!i113 1
+R12
+R13
+Erd_reg
+R19
+R2
+R3
+R4
+!i122 7
+R0
+R20
+R21
+l0
+L70 1
+VPbf>N>[mFd7LdCij8=eTV1
+!s100 j>Ua<MOPIP^>_[ENkDhiP0
+R7
+31
+R22
+!i10b 1
+R23
+R24
+R25
+!i113 1
+R12
+R13
+Aworking
+R2
+R3
+R4
+DEx4 work 6 rd_reg 0 22 Pbf>N>[mFd7LdCij8=eTV1
+!i122 7
+l84
+L82 20
+VNFh5Vc_Y05Jz5>5K=HnKM0
+!s100 jL;K4]25giHhD[EaH9H`a2
+R7
+31
+R22
+!i10b 1
+R23
+R24
+R25
+!i113 1
+R12
+R13
+Eregisters
+Z46 w1651254793
+R2
+R3
+R4
+!i122 1
+R0
+Z47 8/home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd
+Z48 F/home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd
+l0
+L7 1
+VJD8=`U8c6O:Oe<k^8=fPz3
+!s100 P^WFg7H0jcNW3kC<M`e013
+R7
+31
+R8
+!i10b 1
+R9
+Z49 !s90 -reportprogress|300|-93|-work|work|/home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd|
+Z50 !s107 /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd|
+!i113 1
+R12
+R13
+Aworking
+R2
+R3
+R4
+DEx4 work 9 registers 0 22 JD8=`U8c6O:Oe<k^8=fPz3
+!i122 1
+l25
+L19 28
+VMXANmVKhK7F[E`zz8l02C0
+!s100 MKm[KoL5B2h=H]>E:9c=>1
+R7
+31
+R8
+!i10b 1
+R9
+R49
+R50
+!i113 1
+R12
+R13
+Etestbench
+Z51 w1651165660
+R4
+R3
+!i122 8
+R0
+Z52 8/home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/Testbench.vhdl
+Z53 F/home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/Testbench.vhdl
+l0
+L7 1
+V]iKK_Z9L:G9B:i8c]3eFH0
+!s100 bWf8kl8zb90X@P1m>V^K20
+R7
+31
+R22
+!i10b 1
+R23
+Z54 !s90 -reportprogress|300|-93|-work|work|/home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/Testbench.vhdl|
+!s107 /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/Testbench.vhdl|
+!i113 1
+R12
+R13
+Abehave
+R4
+R3
+DEx4 work 9 testbench 0 22 ]iKK_Z9L:G9B:i8c]3eFH0
+!i122 8
+l69
+L9 132
+VCkBNEcO]3WjEfZ33E55>]0
+!s100 ALY`zZOCX;bB^=?i^j^PQ3
+R7
+31
+R22
+!i10b 1
+R23
+R54
+Z55 !s107 /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/Testbench.vhdl|
+!i113 1
+R12
+R13
