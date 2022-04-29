@@ -35,7 +35,7 @@ entity id_reg is
 		reg_a1 : out std_logic_vector(15 downto 0);
 		reg_a2 : out std_logic_vector(15 downto 0);
 		reg_a3 : out std_logic_vector(15 downto 0);
-		opcode: in std_logic_vector(3 downto 0);
+		opcode3: in std_logic_vector(3 downto 0);
 		clk: in std_logic
 	);
 end id_reg;
@@ -43,9 +43,9 @@ end id_reg;
 architecture working of id_reg is
 signal id_store: std_logic_vector(15 downto 0);
 begin
-	read_proc: process(opcode, id_store)
+	read_proc: process(opcode3, id_store)
 	begin 
-		if(opcode="0001") then
+		if(opcode3="0001") then
 			reg_a1<=id_store(11 downto 9);
 			reg_a2<=id_store(8 downto 6);
 			reg_a3<=id_store(5 downto 3);
@@ -70,7 +70,7 @@ use ieee.numeric_std.all;
 entity rd_reg is 
 	port(
 		reg : in std_logic_vector(34 downto 0);
-		ex_reg : out std_logic_vector(18 downto 0);
+		ex_reg : out std_logic_vector(2 downto 0);
 		alu_a: out std_logic_vector(15 downto 0);
 		alu_b: out std_logic_vector(15 downto 0);
 		opcode3: in std_logic_vector(15 downto 0);
@@ -87,7 +87,7 @@ begin
 		if(opcode4="0001") then
 			alu_a<= rd_store(15 downto 0);
 			alu_b<=rd_store(31 downto 16);
-			ex_reg(18 downto 16)<=rd_store(34 downto 32)
+			ex_reg(2 downto 0) <= rd_store(34 downto 32)
 		end if;
 	end process;
 	write_proc: process(clk)
@@ -125,7 +125,7 @@ begin
 	begin
 		if (opcode5="0001") then
 		   mem_reg_a3<= exe_store(18 downto 16);
-		
+		`	alu_result<= exe_store(15 downto 0);
 		
 		end if;
 	end process;
@@ -159,7 +159,7 @@ begin
 	read_proc: process(opcode6, mem_store )-- if the same load inst is used simultaneously a problem arises as 
 	                                        -- sensitivity list not triggered. look into it 
 	begin
-		if (opcode5 ="0001") then
+		if (opcode6 ="0001") then
 		   wb_in<= mem_store;
 		   
 		
@@ -168,8 +168,8 @@ begin
 	write_proc: process(clk)
 	begin 
 		if(falling_edge(clk)) then
-			if (opcode4="0001") then
-				exe_store(15 downto 0)<= mem_;
+			if (opcode5="0001") then
+				mem_store(15 downto 0)<= mem_out_dat;
 				mem_store(18 downto 16)<= mem_out_reg_a3;
 			end if;
 		end if;
