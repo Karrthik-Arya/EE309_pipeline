@@ -4,7 +4,7 @@ use ieee.numeric_std.all;
 
 entity ir is
 	port (
-		id: out std_logic(3 downto 0);
+		id: out std_logic(15 downto 0);
 		mem: in std_logic_vector(15 downto 0);
 		clk: in std_logic;
 		opcode1: out std_logic_vector(3 downto 0);
@@ -24,17 +24,19 @@ begin
 	begin
 	if(falling_edge(clk)) then
 			for i in 4 downto 0 loop
-				ir_store(i+1) = ir_store(i);
+				ir_store(i+1) <= ir_store(i);--used comparator
 			end loop;
-			ir_store(i) <= mem;
+			ir_store(0) <= mem;
 	end if;
 	end process;
 	
-	opcode1<= ir_store(0);
-	opcode2<= ir_store(1);
-	opcode3<= ir_store(2);
-	opcode4<= ir_store(3);
-	opcode5<= ir_store(4);
-	opcode6<= ir_store(5);
+	id<= ir_store(0)
+	opcode1<= ir_store(0)(15 downto 12);
+	opcode2<= ir_store(1)(15 downto 12);
+	opcode3<= ir_store(2)(15 downto 12);
+	opcode4<= ir_store(3)(15 downto 12);
+	opcode5<= ir_store(4)(15 downto 12);
+	opcode6<= ir_store(5)(15 downto 12);
+	
 
 end working;

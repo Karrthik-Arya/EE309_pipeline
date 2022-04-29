@@ -5,7 +5,7 @@ use ieee.numeric_std.all;
 
 entity if_reg is 
 	port(
-		pc : in std_logic_vector(15 downto 0);
+		ir : in std_logic_vector(15 downto 0);
 		id : out std_logic_vector(15 downto 0);
 		clk: in std_logic;
 	);
@@ -18,7 +18,7 @@ begin
 	write_proc: process(clk)
 	begin 
 		if(falling_edge(clk)) then
-			if_store<= pc;
+			ir_store<= pc
 		end if;
 	end process;
 end working;
@@ -95,6 +95,82 @@ begin
 		if(falling_edge(clk)) then
 			if (opcode3="0001") then
 				rd_store<= reg;
+			end if;
+		end if;
+	end process;
+end working;
+
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+
+entity execute_reg is 
+	port(
+		mem_reg_a3: out std_logic_vector(2 downto 0);
+		alu_result: out std_logic_vector(15 downto 0);
+		alu_out: in std_logic_vector(15 downto 0);
+		exe_reg_a3:  in std_logic_vector(2 downto 0);-- execute stage reg_a3 ki value
+		opcode4: in std_logic_vector(15 downto 0);
+		opcode5: in std_logic_vector(15 downto  0);
+		clk: in std_logic;
+	);
+end execute_reg;
+
+architecture working of execute_reg is
+signal exe_store: std_logic_vector(18 downto 0);
+begin
+	read_proc: process(opcode5, exe_store )
+	begin
+		if (opcode5="0001") then
+		   mem_reg_a3<= exe_store(18 downto 16);
+		
+		
+		end if;
+	end process;
+	write_proc: process(clk)
+	begin 
+		if(falling_edge(clk)) then
+			if (opcode4="0001") then
+				exe_store(15 downto 0)<= alu_out;
+				exe_store(18 downto 16)<= exe_reg_a3;
+			end if;
+		end if;
+	end process;
+end working;
+
+--Mem reg ka output is the input for the registers
+
+entity memory_reg is 
+	port(
+		mem_out_dat: in std_logic_vector(15 downto 0);
+	   mem_out_reg_a3: in std_logic_vector(2 downto 0);
+		opcode5: in std_logic_vector(3 downto 0);
+		opcode6: in std_logic_vector(3 downto 0);
+		clk: in std_logic;
+		wb_in: out std_logic_vector(18 downto 0);
+	);
+end memory_reg;
+
+architecture working of mem_reg is
+signal mem_store: std_logic_vector(18 downto 0);
+begin
+	read_proc: process(opcode6, mem_store )-- if the same load inst is used simultaneously a problem arises as 
+	                                        -- sensitivity list not triggered. look into it 
+	begin
+		if (opcode5 ="0001") then
+		   wb_in<= mem_store;
+		   
+		
+		end if;
+	end process;
+	write_proc: process(clk)
+	begin 
+		if(falling_edge(clk)) then
+			if (opcode4="0001") then
+				exe_store(15 downto 0)<= mem_;
+				mem_store(18 downto 16)<= mem_out_reg_a3;
 			end if;
 		end if;
 	end process;

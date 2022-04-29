@@ -9,7 +9,7 @@ entity registers is
 			reg_a2: in std_logic_vector(2 downto 0);
 			reg_a3: in std_logic_vector(2 downto 0);
 			reg_rd: out std_logic_vector(34 downto 0);
-			opcodes3: in std_logic_vector(3 downto 0);
+			opcode3: in std_logic_vector(3 downto 0);
 			--reg_rd_reg3: out std_logic_vector(15 downto 0);
 			write_reg: in std_logic;
 			clk: in std_logic;
@@ -24,7 +24,7 @@ signal regs: mem_array :=(
    ); 
 begin
 
-regs_read: process(reg_a1, reg_a2, state)
+regs_read: process(reg_a1, reg_a2)
 begin 
 	if(opcodes3="0001")then
 		reg_rd(15 downto 0)<= to_integer(unsigned(reg_a1));

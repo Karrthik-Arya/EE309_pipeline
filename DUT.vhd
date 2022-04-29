@@ -6,57 +6,31 @@ port ( input_vector : in std_logic_vector(0 downto 0);
 end entity;
 
 architecture DutWrap of DUT is
-	signal state: std_logic_vector(5 downto 0 ):="000001";
-	signal next_state: std_logic_vector(5 downto 0 ):="000001";
-	signal clk: std_logic;
-	signal reset: std_logic;
-	signal curr_ins, w_addr1, w_addr3,  w_t1_reg_forg, w_alu_pcout, w_dout, w_din_t1, w_din_t2, w_shift7_reg, w_t3_in, w_t1, w_t2, w_t2_in, w_pc_aluin,  w_pc_reg, w_pcout_reg, w_alu_t1, w_alu_t3, w_t1_alu, w_t2_alu, w_t2_1s, w_1s, w_se10, w_se7, w_ins_addr: std_logic_vector(15 downto 0);
-	signal w1,w2,w3: std_logic_vector(2 downto 0);
-	signal w4: std_logic_vector(8 downto 0);
-	signal w5: std_logic_vector(5 downto 0);
 	signal carry, zero: std_logic;
-   component ins_decoder is
-     port(next_state: out std_logic_vector(5 downto 0);
-		  state: in std_logic_vector(5 downto 0);
-		  op_code: in std_logic_vector(3 downto 0);
-		  cz: in std_logic_vector(1 downto 0);
-		  imm: in std_logic_vector(8 downto 0);
-		  op_out: out std_logic_vector(3 downto 0);
-		  carry: in std_logic;
-		  zero: in std_logic
-		  );
-   end component;
-	
-	component ins_setter is 
-		port(   reset,clock:in std_logic;
-        next_state: in std_logic_vector(5 downto 0);
-		  state: out std_logic_vector(5 downto 0)
-		  );
-	end component;
 	
 	component ir is 
 		port (
-		reg_1: out std_logic_vector(2 downto 0);
-		reg_2: out std_logic_vector(2 downto 0);
-		reg_3: out std_logic_vector(2 downto 0);
-		shift7: out std_logic_vector(8 downto 0);
-		sign_ex: out std_logic_vector(5 downto 0);
+		id: out std_logic(3 downto 0);
 		mem: in std_logic_vector(15 downto 0);
 		clk: in std_logic;
-		state: in std_logic_vector(5 downto 0)
+		opcode1: out std_logic_vector(3 downto 0);
+		opcode2: out std_logic_vector(3 downto 0);
+		opcode3: out std_logic_vector(3 downto 0);
+		opcode4: out std_logic_vector(3 downto 0);
+		opcode5: out std_logic_vector(3 downto 0);
+		opcode6: out std_logic_vector(3 downto 0)
 	) ;
 	end component;
 	
 	component mem is 
-	port( t1_addr: in std_logic_vector(15 downto 0);
-	t3_addr: in std_logic_vector(15 downto 0);
-	 state: in std_logic_vector(5 downto 0);
-	 data_t1: in std_logic_vector(15 downto 0);
-	 data_t2: in std_logic_vector(15 downto 0);
-	 data_2: out std_logic_vector(15 downto 0);
-	 ir_data: out std_logic_vector(15 downto 0);
+	port(  exe_out_reg_a3: in std_logic_vector(2 downto 0);
+	 exe_out_alu: in std_logic_vector(15 downto 0);
+	 opcode5: in std_logic_vector(3 downto 0);
+	 clk : in std_logic;
 	 ins_addr: in std_logic_vector(15 downto 0);
-	 clk : in std_logic
+	 ir_data: out std_logic_vector(15 downto 0);
+	 mem_data: out std_logic_vector(15 downto 0);
+	 memreg_out_reg_a3: out std_logic_vector(2 downto 0);
 	 );
 	end component;
 	
@@ -64,30 +38,11 @@ architecture DutWrap of DUT is
 	port (reg_a1: in std_logic_vector(2 downto 0);
 			reg_a2: in std_logic_vector(2 downto 0);
 			reg_a3: in std_logic_vector(2 downto 0);
-			t1: out std_logic_vector(15 downto 0);
-			t1_in: in std_logic_vector(15 downto 0);
-			t2: out std_logic_vector(15 downto 0);
-			t2_in: in std_logic_vector(15 downto 0);
-			t3: in std_logic_vector(15 downto 0);
-			shift7: in std_logic_vector(15 downto 0); 
-			pc_in: in std_logic_vector(15 downto 0);
-			pc_out: out std_logic_vector(15 downto 0);
+			reg_rd: out std_logic_vector(34 downto 0);
+			opcode3: in std_logic_vector(3 downto 0);
+			--reg_rd_reg3: out std_logic_vector(15 downto 0);
+			write_reg: in std_logic;
 			clk: in std_logic;
-			state: in std_logic_vector(5 downto 0)
-	);
-	end component;
-	
-	component temp_1 is
-		port(
-		alu: out std_logic_vector(15 downto 0);
-		reg: in std_logic_vector(15 downto 0);
-		clk: in std_logic;
-		data_1: out std_logic_vector(15 downto 0);
-		data_2: in std_logic_vector(15 downto 0);
-		state: in std_logic_vector(5 downto 0);
-		alu_in: in std_logic_vector(15 downto 0);
-		reg_out: out std_logic_vector(15 downto 0);
-		mem_a: out std_logic_vector(15 downto 0)
 	);
 	end component;
 	
@@ -124,88 +79,128 @@ architecture DutWrap of DUT is
 	end component;
 	
 	component pc is 
-	port (alu_c: in std_logic_vector(15 downto 0);
-			reg: in std_logic_vector(15 downto 0);
-			alu_a: out std_logic_vector(15 downto 0);
-			data_1: out std_logic_vector(15 downto 0);
-			reg_out: out std_logic_vector(15 downto 0);
-			state: in std_logic_vector(5 downto 0);
+	port (if_reg: out std_logic_vector(15 downto 0);
+			opcode: in std_logic(3 downto 0);
+			ins_mem: out std_logic_vector(15 downto 0);
 			clk: in std_logic
 	);
 	end component;
-	
-
-component temp_2 is 
-	port(
-		alu: out std_logic_vector(15 downto 0);
-		reg_in: in std_logic_vector(15 downto 0);
-		reg_out: out std_logic_vector(15 downto 0);
-		clk: in std_logic;
-		data_1: out std_logic_vector(15 downto 0);
-		data_2: in std_logic_vector(15 downto 0);
-		state: in std_logic_vector(5 downto 0);
-		shift1: out std_logic_vector(15 downto 0)
-	);
-end component;
-
-
-component temp_3 is 
-	port(
-		alu: in std_logic_vector(15 downto 0);
-		reg: out std_logic_vector(15 downto 0);
-		clk: in std_logic;
-		data_1: out std_logic_vector(15 downto 0);
-		state: in std_logic_vector(5 downto 0)
-	);
-end component;
 
 component alu is
-	port(state: in std_logic_vector(5 downto 0);
-	 t1: in std_logic_vector(15 downto 0);
-	 t2: in std_logic_vector(15 downto 0);
-	 pc_in: in std_logic_vector(15 downto 0);
-	 one_bit_shifter: in std_logic_vector(15 downto 0);
-	 sign_extender_10: in std_logic_vector(15 downto 0);
-	 sign_extender_7: in std_logic_vector(15 downto 0);
-	 t3: out std_logic_vector(15 downto 0);
-	 t1_out: out std_logic_vector(15 downto 0);
-	 carry_out: out std_logic;
-	 zero_out: out std_logic;
-	 pc_out: out std_logic_vector(15 downto 0)
+	port(opcode4: in std_logic_vector(3 downto 0);
+	 alu_a: in std_logic_vector(15 downto 0);
+	 alu_b: in std_logic_vector(15 downto 0);
+	 reg_a3: in std_logic_vector(2 downto 0);
+	 ex_reg: out std_logic_vector(15 downto 0);
+	 alu_reg_a3: out std_logic_vector(2 downto 0)
 	 );
 	 end component;
+	 
+component ins_dec is
+	port (
+	ins_dec_reg: in std_logic_vector(15 downto 0);
+	clk: in std_logic	
+	op_code: in std_logic_vector(3 downto 0);
+		reg_1: out std_logic_vector(2 downto 0);
+		reg_2: out std_logic_vector(2 downto 0);
+		reg_3: out std_logic_vector(2 downto 0);
+		cz: out std_logic_vector(1 downto 0);
+		imm_6: out std_logic_vector(5 downto 0);
+		imm_9: out std_logic_vector(8 downto 0);
+		write_reg: out std_logic
+			
+	) ;
+end component;
+
+
+component if_reg is 
+	port(
+		ir : in std_logic_vector(15 downto 0);
+		id : out std_logic_vector(15 downto 0);
+		clk: in std_logic;
+	);
+end component;
+
+component id_reg is 
+	port(
+		id : in std_logic_vector(47 downto 0);
+		reg_a1 : out std_logic_vector(15 downto 0);
+		reg_a2 : out std_logic_vector(15 downto 0);
+		reg_a3 : out std_logic_vector(15 downto 0);
+		opcode: in std_logic_vector(3 downto 0);
+		clk: in std_logic
+	);
+end component;
+
+
+component rd_reg is 
+	port(
+		reg : in std_logic_vector(34 downto 0);
+		ex_reg : out std_logic_vector(18 downto 0);
+		alu_a: out std_logic_vector(15 downto 0);
+		alu_b: out std_logic_vector(15 downto 0);
+		opcode3: in std_logic_vector(15 downto 0);
+		opcode4: in std_logic_vector(15 downto  0);
+		clk: in std_logic;
+	);
+end component;
+
+component execute_reg is 
+	port(
+		mem_reg_a3: out std_logic_vector(2 downto 0);
+		alu_result: out std_logic_vector(15 downto 0);
+		alu_out: in std_logic_vector(15 downto 0);
+		exe_reg_a3:  in std_logic_vector(2 downto 0);-- execute stage reg_a3 ki value
+		opcode4: in std_logic_vector(15 downto 0);
+		opcode5: in std_logic_vector(15 downto  0);
+		clk: in std_logic;
+	);
+end execute_reg;
+
+component memory_reg is 
+	port(
+		mem_out_dat: in std_logic_vector(15 downto 0);
+	   mem_out_reg_a3: in std_logic_vector(2 downto 0);
+		opcode5: in std_logic_vector(3 downto 0);
+		opcode6: in std_logic_vector(3 downto 0);
+		clk: in std_logic;
+		wb_in: out std_logic_vector(18 downto 0);
+	);
+end memory_reg;
+
+
 begin
-   stateTrans_instance: ins_decoder
-			port map (
-					next_state => next_state,
-					state => state,
-					op_code => curr_ins(15 downto 12),
- 					cz => curr_ins(1 downto 0),
-					imm => curr_ins(8 downto 0),
-					op_out => output_vector(3 downto 0),
-					carry=> carry,
-					zero=> zero
- 					);
-					
-	stateSet_instance: ins_setter
-		port map (
-			clock => input_vector(0),
-			next_state => next_state,
-			state => state,
-			reset => reset
-		);
 		
 		ir_instance: ir
 			port map(
 			clk => input_vector(0),
-			state => state,
 			mem => curr_ins,
-			shift7 => w4,
-			reg_1=> w1,
-			reg_2 => w2,
-			reg_3 => w3,
-			sign_ex => w5
+			id => w_ir_if,
+			opcode1 => opcode1,
+			opcode2 => opcode2,
+			opcode3 => opcode3,
+			opcode4 => opcode4,
+			opcode5 => opcode5,
+			opcode6 => opcode6,
 			);
+			
+		if_reg_instance: if_reg
+		port map(
+			ir  => w_ir_if,
+			clk => input_vector(0),
+			id => w_if_id
+		);
+		
+		id_instance: ins_dec
+		port map(
+			clk => input_vector(0),
+			ins_dec_reg => w_if_id,
+			op_code => opcode2,
+			reg_1 => w_reg_a1,
+			reg_2 => w_reg_a2,
+			reg_3 => w_reg_a3
+		);
+		
 			
 		mem_instance: mem
 			port map(
