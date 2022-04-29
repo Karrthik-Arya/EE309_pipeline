@@ -181,7 +181,7 @@ begin
 			opcode3 => opcode3,
 			opcode4 => opcode4,
 			opcode5 => opcode5,
-			opcode6 => opcode6,
+			opcode6 => opcode6
 			);
 			
 		if_reg_instance: if_reg
@@ -196,12 +196,53 @@ begin
 			clk => input_vector(0),
 			ins_dec_reg => w_if_id,
 			op_code => opcode2,
-			reg_1 => w_reg_a1,
-			reg_2 => w_reg_a2,
-			reg_3 => w_reg_a3
+			id_reg => w_id_reg
 		);
 		
-			
+		id_reg_instance: id_reg
+		port map(
+			id => w_id_reg,
+			opcode => opcode3,
+			reg_a1 => w_reg_a1,
+			reg_a2 => w_reg_a2,
+			reg_a3 => w_reg_a3
+		);
+		
+		reg_instance: registers
+				port map(
+					reg_a1 => w_reg_a1,
+					reg_a2 => w_reg_a2,
+					reg_a3 => w_reg_a3,
+					reg_rd => w_rd_reg,
+					opcode3 => opcode3,
+					clk => input_vector(0)
+				);	
+				
+				
+		rd_reg_instance: rd_reg
+			port map(
+				clk => input_vector(0),
+				reg => w_rd_reg,
+				ex_reg=> w_rd_ex,
+				alu_a => w_rd_alua,
+				alu_b => w_rd_alub,
+				opcode3 => opcode3,
+				opcode4 => opcode4
+				
+			);
+		
+		alu_instance: alu
+					port map(
+						opcode4: opcode4,
+	 alu_a: w_rd_alua,
+	 alu_b: w_rd_alub;
+	 reg_a3: ;
+	 ex_reg: out std_logic_vector(15 downto 0);
+	 alu_reg_a3:
+					);
+					
+		
+		
 		mem_instance: mem
 			port map(
 				state => state,
@@ -215,22 +256,7 @@ begin
 				ins_addr => w_ins_addr
 			);
 			
-			reg_instance: registers
-				port map(
-					reg_a1 => w1,
-					reg_a2 => w2,
-					reg_a3 => w3,
-					state => state,
-					clk => input_vector(0),
-					pc_in => w_pc_reg,
-					shift7 => w_shift7_reg,
-					t3 => w_t3_in,
-					t2_in => w_t2_in,
-					t1 => w_t1,
-					t2 => w_t2,
-					pc_out => w_pcout_reg,
-					t1_in => w_t1_reg_forg
-				);
+			
 				
 			t1_instance: temp_1
 				port map (
@@ -267,22 +293,7 @@ begin
 						data_1 => w_addr3
 					);
 					
-				alu_instance: alu
-					port map(
-						state => state,
-						t1 => w_t1_alu,
-						t2 => w_t2_alu,
-						pc_in => w_pc_aluin,
-						one_bit_shifter=> w_1s,
-						sign_extender_10=> w_se10,
-						sign_extender_7 => w_se7,
-						t3 => w_alu_t3,
-						pc_out => w_alu_pcout,
-						carry_out=> carry,
-						zero_out=> zero,
-						t1_out => w_alu_t1
-					);
-					
+				
 				pc_instance: pc
 					port map (
 					state=> state,
