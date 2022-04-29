@@ -21,7 +21,7 @@ ins_mem <= pc;
 regs_write: process(clk)
 variable a : integer;
 begin
- if (falling_edge(clk)) then
+ if (rising_edge(clk)) then
 	if (not(opcode="1111")) then
 		a := to_integer(unsigned(pc)) + 1;
 		pc <= std_logic_vector(to_unsigned(a,16));

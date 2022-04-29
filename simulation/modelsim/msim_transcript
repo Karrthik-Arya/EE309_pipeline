@@ -11,7 +11,7 @@
 # 
 # vcom -93 -work work {/home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/ins_decoder.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 23:26:32 on Apr 29,2022
+# Start time: 01:50:51 on Apr 30,2022
 # vcom -reportprogress 300 -93 -work work /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/ins_decoder.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -19,11 +19,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity ins_dec
 # -- Compiling architecture working of ins_dec
-# End time: 23:26:32 on Apr 29,2022, Elapsed time: 0:00:00
+# End time: 01:50:51 on Apr 30,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 23:26:32 on Apr 29,2022
+# Start time: 01:50:51 on Apr 30,2022
 # vcom -reportprogress 300 -93 -work work /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -31,11 +31,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity registers
 # -- Compiling architecture working of registers
-# End time: 23:26:32 on Apr 29,2022, Elapsed time: 0:00:00
+# End time: 01:50:51 on Apr 30,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pc.vhdl}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 23:26:32 on Apr 29,2022
+# Start time: 01:50:51 on Apr 30,2022
 # vcom -reportprogress 300 -93 -work work /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pc.vhdl 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -43,11 +43,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity pc
 # -- Compiling architecture working of pc
-# End time: 23:26:32 on Apr 29,2022, Elapsed time: 0:00:00
+# End time: 01:50:51 on Apr 30,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/mem.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 23:26:32 on Apr 29,2022
+# Start time: 01:50:51 on Apr 30,2022
 # vcom -reportprogress 300 -93 -work work /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/mem.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -55,11 +55,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity mem
 # -- Compiling architecture working of mem
-# End time: 23:26:32 on Apr 29,2022, Elapsed time: 0:00:00
+# End time: 01:50:51 on Apr 30,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/ir.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 23:26:32 on Apr 29,2022
+# Start time: 01:50:51 on Apr 30,2022
 # vcom -reportprogress 300 -93 -work work /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/ir.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -67,22 +67,22 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity ir
 # -- Compiling architecture working of ir
-# End time: 23:26:32 on Apr 29,2022, Elapsed time: 0:00:00
+# End time: 01:50:52 on Apr 30,2022, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/DUT.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 23:26:32 on Apr 29,2022
+# Start time: 01:50:52 on Apr 30,2022
 # vcom -reportprogress 300 -93 -work work /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/DUT.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity DUT
 # -- Compiling architecture DutWrap of DUT
-# End time: 23:26:32 on Apr 29,2022, Elapsed time: 0:00:00
+# End time: 01:50:52 on Apr 30,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/alu.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 23:26:32 on Apr 29,2022
+# Start time: 01:50:52 on Apr 30,2022
 # vcom -reportprogress 300 -93 -work work /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/alu.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -90,11 +90,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity alu
 # -- Compiling architecture working of alu
-# End time: 23:26:32 on Apr 29,2022, Elapsed time: 0:00:00
+# End time: 01:50:52 on Apr 30,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 23:26:33 on Apr 29,2022
+# Start time: 01:50:52 on Apr 30,2022
 # vcom -reportprogress 300 -93 -work work /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -110,24 +110,24 @@
 # -- Compiling architecture working of execute_reg
 # -- Compiling entity memory_reg
 # -- Compiling architecture working of memory_reg
-# End time: 23:26:33 on Apr 29,2022, Elapsed time: 0:00:00
+# End time: 01:50:52 on Apr 30,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vcom -93 -work work {/home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/Testbench.vhdl}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 23:26:33 on Apr 29,2022
+# Start time: 01:50:52 on Apr 30,2022
 # vcom -reportprogress 300 -93 -work work /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/Testbench.vhdl 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity Testbench
 # -- Compiling architecture Behave of Testbench
-# End time: 23:26:33 on Apr 29,2022, Elapsed time: 0:00:00
+# End time: 01:50:52 on Apr 30,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L maxv -L rtl_work -L work -voptargs="+acc"  Testbench
 # vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L maxv -L rtl_work -L work -voptargs=""+acc"" Testbench 
-# Start time: 23:26:33 on Apr 29,2022
+# Start time: 01:50:52 on Apr 30,2022
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -160,8 +160,6 @@
 # run -all
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ps  Iteration: 0  Instance: /testbench/dut_instance/mem_instance
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 1, found 0.
-#    Time: 0 ps  Iteration: 0  Instance: /testbench
 # ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
 #    Time: 0 ps  Iteration: 0  Instance: /testbench
 # ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
@@ -186,6 +184,10 @@
 #    Time: 2520 ns  Iteration: 0  Instance: /testbench
 # ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
 #    Time: 2520 ns  Iteration: 0  Instance: /testbench
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 2520 ns  Iteration: 3  Instance: /testbench/dut_instance/reg_instance
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 2520 ns  Iteration: 3  Instance: /testbench/dut_instance/reg_instance
 # ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
 #    Time: 3024 ns  Iteration: 0  Instance: /testbench
 # ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
@@ -194,14 +196,14 @@
 #    Time: 3528 ns  Iteration: 0  Instance: /testbench
 # ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
 #    Time: 3528 ns  Iteration: 0  Instance: /testbench
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 3528 ns  Iteration: 3  Instance: /testbench/dut_instance/alu_instance
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 3528 ns  Iteration: 3  Instance: /testbench/dut_instance/alu_instance
 # ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
 #    Time: 4032 ns  Iteration: 0  Instance: /testbench
 # ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
 #    Time: 4032 ns  Iteration: 0  Instance: /testbench
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 4032 ns  Iteration: 3  Instance: /testbench/dut_instance/alu_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 4032 ns  Iteration: 3  Instance: /testbench/dut_instance/alu_instance
 # ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
 #    Time: 4536 ns  Iteration: 0  Instance: /testbench
 # ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
@@ -226,8 +228,6 @@
 #    Time: 7056 ns  Iteration: 0  Instance: /testbench
 # ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
 #    Time: 7056 ns  Iteration: 0  Instance: /testbench
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 7056 ns  Iteration: 1  Instance: /testbench/dut_instance/reg_instance
 # ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
 #    Time: 7560 ns  Iteration: 0  Instance: /testbench
 # ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
@@ -236,237 +236,5 @@
 #    Time: 8064 ns  Iteration: 0  Instance: /testbench
 # ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
 #    Time: 8064 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 8568 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 8568 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 9072 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 9072 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 9576 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 9576 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 10080 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 10080 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 10584 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 10584 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 11088 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 11088 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 11592 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 11592 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 12096 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 12096 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 12600 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 12600 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 13104 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 13104 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 13608 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 13608 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 14112 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 14112 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 14616 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 14616 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 15120 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 15120 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 15624 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 15624 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 16128 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 16128 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 16632 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 16632 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 17136 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 17136 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 17640 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 17640 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 18144 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 18144 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 18648 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 18648 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 19152 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 19152 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 19656 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 19656 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 20160 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 20160 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 20664 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 20664 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 21168 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 21168 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 21672 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 21672 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 22176 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 22176 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 22680 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 22680 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 23184 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 23184 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 23688 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 23688 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 24192 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 24192 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 24696 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 24696 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 25200 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 25200 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 25704 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 25704 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 26208 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 26208 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 26712 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 26712 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 27216 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 27216 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 27720 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 27720 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 28224 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 28224 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 28728 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 28728 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 29232 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 29232 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 29736 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 29736 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 30240 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 30240 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 30744 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 30744 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 31248 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 31248 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 31752 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 31752 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 32256 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 32256 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 32760 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 32760 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 33264 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 33264 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 33768 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 33768 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 34272 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 34272 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 34776 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 34776 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 35280 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 35280 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 35784 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 35784 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 36288 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 36288 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 1, found 0.
-#    Time: 36792 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 36792 ns  Iteration: 0  Instance: /testbench
-# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 4, found 0.
-#    Time: 36792 ns  Iteration: 0  Instance: /testbench
 # ** Note: SUCCESS, all tests passed.
-#    Time: 37296 ns  Iteration: 0  Instance: /testbench
-# End time: 23:30:55 on Apr 29,2022, Elapsed time: 0:04:22
-# Errors: 150, Warnings: 6
+#    Time: 8568 ns  Iteration: 0  Instance: /testbench

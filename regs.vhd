@@ -24,7 +24,7 @@ signal regs: mem_array :=(
    ); 
 begin
 
-regs_read: process(reg_a1, reg_a2)
+regs_read: process(reg_a1, reg_a2, reg_a3, opcode3)
 begin 
 	if(opcode3="0001")then
 		reg_rd(15 downto 0)<= regs(to_integer(unsigned(reg_a1)));

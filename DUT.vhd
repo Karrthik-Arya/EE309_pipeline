@@ -159,7 +159,7 @@ end component;
 
 signal w_ir_if, w_if_id, w_id_reg, w_rd_alua, w_rd_alub, w_ex_alu, curr_ins, w_pc_mem: std_logic_vector(15 downto 0);
 signal w_reg_a1, w_reg_a2, w_reg_a3, w_rd_ex: std_logic_vector(2 downto 0);
-signal w_wb, w_exec_mem: std_logic_vector(18 downto 0);
+signal w_wb, w_exec_mem,w_wb_mem: std_logic_vector(18 downto 0);
 signal w_rd_reg: std_logic_vector(34 downto 0);
 signal opcode1, opcode2, opcode3, opcode4, opcode5, opcode6: std_logic_vector(3 downto 0);
 
@@ -280,7 +280,5 @@ begin
 					clk=> input_vector(0),
 					ins_mem=>w_pc_mem
 					);
-				
 					
 end DutWrap;
-

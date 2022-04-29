@@ -16,12 +16,12 @@ signal ins_store: std_logic_vector(15 downto 0);
 begin
 	write_proc: process(clk)
 	begin
-	if(falling_edge(clk)) then
+	if(rising_edge(clk)) then
 			ins_store <= ins_dec_reg;
 	end if;
 	end process;
 	
-	read_proc: process(ins_store)
+	read_proc: process(ins_store, op_code)
 	begin
 	if(op_code="0001") then
 		id_reg(11 downto 9) <=ins_store(11 downto 9);

@@ -161,12 +161,11 @@ begin
 	read_proc: process(opcode6, mem_store )-- if the same load inst is used simultaneously a problem arises as 
 	                                        -- sensitivity list not triggered. look into it 
 	begin
-		if (opcode6 ="0001") then
-		   wb_in<= mem_store;
-		   
-		
-		end if;
+		   if(opcode6="0001") then
+				wb_in<= mem_store;
+			end if;
 	end process;
+	
 	write_proc: process(clk)
 	begin 
 		if(falling_edge(clk)) then

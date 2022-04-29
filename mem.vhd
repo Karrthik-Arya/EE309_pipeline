@@ -28,8 +28,8 @@ architecture working of mem is
 	
 	
 	signal mem_ins: mem_array := (
-	b"0001000001010000", b"0001001010011000",  b"0001010011100000", x"FFFF",
-	x"FFFF", X"FFFF", x"FFFF", x"0000",
+	b"0001000001010000", b"0001001010011000",  b"0001010011100000", x"0000",
+	x"0000", X"0000", x"0000", x"0000",
 	x"0000",x"0000", x"0000", x"0000",
 	x"0000",x"0000", x"0000", x"0000",
 	x"0000",x"0000", x"0000", x"0000",
@@ -39,7 +39,7 @@ architecture working of mem is
 	begin
 	mem_action: process(clk,opcode5)
 	begin
-	if (falling_edge(clk)) then
+	if (rising_edge(clk)) then
 		
 	end if;	
 	end process;
