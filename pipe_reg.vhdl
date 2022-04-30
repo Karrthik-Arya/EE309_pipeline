@@ -36,7 +36,9 @@ entity id_reg is
 		reg_a2 : out std_logic_vector(2 downto 0);
 		reg_a3 : out std_logic_vector(2 downto 0);
 		opcode3: in std_logic_vector(3 downto 0);
-		clk: in std_logic
+		clk: in std_logic;
+		imm: out std_logic_vector(5 downto 0);
+		reg_rd: out std_logic_vector(11 downto 0)
 	);
 end id_reg;
 
@@ -49,6 +51,13 @@ begin
 			reg_a1<=id_store(11 downto 9);
 			reg_a2<=id_store(8 downto 6);
 			reg_a3<=id_store(5 downto 3);
+		elsif(opcode3="0000") then
+			reg_a1<=id_store(11 downto 9);
+			reg_a3<=id_store(8 downto 6);
+			imm<=id_store(5 downto 0);
+		elsif(opcode3="0011")then
+			reg_rd(11 downto 0)<=id_store(11 downto 0);
+			
 		end if;
 	end process;
 	
@@ -75,7 +84,9 @@ entity rd_reg is
 		alu_b: out std_logic_vector(15 downto 0);
 		opcode3: in std_logic_vector(3 downto 0);
 		opcode4: in std_logic_vector(3 downto  0);
-		clk: in std_logic
+		clk: in std_logic;
+		id: in std_logic_vector(11 downto 0);
+		exec_j: out std_logic_vector(18 downto 0)
 	);
 end rd_reg;
 
@@ -88,13 +99,22 @@ begin
 			alu_a<= rd_store(15 downto 0);
 			alu_b<=rd_store(31 downto 16);
 			ex_reg<=rd_store(34 downto 32);
+		elsif(opcode4="0000") then
+			alu_a<= rd_store(15 downto 0);
+			alu_b(5 downto 0)<=rd_store(21 downto 16);
+			alu_b(15 downto 6)<="0000000000";
+			ex_reg<=rd_store(34 downto 32);
+		elsif(opcode4="0011") then
+			exec_j<=rd_store(18 downto 0);
 		end if;
 	end process;
 	write_proc: process(clk)
 	begin 
 		if(falling_edge(clk)) then
-			if (opcode3="0001") then
+			if (opcode3="0001" or opcode3="0000") then
 				rd_store<= reg;
+			elsif (opcode3="0011") then
+				rd_store(11 downto 0)<=id;
 			end if;
 		end if;
 	end process;
@@ -115,7 +135,8 @@ entity execute_reg is
 		mem_reg: out std_logic_vector(18 downto 0);
 		clk: in std_logic;
 		no_write_in: in std_logic;
-			no_write_out: out std_logic
+			no_write_out: out std_logic;
+			rd_j: in std_logic_vector(18 downto 0)
 	);
 end execute_reg;
 
@@ -126,7 +147,7 @@ begin
 	no_write_out<=no_write;
 	read_proc: process(opcode5, exe_store )
 	begin
-		if (opcode5="0001") then
+		if (opcode5="0001" or opcode5="0000" or opcode5="0011") then
 		  mem_reg <= exe_store;
 		
 		
@@ -135,9 +156,11 @@ begin
 	write_proc: process(clk)
 	begin 
 		if(falling_edge(clk)) then
-			if (opcode4="0001") then
+			if (opcode4="0001" or opcode4="0000") then
 				exe_store(15 downto 0)<= alu;
 				exe_store(18 downto 16)<= rd_reg;
+			elsif (opcode4="0011") then
+				exe_store<=rd_j;
 			end if;
 			no_write<=no_write_in;
 		end if;
@@ -170,7 +193,7 @@ begin
 	read_proc: process(opcode6, mem_store )-- if the same load inst is used simultaneously a problem arises as 
 	                                        -- sensitivity list not triggered. look into it 
 	begin
-		   if(opcode6="0001") then
+		   if(opcode6="0001" or opcode5="0000" or opcode5="0011") then
 				wb_in<= mem_store;
 			end if;
 	end process;
@@ -178,7 +201,7 @@ begin
 	write_proc: process(clk)
 	begin 
 		if(falling_edge(clk)) then
-			if (opcode5="0001") then
+			if (opcode5="0001" or opcode5="0000" or opcode5="0011") then
 				mem_store<= exec_reg;
 				no_write<=no_write_in;
 			end if;

@@ -1,5 +1,5 @@
 Fitter report for DUT
-Sat Apr 30 02:58:37 2022
+Sat Apr 30 04:42:36 2022
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -57,14 +57,14 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------------+
 ; Fitter Summary                                                      ;
 +-----------------------+---------------------------------------------+
-; Fitter Status         ; Successful - Sat Apr 30 02:58:37 2022       ;
+; Fitter Status         ; Successful - Sat Apr 30 04:42:36 2022       ;
 ; Quartus Prime Version ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name         ; DUT                                         ;
 ; Top-level Entity Name ; DUT                                         ;
 ; Family                ; MAX V                                       ;
 ; Device                ; 5M2210ZF256C4                               ;
 ; Timing Models         ; Final                                       ;
-; Total logic elements  ; 7 / 2,210 ( < 1 % )                         ;
+; Total logic elements  ; 10 / 2,210 ( < 1 % )                        ;
 ; Total pins            ; 5 / 203 ( 2 % )                             ;
 ; Total virtual pins    ; 0                                           ;
 ; UFM blocks            ; 0 / 1 ( 0 % )                               ;
@@ -128,13 +128,13 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 8           ;
 ;                            ;             ;
-; Average used               ; 1.01        ;
+; Average used               ; 1.02        ;
 ; Maximum used               ; 8           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.2%      ;
-;     Processors 3-8         ;   0.1%      ;
+;     Processor 2            ;   0.4%      ;
+;     Processors 3-8         ;   0.2%      ;
 +----------------------------+-------------+
 
 
@@ -144,53 +144,53 @@ https://fpgasoftware.intel.com/eula.
 The pin-out file can be found in /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/output_files/DUT.pin.
 
 
-+-------------------------------------------------------------------+
-; Fitter Resource Usage Summary                                     ;
-+---------------------------------------------+---------------------+
-; Resource                                    ; Usage               ;
-+---------------------------------------------+---------------------+
-; Total logic elements                        ; 7 / 2,210 ( < 1 % ) ;
-;     -- Combinational with no register       ; 2                   ;
-;     -- Register only                        ; 0                   ;
-;     -- Combinational with a register        ; 5                   ;
-;                                             ;                     ;
-; Logic element usage by number of LUT inputs ;                     ;
-;     -- 4 input functions                    ; 1                   ;
-;     -- 3 input functions                    ; 0                   ;
-;     -- 2 input functions                    ; 5                   ;
-;     -- 1 input functions                    ; 1                   ;
-;     -- 0 input functions                    ; 0                   ;
-;                                             ;                     ;
-; Logic elements by mode                      ;                     ;
-;     -- normal mode                          ; 4                   ;
-;     -- arithmetic mode                      ; 3                   ;
-;     -- qfbk mode                            ; 0                   ;
-;     -- register cascade mode                ; 0                   ;
-;     -- synchronous clear/load mode          ; 0                   ;
-;     -- asynchronous clear/load mode         ; 0                   ;
-;                                             ;                     ;
-; Total registers                             ; 5 / 2,210 ( < 1 % ) ;
-; Total LABs                                  ; 1 / 221 ( < 1 % )   ;
-; Logic elements in carry chains              ; 4                   ;
-; Virtual pins                                ; 0                   ;
-; I/O pins                                    ; 5 / 203 ( 2 % )     ;
-;     -- Clock pins                           ; 1 / 4 ( 25 % )      ;
-;                                             ;                     ;
-; UFM blocks                                  ; 0 / 1 ( 0 % )       ;
-;                                             ;                     ;
-;     -- Total Fixed Point DSP Blocks         ; 0                   ;
-;     -- Total Floating Point DSP Blocks      ; 0                   ;
-;                                             ;                     ;
-; Global signals                              ; 1                   ;
-;     -- Global clocks                        ; 1 / 4 ( 25 % )      ;
-; JTAGs                                       ; 0 / 1 ( 0 % )       ;
-; Average interconnect usage (total/H/V)      ; 0.0% / 0.0% / 0.0%  ;
-; Peak interconnect usage (total/H/V)         ; 0.0% / 0.0% / 0.0%  ;
-; Maximum fan-out                             ; 5                   ;
-; Highest non-global fan-out                  ; 3                   ;
-; Total fan-out                               ; 21                  ;
-; Average fan-out                             ; 1.75                ;
-+---------------------------------------------+---------------------+
++--------------------------------------------------------------------+
+; Fitter Resource Usage Summary                                      ;
++---------------------------------------------+----------------------+
+; Resource                                    ; Usage                ;
++---------------------------------------------+----------------------+
+; Total logic elements                        ; 10 / 2,210 ( < 1 % ) ;
+;     -- Combinational with no register       ; 1                    ;
+;     -- Register only                        ; 1                    ;
+;     -- Combinational with a register        ; 8                    ;
+;                                             ;                      ;
+; Logic element usage by number of LUT inputs ;                      ;
+;     -- 4 input functions                    ; 1                    ;
+;     -- 3 input functions                    ; 1                    ;
+;     -- 2 input functions                    ; 7                    ;
+;     -- 1 input functions                    ; 0                    ;
+;     -- 0 input functions                    ; 0                    ;
+;                                             ;                      ;
+; Logic elements by mode                      ;                      ;
+;     -- normal mode                          ; 7                    ;
+;     -- arithmetic mode                      ; 3                    ;
+;     -- qfbk mode                            ; 1                    ;
+;     -- register cascade mode                ; 0                    ;
+;     -- synchronous clear/load mode          ; 2                    ;
+;     -- asynchronous clear/load mode         ; 0                    ;
+;                                             ;                      ;
+; Total registers                             ; 9 / 2,210 ( < 1 % )  ;
+; Total LABs                                  ; 2 / 221 ( < 1 % )    ;
+; Logic elements in carry chains              ; 4                    ;
+; Virtual pins                                ; 0                    ;
+; I/O pins                                    ; 5 / 203 ( 2 % )      ;
+;     -- Clock pins                           ; 1 / 4 ( 25 % )       ;
+;                                             ;                      ;
+; UFM blocks                                  ; 0 / 1 ( 0 % )        ;
+;                                             ;                      ;
+;     -- Total Fixed Point DSP Blocks         ; 0                    ;
+;     -- Total Floating Point DSP Blocks      ; 0                    ;
+;                                             ;                      ;
+; Global signals                              ; 1                    ;
+;     -- Global clocks                        ; 1 / 4 ( 25 % )       ;
+; JTAGs                                       ; 0 / 1 ( 0 % )        ;
+; Average interconnect usage (total/H/V)      ; 0.0% / 0.1% / 0.0%   ;
+; Peak interconnect usage (total/H/V)         ; 0.1% / 0.1% / 0.0%   ;
+; Maximum fan-out                             ; 9                    ;
+; Highest non-global fan-out                  ; 4                    ;
+; Total fan-out                               ; 41                   ;
+; Average fan-out                             ; 2.73                 ;
++---------------------------------------------+----------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -198,7 +198,7 @@ The pin-out file can be found in /home/winston/Documents/Acads/sem_2/EE309/EE309
 +-----------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+-----------------+----------+--------------+--------------+----------------------+----------------+
 ; Name            ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Combinational Fan-Out ; Registered Fan-Out ; Global ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Location assigned by ; Slow Slew Rate ;
 +-----------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+-----------------+----------+--------------+--------------+----------------------+----------------+
-; input_vector[0] ; H5    ; 1        ; 0            ; 8            ; 0           ; 5                     ; 0                  ; yes    ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
+; input_vector[0] ; H5    ; 1        ; 0            ; 8            ; 0           ; 9                     ; 0                  ; yes    ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
 +-----------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+-----------------+----------+--------------+--------------+----------------------+----------------+
 
 
@@ -207,23 +207,23 @@ The pin-out file can be found in /home/winston/Documents/Acads/sem_2/EE309/EE309
 +------------------+-------+----------+--------------+--------------+-------------+-----------------+----------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+------------------------+----------------------+-------+----------------------+---------------------+
 ; Name             ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Output Register ; Slow Slew Rate ; PCI I/O Enabled ; Open Drain ; TRI Primitive ; Bus Hold ; Weak Pull Up ; I/O Standard ; Current Strength ; Fast Output Connection ; Location assigned by ; Load  ; Output Enable Source ; Output Enable Group ;
 +------------------+-------+----------+--------------+--------------+-------------+-----------------+----------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+------------------------+----------------------+-------+----------------------+---------------------+
-; output_vector[0] ; D3    ; 1        ; 0            ; 13           ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; output_vector[1] ; E15   ; 3        ; 21           ; 10           ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; output_vector[2] ; G2    ; 1        ; 0            ; 10           ; 5           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; output_vector[3] ; N7    ; 4        ; 7            ; 3            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; output_vector[0] ; M2    ; 1        ; 0            ; 6            ; 5           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; output_vector[1] ; L5    ; 1        ; 0            ; 6            ; 4           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; Fitter               ; 10 pF ; -                    ; -                   ;
+; output_vector[2] ; L2    ; 1        ; 0            ; 6            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; output_vector[3] ; M1    ; 1        ; 0            ; 6            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
 +------------------+-------+----------+--------------+--------------+-------------+-----------------+----------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+------------------------+----------------------+-------+----------------------+---------------------+
 
 
-+----------------------------------------------------------+
-; I/O Bank Usage                                           ;
-+----------+----------------+---------------+--------------+
-; I/O Bank ; Usage          ; VCCIO Voltage ; VREF Voltage ;
-+----------+----------------+---------------+--------------+
-; 1        ; 3 / 49 ( 6 % ) ; 3.3V          ; --           ;
-; 2        ; 0 / 51 ( 0 % ) ; 3.3V          ; --           ;
-; 3        ; 1 / 53 ( 2 % ) ; 3.3V          ; --           ;
-; 4        ; 1 / 50 ( 2 % ) ; 3.3V          ; --           ;
-+----------+----------------+---------------+--------------+
++-----------------------------------------------------------+
+; I/O Bank Usage                                            ;
++----------+-----------------+---------------+--------------+
+; I/O Bank ; Usage           ; VCCIO Voltage ; VREF Voltage ;
++----------+-----------------+---------------+--------------+
+; 1        ; 5 / 49 ( 10 % ) ; 3.3V          ; --           ;
+; 2        ; 0 / 51 ( 0 % )  ; 3.3V          ; --           ;
+; 3        ; 0 / 53 ( 0 % )  ; 3.3V          ; --           ;
+; 4        ; 0 / 50 ( 0 % )  ; 3.3V          ; --           ;
++----------+-----------------+---------------+--------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -281,7 +281,7 @@ The pin-out file can be found in /home/winston/Documents/Acads/sem_2/EE309/EE309
 ; C16      ;            ; 3        ; VCCIO3           ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; D1       ; 9          ; 1        ; GND*             ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; D2       ; 7          ; 1        ; GND*             ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; D3       ; 1          ; 1        ; output_vector[0] ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; D3       ; 1          ; 1        ; GND*             ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; D4       ; 274        ; 2        ; GND*             ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; D5       ; 265        ; 2        ; GND*             ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; D6       ; 259        ; 2        ; GND*             ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
@@ -309,7 +309,7 @@ The pin-out file can be found in /home/winston/Documents/Acads/sem_2/EE309/EE309
 ; E12      ; 194        ; 3        ; GND*             ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; E13      ; 200        ; 3        ; GND*             ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; E14      ; 207        ; 3        ; GND*             ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; E15      ; 189        ; 3        ; output_vector[1] ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; E15      ; 189        ; 3        ; GND*             ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; E16      ; 187        ; 3        ; GND*             ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; F1       ; 23         ; 1        ; GND*             ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; F2       ; 21         ; 1        ; GND*             ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
@@ -328,7 +328,7 @@ The pin-out file can be found in /home/winston/Documents/Acads/sem_2/EE309/EE309
 ; F15      ; 185        ; 3        ; GND*             ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; F16      ; 183        ; 3        ; GND*             ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; G1       ; 27         ; 1        ; GND*             ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; G2       ; 25         ; 1        ; output_vector[2] ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; G2       ; 25         ; 1        ; GND*             ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; G3       ; 26         ; 1        ; GND*             ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; G4       ; 28         ; 1        ; GND*             ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; G5       ; 30         ; 1        ; GND*             ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
@@ -392,10 +392,10 @@ The pin-out file can be found in /home/winston/Documents/Acads/sem_2/EE309/EE309
 ; K15      ; 165        ; 3        ; GND*             ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; K16      ; 167        ; 3        ; GND*             ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; L1       ; 45         ; 1        ; GND*             ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; L2       ; 49         ; 1        ; GND*             ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; L2       ; 49         ; 1        ; output_vector[2] ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; L3       ; 56         ; 1        ; GND*             ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; L4       ; 54         ; 1        ; GND*             ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; L5       ; 52         ; 1        ; GND*             ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; L5       ; 52         ; 1        ; output_vector[1] ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; L6       ; 67         ; 1        ; #TDI             ; input  ;              ;         ; --         ;                 ; --       ; --           ;
 ; L7       ;            ;          ; VCCINT           ; power  ;              ; 1.8V    ; --         ;                 ; --       ; --           ;
 ; L8       ;            ; 4        ; VCCIO4           ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
@@ -407,8 +407,8 @@ The pin-out file can be found in /home/winston/Documents/Acads/sem_2/EE309/EE309
 ; L14      ; 156        ; 3        ; GND*             ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; L15      ; 161        ; 3        ; GND*             ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; L16      ; 163        ; 3        ; GND*             ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; M1       ; 51         ; 1        ; GND*             ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; M2       ; 53         ; 1        ; GND*             ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; M1       ; 51         ; 1        ; output_vector[3] ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; M2       ; 53         ; 1        ; output_vector[0] ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; M3       ; 62         ; 1        ; GND*             ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; M4       ; 60         ; 1        ; GND*             ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; M5       ; 69         ; 1        ; #TDO             ; output ;              ;         ; --         ;                 ; --       ; --           ;
@@ -429,7 +429,7 @@ The pin-out file can be found in /home/winston/Documents/Acads/sem_2/EE309/EE309
 ; N4       ; 66         ; 1        ; #TMS             ; input  ;              ;         ; --         ;                 ; --       ; --           ;
 ; N5       ; 78         ; 4        ; GND*             ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; N6       ; 88         ; 4        ; GND*             ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; N7       ; 94         ; 4        ; output_vector[3] ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; N7       ; 94         ; 4        ; GND*             ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; N8       ; 100        ; 4        ; GND*             ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; N9       ; 102        ; 4        ; GND*             ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; N10      ; 112        ; 4        ; GND*             ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
@@ -524,15 +524,15 @@ Note: User assignments will override these defaults. The user specified values a
 +------------------+-----------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Fitter Resource Utilization by Entity                                                                                                                                                                                                ;
-+----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name   ; Entity Name ; Library Name ;
-+----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------+-------------+--------------+
-; |DUT                       ; 7 (0)       ; 5            ; 0          ; 5    ; 0            ; 2 (0)        ; 0 (0)             ; 5 (0)            ; 4 (0)           ; 0 (0)      ; |DUT                  ; DUT         ; work         ;
-;    |mem:mem_instance|      ; 2 (2)       ; 0            ; 0          ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |DUT|mem:mem_instance ; mem         ; work         ;
-;    |pc:pc_instance|        ; 5 (5)       ; 5            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 5 (5)            ; 4 (4)           ; 0 (0)      ; |DUT|pc:pc_instance   ; pc          ; work         ;
-+----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------+-------------+--------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fitter Resource Utilization by Entity                                                                                                                                                                                              ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+-------------+--------------+
+; |DUT                       ; 10 (0)      ; 9            ; 0          ; 5    ; 0            ; 1 (0)        ; 1 (0)             ; 8 (0)            ; 4 (0)           ; 1 (0)      ; |DUT                ; DUT         ; work         ;
+;    |ir:ir_instance|        ; 4 (4)       ; 4            ; 0          ; 0    ; 0            ; 0 (0)        ; 1 (1)             ; 3 (3)            ; 0 (0)           ; 1 (1)      ; |DUT|ir:ir_instance ; ir          ; work         ;
+;    |pc:pc_instance|        ; 6 (6)       ; 5            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 5 (5)            ; 4 (4)           ; 0 (0)      ; |DUT|pc:pc_instance ; pc          ; work         ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -549,13 +549,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------------+----------+---------------+
 
 
-+-------------------------------------------------------------------------------------------------+
-; Control Signals                                                                                 ;
-+-----------------+----------+---------+-------+--------+----------------------+------------------+
-; Name            ; Location ; Fan-Out ; Usage ; Global ; Global Resource Used ; Global Line Name ;
-+-----------------+----------+---------+-------+--------+----------------------+------------------+
-; input_vector[0] ; PIN_H5   ; 5       ; Clock ; yes    ; Global Clock         ; GCLK0            ;
-+-----------------+----------+---------+-------+--------+----------------------+------------------+
++-------------------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                                   ;
++-------------------------+-------------+---------+--------------+--------+----------------------+------------------+
+; Name                    ; Location    ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ;
++-------------------------+-------------+---------+--------------+--------+----------------------+------------------+
+; input_vector[0]         ; PIN_H5      ; 9       ; Clock        ; yes    ; Global Clock         ; GCLK0            ;
+; ir:ir_instance|Equal0~0 ; LC_X2_Y6_N8 ; 2       ; Clock enable ; no     ; --                   ; --               ;
+; pc:pc_instance|Equal0~0 ; LC_X1_Y6_N9 ; 4       ; Clock enable ; no     ; --                   ; --               ;
++-------------------------+-------------+---------+--------------+--------+----------------------+------------------+
 
 
 +--------------------------------------------------------------------------------+
@@ -563,7 +565,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------+----------+---------+----------------------+------------------+
 ; Name            ; Location ; Fan-Out ; Global Resource Used ; Global Line Name ;
 +-----------------+----------+---------+----------------------+------------------+
-; input_vector[0] ; PIN_H5   ; 5       ; Global Clock         ; GCLK0            ;
+; input_vector[0] ; PIN_H5   ; 9       ; Global Clock         ; GCLK0            ;
 +-----------------+----------+---------+----------------------+------------------+
 
 
@@ -573,23 +575,23 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Routing Resource Type ; Usage               ;
 +-----------------------+---------------------+
 ; C4s                   ; 0 / 4,452 ( 0 % )   ;
-; Direct links          ; 3 / 6,570 ( < 1 % ) ;
+; Direct links          ; 7 / 6,570 ( < 1 % ) ;
 ; Global clocks         ; 1 / 4 ( 25 % )      ;
-; LAB clocks            ; 1 / 88 ( 1 % )      ;
+; LAB clocks            ; 2 / 88 ( 2 % )      ;
 ; LUT chains            ; 0 / 1,989 ( 0 % )   ;
-; Local interconnects   ; 4 / 6,570 ( < 1 % ) ;
-; R4s                   ; 1 / 4,576 ( < 1 % ) ;
+; Local interconnects   ; 9 / 6,570 ( < 1 % ) ;
+; R4s                   ; 3 / 4,576 ( < 1 % ) ;
 +-----------------------+---------------------+
 
 
 +--------------------------------------------------------------------------+
 ; LAB Logic Elements                                                       ;
 +--------------------------------------------+-----------------------------+
-; Number of Logic Elements  (Average = 7.00) ; Number of LABs  (Total = 1) ;
+; Number of Logic Elements  (Average = 5.00) ; Number of LABs  (Total = 2) ;
 +--------------------------------------------+-----------------------------+
 ; 1                                          ; 0                           ;
 ; 2                                          ; 0                           ;
-; 3                                          ; 0                           ;
+; 3                                          ; 1                           ;
 ; 4                                          ; 0                           ;
 ; 5                                          ; 0                           ;
 ; 6                                          ; 0                           ;
@@ -603,45 +605,53 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------------------------------------------------------------+
 ; LAB-wide Signals                                                 ;
 +------------------------------------+-----------------------------+
-; LAB-wide Signals  (Average = 1.00) ; Number of LABs  (Total = 1) ;
+; LAB-wide Signals  (Average = 1.50) ; Number of LABs  (Total = 2) ;
 +------------------------------------+-----------------------------+
-; 1 Clock                            ; 1                           ;
+; 1 Clock                            ; 2                           ;
+; 1 Clock enable                     ; 1                           ;
 +------------------------------------+-----------------------------+
 
 
 +---------------------------------------------------------------------------+
 ; LAB Signals Sourced                                                       ;
 +---------------------------------------------+-----------------------------+
-; Number of Signals Sourced  (Average = 7.00) ; Number of LABs  (Total = 1) ;
+; Number of Signals Sourced  (Average = 6.00) ; Number of LABs  (Total = 2) ;
 +---------------------------------------------+-----------------------------+
 ; 0                                           ; 0                           ;
 ; 1                                           ; 0                           ;
 ; 2                                           ; 0                           ;
-; 3                                           ; 0                           ;
+; 3                                           ; 1                           ;
 ; 4                                           ; 0                           ;
 ; 5                                           ; 0                           ;
 ; 6                                           ; 0                           ;
-; 7                                           ; 1                           ;
+; 7                                           ; 0                           ;
+; 8                                           ; 0                           ;
+; 9                                           ; 1                           ;
 +---------------------------------------------+-----------------------------+
 
 
 +-------------------------------------------------------------------------------+
 ; LAB Signals Sourced Out                                                       ;
 +-------------------------------------------------+-----------------------------+
-; Number of Signals Sourced Out  (Average = 1.00) ; Number of LABs  (Total = 1) ;
+; Number of Signals Sourced Out  (Average = 3.00) ; Number of LABs  (Total = 2) ;
 +-------------------------------------------------+-----------------------------+
 ; 0                                               ; 0                           ;
-; 1                                               ; 1                           ;
+; 1                                               ; 0                           ;
+; 2                                               ; 1                           ;
+; 3                                               ; 0                           ;
+; 4                                               ; 1                           ;
 +-------------------------------------------------+-----------------------------+
 
 
 +---------------------------------------------------------------------------+
 ; LAB Distinct Inputs                                                       ;
 +---------------------------------------------+-----------------------------+
-; Number of Distinct Inputs  (Average = 1.00) ; Number of LABs  (Total = 1) ;
+; Number of Distinct Inputs  (Average = 3.00) ; Number of LABs  (Total = 2) ;
 +---------------------------------------------+-----------------------------+
 ; 0                                           ; 0                           ;
-; 1                                           ; 1                           ;
+; 1                                           ; 0                           ;
+; 2                                           ; 0                           ;
+; 3                                           ; 2                           ;
 +---------------------------------------------+-----------------------------+
 
 
@@ -710,14 +720,14 @@ Info (170195): Router estimated average interconnect usage is 0% of the availabl
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:00
-Info (11888): Total time spent on timing analysis during the Fitter is 0.06 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.08 seconds.
 Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:00
 Warning (169174): The Reserve All Unused Pins setting has not been specified, and will default to 'As output driving ground'.
 Info (144001): Generated suppressed messages file /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/output_files/DUT.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 1176 megabytes
-    Info: Processing ended: Sat Apr 30 02:58:37 2022
-    Info: Elapsed time: 00:00:01
+    Info: Peak virtual memory: 1171 megabytes
+    Info: Processing ended: Sat Apr 30 04:42:36 2022
+    Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 
 

@@ -42,6 +42,7 @@ architecture DutWrap of DUT is
 			opcode3: in std_logic_vector(3 downto 0);
 			reg_wb: in std_logic_vector(18 downto 0);
 			opcode6: in std_logic_vector(3 downto 0);
+			imm: in std_logic_vector(5 downto 0);
 			clk: in std_logic;
 			no_write: in std_logic
 	);
@@ -121,9 +122,11 @@ component id_reg is
 		id : in std_logic_vector(15 downto 0);
 		reg_a1 : out std_logic_vector(2 downto 0);
 		reg_a2 : out std_logic_vector(2 downto 0);
+		imm: out std_logic_vector(5 downto 0);
 		reg_a3 : out std_logic_vector(2 downto 0);
 		opcode3: in std_logic_vector(3 downto 0);
-		clk: in std_logic
+		clk: in std_logic;
+		reg_rd: out std_logic_vector(11 downto 0)
 	);
 end component;
 
@@ -136,7 +139,9 @@ component rd_reg is
 		alu_b: out std_logic_vector(15 downto 0);
 		opcode3: in std_logic_vector(3 downto 0);
 		opcode4: in std_logic_vector(3 downto  0);
-		clk: in std_logic
+		clk: in std_logic;
+		id: in std_logic_vector(11 downto 0);
+		exec_j: out std_logic_vector(18 downto 0)
 	);
 end component;
 
@@ -149,7 +154,8 @@ component execute_reg is
 		mem_reg: out std_logic_vector(18 downto 0);
 		clk: in std_logic;
 		no_write_in: in std_logic;
-			no_write_out: out std_logic
+			no_write_out: out std_logic;
+			rd_j: in std_logic_vector(18 downto 0)
 	);
 end component;
 
@@ -167,11 +173,13 @@ end component;
 
 signal w_ir_if, w_if_id, w_id_reg, w_rd_alua, w_rd_alub, w_ex_alu, curr_ins, w_pc_mem: std_logic_vector(15 downto 0);
 signal w_reg_a1, w_reg_a2, w_reg_a3, w_rd_ex: std_logic_vector(2 downto 0);
-signal w_wb, w_exec_mem,w_wb_mem: std_logic_vector(18 downto 0);
+signal w_wb, w_exec_mem,w_wb_mem, w_exec_j: std_logic_vector(18 downto 0);
 signal w_rd_reg: std_logic_vector(34 downto 0);
 signal opcode1, opcode2, opcode3, opcode4, opcode5, opcode6: std_logic_vector(3 downto 0);
 signal cz: std_logic_vector(1 downto 0);
 signal no_write, w_no_alu, w_no_mem, wb_no_write: std_logic;
+signal w_imm: std_logic_vector(5 downto 0);
+signal w_id_j:std_logic_vector(11 downto 0);
 
 
 begin
@@ -212,7 +220,9 @@ begin
 			opcode3 => opcode3,
 			reg_a1 => w_reg_a1,
 			reg_a2 => w_reg_a2,
-			reg_a3 => w_reg_a3
+			reg_a3 => w_reg_a3,
+			imm => w_imm,
+			reg_rd => w_id_j
 		);
 		
 		reg_instance: registers
@@ -225,7 +235,8 @@ begin
 					clk => input_vector(0),
 					reg_wb => w_wb, 
 					opcode6 => opcode6,
-					no_write => wb_no_write
+					no_write => wb_no_write,
+					imm => w_imm
 				);	
 				
 				
@@ -237,7 +248,9 @@ begin
 				alu_a => w_rd_alua,
 				alu_b => w_rd_alub,
 				opcode3 => opcode3,
-				opcode4 => opcode4
+				opcode4 => opcode4,
+				id => w_id_j,
+				exec_j=> w_exec_j
 				
 			);
 			
@@ -250,7 +263,8 @@ begin
 		opcode5 => opcode5,
 		clk => input_vector(0),
 		no_write_in => w_no_alu,
-		no_write_out => w_no_mem
+		no_write_out => w_no_mem,
+		rd_j=> w_exec_j
 			);	
 		
 		alu_instance: alu

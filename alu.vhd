@@ -60,6 +60,22 @@ begin
 		else 
 			no_write<='1';
 		end if;
+		elsif(opcode4="0000")then
+			temp := to_integer(unsigned(alu_a)) + to_integer(unsigned(alu_b));
+		 no_write<='0';
+		 if (temp>65536) then
+			carry <= '1';
+			ex_reg <= std_logic_vector(to_unsigned(temp-65535,16));
+		
+		elsif(temp=65536) then
+				zero <='1';
+				carry <= '1';
+				ex_reg <= std_logic_vector(to_unsigned(temp,16));
+			else
+				zero <='0';
+				carry <= '0';
+				ex_reg <= std_logic_vector(to_unsigned(temp,16));
+			end if;	
 	end if;
 	
 	end process;

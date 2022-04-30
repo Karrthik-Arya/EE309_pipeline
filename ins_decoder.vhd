@@ -27,6 +27,12 @@ begin
 		id_reg(11 downto 9) <=ins_store(11 downto 9);
 		id_reg(8 downto 6)  <= ins_store(8 downto 6);
 		id_reg(5 downto 3)  <= ins_store(5 downto 3);
+	elsif(op_code="0000") then
+		id_reg(11 downto 9) <=ins_store(11 downto 9);
+		id_reg(8 downto 6) <= ins_store(8 downto 6);
+		id_reg(5 downto 0)<= ins_store(5 downto 0);
+	elsif(op_code="0011") then
+		id_reg<=ins_store;
 	end if;
 	end process;
 

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for DUT
-Sat Apr 30 02:58:35 2022
+Sat Apr 30 04:42:34 2022
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -14,11 +14,10 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Registers Removed During Synthesis
-  9. Removed Registers Triggering Further Register Optimizations
- 10. General Register Statistics
- 11. Port Connectivity Checks: "pc:pc_instance"
- 12. Port Connectivity Checks: "mem:mem_instance"
- 13. Analysis & Synthesis Messages
+  9. General Register Statistics
+ 10. Port Connectivity Checks: "pc:pc_instance"
+ 11. Port Connectivity Checks: "mem:mem_instance"
+ 12. Analysis & Synthesis Messages
 
 
 
@@ -45,12 +44,12 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                              ;
 +-----------------------------+---------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Sat Apr 30 02:58:35 2022       ;
+; Analysis & Synthesis Status ; Successful - Sat Apr 30 04:42:34 2022       ;
 ; Quartus Prime Version       ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name               ; DUT                                         ;
 ; Top-level Entity Name       ; DUT                                         ;
 ; Family                      ; MAX V                                       ;
-; Total logic elements        ; 7                                           ;
+; Total logic elements        ; 13                                          ;
 ; Total pins                  ; 5                                           ;
 ; Total virtual pins          ; 0                                           ;
 ; UFM blocks                  ; 0 / 1 ( 0 % )                               ;
@@ -165,33 +164,33 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------------+
 ; Resource                                    ; Usage           ;
 +---------------------------------------------+-----------------+
-; Total logic elements                        ; 7               ;
-;     -- Combinational with no register       ; 2               ;
-;     -- Register only                        ; 0               ;
+; Total logic elements                        ; 13              ;
+;     -- Combinational with no register       ; 4               ;
+;     -- Register only                        ; 4               ;
 ;     -- Combinational with a register        ; 5               ;
 ;                                             ;                 ;
 ; Logic element usage by number of LUT inputs ;                 ;
 ;     -- 4 input functions                    ; 1               ;
-;     -- 3 input functions                    ; 0               ;
-;     -- 2 input functions                    ; 5               ;
-;     -- 1 input functions                    ; 1               ;
+;     -- 3 input functions                    ; 1               ;
+;     -- 2 input functions                    ; 7               ;
+;     -- 1 input functions                    ; 0               ;
 ;     -- 0 input functions                    ; 0               ;
 ;                                             ;                 ;
 ; Logic elements by mode                      ;                 ;
-;     -- normal mode                          ; 4               ;
+;     -- normal mode                          ; 10              ;
 ;     -- arithmetic mode                      ; 3               ;
 ;     -- qfbk mode                            ; 0               ;
 ;     -- register cascade mode                ; 0               ;
 ;     -- synchronous clear/load mode          ; 0               ;
 ;     -- asynchronous clear/load mode         ; 0               ;
 ;                                             ;                 ;
-; Total registers                             ; 5               ;
+; Total registers                             ; 9               ;
 ; Total logic cells in carry chains           ; 4               ;
 ; I/O pins                                    ; 5               ;
 ; Maximum fan-out node                        ; input_vector[0] ;
-; Maximum fan-out                             ; 5               ;
-; Total fan-out                               ; 21              ;
-; Average fan-out                             ; 1.75            ;
+; Maximum fan-out                             ; 9               ;
+; Total fan-out                               ; 44              ;
+; Average fan-out                             ; 2.44            ;
 +---------------------------------------------+-----------------+
 
 
@@ -200,74 +199,50 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name   ; Entity Name ; Library Name ;
 +----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------+-------------+--------------+
-; |DUT                       ; 7 (0)       ; 5            ; 0          ; 5    ; 0            ; 2 (0)        ; 0 (0)             ; 5 (0)            ; 4 (0)           ; 0 (0)      ; |DUT                  ; DUT         ; work         ;
+; |DUT                       ; 13 (0)      ; 9            ; 0          ; 5    ; 0            ; 4 (0)        ; 4 (0)             ; 5 (0)            ; 4 (0)           ; 0 (0)      ; |DUT                  ; DUT         ; work         ;
+;    |ir:ir_instance|        ; 5 (5)       ; 4            ; 0          ; 0    ; 0            ; 1 (1)        ; 4 (4)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |DUT|ir:ir_instance   ; ir          ; work         ;
 ;    |mem:mem_instance|      ; 2 (2)       ; 0            ; 0          ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |DUT|mem:mem_instance ; mem         ; work         ;
-;    |pc:pc_instance|        ; 5 (5)       ; 5            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 5 (5)            ; 4 (4)           ; 0 (0)      ; |DUT|pc:pc_instance   ; pc          ; work         ;
+;    |pc:pc_instance|        ; 6 (6)       ; 5            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 5 (5)            ; 4 (4)           ; 0 (0)      ; |DUT|pc:pc_instance   ; pc          ; work         ;
 +----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+---------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                              ;
-+----------------------------------------+----------------------------------------+
-; Register name                          ; Reason for Removal                     ;
-+----------------------------------------+----------------------------------------+
-; ir:ir_instance|ir_store[0][15]         ; Stuck at GND due to stuck port data_in ;
-; ir:ir_instance|ir_store[0][14]         ; Stuck at GND due to stuck port data_in ;
-; ir:ir_instance|ir_store[0][13]         ; Stuck at GND due to stuck port data_in ;
-; ir:ir_instance|ir_store[1][15]         ; Stuck at GND due to stuck port data_in ;
-; ir:ir_instance|ir_store[1][14]         ; Stuck at GND due to stuck port data_in ;
-; ir:ir_instance|ir_store[1][13]         ; Stuck at GND due to stuck port data_in ;
-; ir:ir_instance|ir_store[1][12]         ; Lost fanout                            ;
-; ir:ir_instance|ir_store[0][12]         ; Lost fanout                            ;
-; ir:ir_instance|ir_store[1][11]         ; Lost fanout                            ;
-; ir:ir_instance|ir_store[0][11]         ; Lost fanout                            ;
-; ir:ir_instance|ir_store[1][10]         ; Lost fanout                            ;
-; ir:ir_instance|ir_store[0][10]         ; Lost fanout                            ;
-; ir:ir_instance|ir_store[1][9]          ; Lost fanout                            ;
-; ir:ir_instance|ir_store[0][9]          ; Lost fanout                            ;
-; ir:ir_instance|ir_store[1][8]          ; Lost fanout                            ;
-; ir:ir_instance|ir_store[0][8]          ; Lost fanout                            ;
-; ir:ir_instance|ir_store[1][7]          ; Lost fanout                            ;
-; ir:ir_instance|ir_store[0][7]          ; Lost fanout                            ;
-; ir:ir_instance|ir_store[1][6]          ; Lost fanout                            ;
-; ir:ir_instance|ir_store[0][6]          ; Lost fanout                            ;
-; ir:ir_instance|ir_store[1][5]          ; Lost fanout                            ;
-; ir:ir_instance|ir_store[0][5]          ; Lost fanout                            ;
-; ir:ir_instance|ir_store[1][4]          ; Lost fanout                            ;
-; ir:ir_instance|ir_store[0][4]          ; Lost fanout                            ;
-; ir:ir_instance|ir_store[1][3]          ; Lost fanout                            ;
-; ir:ir_instance|ir_store[0][3]          ; Lost fanout                            ;
-; ir:ir_instance|ir_store[1][2]          ; Lost fanout                            ;
-; ir:ir_instance|ir_store[0][2]          ; Lost fanout                            ;
-; ir:ir_instance|ir_store[1][1]          ; Lost fanout                            ;
-; ir:ir_instance|ir_store[0][1]          ; Lost fanout                            ;
-; ir:ir_instance|ir_store[1][0]          ; Lost fanout                            ;
-; ir:ir_instance|ir_store[0][0]          ; Lost fanout                            ;
-; pc:pc_instance|pc[5..15]               ; Lost fanout                            ;
-; Total Number of Removed Registers = 43 ;                                        ;
-+----------------------------------------+----------------------------------------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                  ;
-+--------------------------------+---------------------------+-----------------------------------------------------------------+
-; Register name                  ; Reason for Removal        ; Registers Removed due to This Register                          ;
-+--------------------------------+---------------------------+-----------------------------------------------------------------+
-; ir:ir_instance|ir_store[0][15] ; Stuck at GND              ; ir:ir_instance|ir_store[1][12], ir:ir_instance|ir_store[0][12], ;
-;                                ; due to stuck port data_in ; ir:ir_instance|ir_store[1][11], ir:ir_instance|ir_store[0][11], ;
-;                                ;                           ; ir:ir_instance|ir_store[1][10], ir:ir_instance|ir_store[0][10], ;
-;                                ;                           ; ir:ir_instance|ir_store[1][9], ir:ir_instance|ir_store[0][9],   ;
-;                                ;                           ; ir:ir_instance|ir_store[1][8], ir:ir_instance|ir_store[0][8],   ;
-;                                ;                           ; ir:ir_instance|ir_store[1][7], ir:ir_instance|ir_store[0][7]    ;
-; ir:ir_instance|ir_store[1][6]  ; Lost Fanouts              ; ir:ir_instance|ir_store[0][6]                                   ;
-; ir:ir_instance|ir_store[1][5]  ; Lost Fanouts              ; ir:ir_instance|ir_store[0][5]                                   ;
-; ir:ir_instance|ir_store[1][4]  ; Lost Fanouts              ; ir:ir_instance|ir_store[0][4]                                   ;
-; ir:ir_instance|ir_store[1][3]  ; Lost Fanouts              ; ir:ir_instance|ir_store[0][3]                                   ;
-; ir:ir_instance|ir_store[1][2]  ; Lost Fanouts              ; ir:ir_instance|ir_store[0][2]                                   ;
-; ir:ir_instance|ir_store[1][1]  ; Lost Fanouts              ; ir:ir_instance|ir_store[0][1]                                   ;
-; ir:ir_instance|ir_store[1][0]  ; Lost Fanouts              ; ir:ir_instance|ir_store[0][0]                                   ;
-+--------------------------------+---------------------------+-----------------------------------------------------------------+
++-------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                  ;
++----------------------------------------+--------------------------------------------+
+; Register name                          ; Reason for Removal                         ;
++----------------------------------------+--------------------------------------------+
+; ir:ir_instance|ir_store[0][14]         ; Merged with ir:ir_instance|ir_store[0][15] ;
+; ir:ir_instance|ir_store[0][11]         ; Merged with ir:ir_instance|ir_store[0][15] ;
+; ir:ir_instance|ir_store[0][10]         ; Merged with ir:ir_instance|ir_store[0][15] ;
+; ir:ir_instance|ir_store[0][9]          ; Merged with ir:ir_instance|ir_store[0][15] ;
+; ir:ir_instance|ir_store[0][8]          ; Merged with ir:ir_instance|ir_store[0][15] ;
+; ir:ir_instance|ir_store[0][7]          ; Merged with ir:ir_instance|ir_store[0][15] ;
+; ir:ir_instance|ir_store[0][5]          ; Merged with ir:ir_instance|ir_store[0][15] ;
+; ir:ir_instance|ir_store[0][4]          ; Merged with ir:ir_instance|ir_store[0][15] ;
+; ir:ir_instance|ir_store[0][3]          ; Merged with ir:ir_instance|ir_store[0][15] ;
+; ir:ir_instance|ir_store[0][2]          ; Merged with ir:ir_instance|ir_store[0][15] ;
+; ir:ir_instance|ir_store[0][12]         ; Merged with ir:ir_instance|ir_store[0][13] ;
+; ir:ir_instance|ir_store[0][6]          ; Merged with ir:ir_instance|ir_store[0][13] ;
+; ir:ir_instance|ir_store[0][1]          ; Merged with ir:ir_instance|ir_store[0][13] ;
+; ir:ir_instance|ir_store[0][0]          ; Merged with ir:ir_instance|ir_store[0][13] ;
+; ir:ir_instance|ir_store[1][14]         ; Merged with ir:ir_instance|ir_store[1][15] ;
+; ir:ir_instance|ir_store[1][11]         ; Merged with ir:ir_instance|ir_store[1][15] ;
+; ir:ir_instance|ir_store[1][10]         ; Merged with ir:ir_instance|ir_store[1][15] ;
+; ir:ir_instance|ir_store[1][9]          ; Merged with ir:ir_instance|ir_store[1][15] ;
+; ir:ir_instance|ir_store[1][8]          ; Merged with ir:ir_instance|ir_store[1][15] ;
+; ir:ir_instance|ir_store[1][7]          ; Merged with ir:ir_instance|ir_store[1][15] ;
+; ir:ir_instance|ir_store[1][5]          ; Merged with ir:ir_instance|ir_store[1][15] ;
+; ir:ir_instance|ir_store[1][4]          ; Merged with ir:ir_instance|ir_store[1][15] ;
+; ir:ir_instance|ir_store[1][3]          ; Merged with ir:ir_instance|ir_store[1][15] ;
+; ir:ir_instance|ir_store[1][2]          ; Merged with ir:ir_instance|ir_store[1][15] ;
+; ir:ir_instance|ir_store[1][12]         ; Merged with ir:ir_instance|ir_store[1][13] ;
+; ir:ir_instance|ir_store[1][6]          ; Merged with ir:ir_instance|ir_store[1][13] ;
+; ir:ir_instance|ir_store[1][1]          ; Merged with ir:ir_instance|ir_store[1][13] ;
+; ir:ir_instance|ir_store[1][0]          ; Merged with ir:ir_instance|ir_store[1][13] ;
+; pc:pc_instance|pc[5..15]               ; Lost fanout                                ;
+; Total Number of Removed Registers = 39 ;                                            ;
++----------------------------------------+--------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -275,12 +250,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 5     ;
+; Total registers                              ; 9     ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 6     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -309,7 +284,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Sat Apr 30 02:58:26 2022
+    Info: Processing started: Sat Apr 30 04:42:25 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off pipeline -c DUT
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
@@ -336,7 +311,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file shifter
     Info (12022): Found design unit 1: shifter_1-working File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/shifter_1.vhdl Line: 14
     Info (12023): Found entity 1: shifter_1 File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/shifter_1.vhdl Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file regs.vhd
-    Info (12022): Found design unit 1: registers-working File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 20
+    Info (12022): Found design unit 1: registers-working File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 21
     Info (12023): Found entity 1: registers File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file pc.vhdl
     Info (12022): Found design unit 1: pc-working File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pc.vhdl Line: 15
@@ -360,22 +335,23 @@ Info (12021): Found 2 design units, including 1 entities, in source file alu.vhd
     Info (12023): Found entity 1: alu File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/alu.vhd Line: 6
 Info (12021): Found 10 design units, including 5 entities, in source file pipe_reg.vhdl
     Info (12022): Found design unit 1: if_reg-working File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 14
-    Info (12022): Found design unit 2: id_reg-working File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 43
-    Info (12022): Found design unit 3: rd_reg-working File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 82
-    Info (12022): Found design unit 4: execute_reg-working File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 122
-    Info (12022): Found design unit 5: memory_reg-working File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 165
+    Info (12022): Found design unit 2: id_reg-working File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 45
+    Info (12022): Found design unit 3: rd_reg-working File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 93
+    Info (12022): Found design unit 4: execute_reg-working File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 143
+    Info (12022): Found design unit 5: memory_reg-working File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 188
     Info (12023): Found entity 1: if_reg File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 6
     Info (12023): Found entity 2: id_reg File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 32
-    Info (12023): Found entity 3: rd_reg File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 70
-    Info (12023): Found entity 4: execute_reg File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 109
-    Info (12023): Found entity 5: memory_reg File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 153
+    Info (12023): Found entity 3: rd_reg File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 79
+    Info (12023): Found entity 4: execute_reg File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 129
+    Info (12023): Found entity 5: memory_reg File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 176
 Info (12127): Elaborating entity "DUT" for the top level hierarchy
-Info (12128): Elaborating entity "ir" for hierarchy "ir:ir_instance" File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/DUT.vhd Line: 179
-Info (12128): Elaborating entity "if_reg" for hierarchy "if_reg:if_reg_instance" File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/DUT.vhd Line: 193
-Info (12128): Elaborating entity "ins_dec" for hierarchy "ins_dec:id_instance" File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/DUT.vhd Line: 200
+Info (12128): Elaborating entity "ir" for hierarchy "ir:ir_instance" File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/DUT.vhd Line: 187
+Info (12128): Elaborating entity "if_reg" for hierarchy "if_reg:if_reg_instance" File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/DUT.vhd Line: 201
+Info (12128): Elaborating entity "ins_dec" for hierarchy "ins_dec:id_instance" File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/DUT.vhd Line: 208
 Warning (10631): VHDL Process Statement warning at ins_decoder.vhd(24): inferring latch(es) for signal or variable "id_reg", which holds its previous value in one or more paths through the process File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/ins_decoder.vhd Line: 24
-Warning (10873): Using initial value X (don't care) for net "id_reg[15..12]" at ins_decoder.vhd(10) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/ins_decoder.vhd Line: 10
-Warning (10873): Using initial value X (don't care) for net "id_reg[2..0]" at ins_decoder.vhd(10) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/ins_decoder.vhd Line: 10
+Info (10041): Inferred latch for "id_reg[0]" at ins_decoder.vhd(24) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/ins_decoder.vhd Line: 24
+Info (10041): Inferred latch for "id_reg[1]" at ins_decoder.vhd(24) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/ins_decoder.vhd Line: 24
+Info (10041): Inferred latch for "id_reg[2]" at ins_decoder.vhd(24) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/ins_decoder.vhd Line: 24
 Info (10041): Inferred latch for "id_reg[3]" at ins_decoder.vhd(24) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/ins_decoder.vhd Line: 24
 Info (10041): Inferred latch for "id_reg[4]" at ins_decoder.vhd(24) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/ins_decoder.vhd Line: 24
 Info (10041): Inferred latch for "id_reg[5]" at ins_decoder.vhd(24) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/ins_decoder.vhd Line: 24
@@ -385,119 +361,165 @@ Info (10041): Inferred latch for "id_reg[8]" at ins_decoder.vhd(24) File: /home/
 Info (10041): Inferred latch for "id_reg[9]" at ins_decoder.vhd(24) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/ins_decoder.vhd Line: 24
 Info (10041): Inferred latch for "id_reg[10]" at ins_decoder.vhd(24) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/ins_decoder.vhd Line: 24
 Info (10041): Inferred latch for "id_reg[11]" at ins_decoder.vhd(24) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/ins_decoder.vhd Line: 24
-Info (12128): Elaborating entity "id_reg" for hierarchy "id_reg:id_reg_instance" File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/DUT.vhd Line: 208
-Warning (10631): VHDL Process Statement warning at pipe_reg.vhdl(46): inferring latch(es) for signal or variable "reg_a1", which holds its previous value in one or more paths through the process File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 46
-Warning (10631): VHDL Process Statement warning at pipe_reg.vhdl(46): inferring latch(es) for signal or variable "reg_a2", which holds its previous value in one or more paths through the process File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 46
-Warning (10631): VHDL Process Statement warning at pipe_reg.vhdl(46): inferring latch(es) for signal or variable "reg_a3", which holds its previous value in one or more paths through the process File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 46
-Info (10041): Inferred latch for "reg_a3[0]" at pipe_reg.vhdl(46) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 46
-Info (10041): Inferred latch for "reg_a3[1]" at pipe_reg.vhdl(46) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 46
-Info (10041): Inferred latch for "reg_a3[2]" at pipe_reg.vhdl(46) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 46
-Info (10041): Inferred latch for "reg_a2[0]" at pipe_reg.vhdl(46) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 46
-Info (10041): Inferred latch for "reg_a2[1]" at pipe_reg.vhdl(46) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 46
-Info (10041): Inferred latch for "reg_a2[2]" at pipe_reg.vhdl(46) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 46
-Info (10041): Inferred latch for "reg_a1[0]" at pipe_reg.vhdl(46) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 46
-Info (10041): Inferred latch for "reg_a1[1]" at pipe_reg.vhdl(46) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 46
-Info (10041): Inferred latch for "reg_a1[2]" at pipe_reg.vhdl(46) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 46
-Info (12128): Elaborating entity "registers" for hierarchy "registers:reg_instance" File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/DUT.vhd Line: 218
-Warning (10492): VHDL Process Statement warning at regs.vhd(31): signal "regs" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 31
+Info (10041): Inferred latch for "id_reg[12]" at ins_decoder.vhd(24) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/ins_decoder.vhd Line: 24
+Info (10041): Inferred latch for "id_reg[13]" at ins_decoder.vhd(24) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/ins_decoder.vhd Line: 24
+Info (10041): Inferred latch for "id_reg[14]" at ins_decoder.vhd(24) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/ins_decoder.vhd Line: 24
+Info (10041): Inferred latch for "id_reg[15]" at ins_decoder.vhd(24) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/ins_decoder.vhd Line: 24
+Info (12128): Elaborating entity "id_reg" for hierarchy "id_reg:id_reg_instance" File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/DUT.vhd Line: 216
+Warning (10631): VHDL Process Statement warning at pipe_reg.vhdl(48): inferring latch(es) for signal or variable "reg_a1", which holds its previous value in one or more paths through the process File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 48
+Warning (10631): VHDL Process Statement warning at pipe_reg.vhdl(48): inferring latch(es) for signal or variable "reg_a2", which holds its previous value in one or more paths through the process File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 48
+Warning (10631): VHDL Process Statement warning at pipe_reg.vhdl(48): inferring latch(es) for signal or variable "reg_a3", which holds its previous value in one or more paths through the process File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 48
+Warning (10631): VHDL Process Statement warning at pipe_reg.vhdl(48): inferring latch(es) for signal or variable "imm", which holds its previous value in one or more paths through the process File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 48
+Warning (10631): VHDL Process Statement warning at pipe_reg.vhdl(48): inferring latch(es) for signal or variable "reg_rd", which holds its previous value in one or more paths through the process File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 48
+Info (10041): Inferred latch for "reg_rd[0]" at pipe_reg.vhdl(48) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 48
+Info (10041): Inferred latch for "reg_rd[1]" at pipe_reg.vhdl(48) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 48
+Info (10041): Inferred latch for "reg_rd[2]" at pipe_reg.vhdl(48) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 48
+Info (10041): Inferred latch for "reg_rd[3]" at pipe_reg.vhdl(48) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 48
+Info (10041): Inferred latch for "reg_rd[4]" at pipe_reg.vhdl(48) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 48
+Info (10041): Inferred latch for "reg_rd[5]" at pipe_reg.vhdl(48) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 48
+Info (10041): Inferred latch for "reg_rd[6]" at pipe_reg.vhdl(48) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 48
+Info (10041): Inferred latch for "reg_rd[7]" at pipe_reg.vhdl(48) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 48
+Info (10041): Inferred latch for "reg_rd[8]" at pipe_reg.vhdl(48) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 48
+Info (10041): Inferred latch for "reg_rd[9]" at pipe_reg.vhdl(48) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 48
+Info (10041): Inferred latch for "reg_rd[10]" at pipe_reg.vhdl(48) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 48
+Info (10041): Inferred latch for "reg_rd[11]" at pipe_reg.vhdl(48) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 48
+Info (10041): Inferred latch for "imm[0]" at pipe_reg.vhdl(48) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 48
+Info (10041): Inferred latch for "imm[1]" at pipe_reg.vhdl(48) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 48
+Info (10041): Inferred latch for "imm[2]" at pipe_reg.vhdl(48) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 48
+Info (10041): Inferred latch for "imm[3]" at pipe_reg.vhdl(48) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 48
+Info (10041): Inferred latch for "imm[4]" at pipe_reg.vhdl(48) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 48
+Info (10041): Inferred latch for "imm[5]" at pipe_reg.vhdl(48) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 48
+Info (10041): Inferred latch for "reg_a3[0]" at pipe_reg.vhdl(48) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 48
+Info (10041): Inferred latch for "reg_a3[1]" at pipe_reg.vhdl(48) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 48
+Info (10041): Inferred latch for "reg_a3[2]" at pipe_reg.vhdl(48) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 48
+Info (10041): Inferred latch for "reg_a2[0]" at pipe_reg.vhdl(48) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 48
+Info (10041): Inferred latch for "reg_a2[1]" at pipe_reg.vhdl(48) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 48
+Info (10041): Inferred latch for "reg_a2[2]" at pipe_reg.vhdl(48) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 48
+Info (10041): Inferred latch for "reg_a1[0]" at pipe_reg.vhdl(48) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 48
+Info (10041): Inferred latch for "reg_a1[1]" at pipe_reg.vhdl(48) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 48
+Info (10041): Inferred latch for "reg_a1[2]" at pipe_reg.vhdl(48) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 48
+Info (12128): Elaborating entity "registers" for hierarchy "registers:reg_instance" File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/DUT.vhd Line: 228
 Warning (10492): VHDL Process Statement warning at regs.vhd(32): signal "regs" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 32
-Warning (10631): VHDL Process Statement warning at regs.vhd(28): inferring latch(es) for signal or variable "reg_rd", which holds its previous value in one or more paths through the process File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 28
-Info (10041): Inferred latch for "reg_rd[0]" at regs.vhd(28) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 28
-Info (10041): Inferred latch for "reg_rd[1]" at regs.vhd(28) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 28
-Info (10041): Inferred latch for "reg_rd[2]" at regs.vhd(28) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 28
-Info (10041): Inferred latch for "reg_rd[3]" at regs.vhd(28) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 28
-Info (10041): Inferred latch for "reg_rd[4]" at regs.vhd(28) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 28
-Info (10041): Inferred latch for "reg_rd[5]" at regs.vhd(28) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 28
-Info (10041): Inferred latch for "reg_rd[6]" at regs.vhd(28) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 28
-Info (10041): Inferred latch for "reg_rd[7]" at regs.vhd(28) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 28
-Info (10041): Inferred latch for "reg_rd[8]" at regs.vhd(28) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 28
-Info (10041): Inferred latch for "reg_rd[9]" at regs.vhd(28) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 28
-Info (10041): Inferred latch for "reg_rd[10]" at regs.vhd(28) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 28
-Info (10041): Inferred latch for "reg_rd[11]" at regs.vhd(28) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 28
-Info (10041): Inferred latch for "reg_rd[12]" at regs.vhd(28) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 28
-Info (10041): Inferred latch for "reg_rd[13]" at regs.vhd(28) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 28
-Info (10041): Inferred latch for "reg_rd[14]" at regs.vhd(28) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 28
-Info (10041): Inferred latch for "reg_rd[15]" at regs.vhd(28) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 28
-Info (10041): Inferred latch for "reg_rd[16]" at regs.vhd(28) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 28
-Info (10041): Inferred latch for "reg_rd[17]" at regs.vhd(28) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 28
-Info (10041): Inferred latch for "reg_rd[18]" at regs.vhd(28) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 28
-Info (10041): Inferred latch for "reg_rd[19]" at regs.vhd(28) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 28
-Info (10041): Inferred latch for "reg_rd[20]" at regs.vhd(28) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 28
-Info (10041): Inferred latch for "reg_rd[21]" at regs.vhd(28) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 28
-Info (10041): Inferred latch for "reg_rd[22]" at regs.vhd(28) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 28
-Info (10041): Inferred latch for "reg_rd[23]" at regs.vhd(28) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 28
-Info (10041): Inferred latch for "reg_rd[24]" at regs.vhd(28) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 28
-Info (10041): Inferred latch for "reg_rd[25]" at regs.vhd(28) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 28
-Info (10041): Inferred latch for "reg_rd[26]" at regs.vhd(28) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 28
-Info (10041): Inferred latch for "reg_rd[27]" at regs.vhd(28) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 28
-Info (10041): Inferred latch for "reg_rd[28]" at regs.vhd(28) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 28
-Info (10041): Inferred latch for "reg_rd[29]" at regs.vhd(28) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 28
-Info (10041): Inferred latch for "reg_rd[30]" at regs.vhd(28) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 28
-Info (10041): Inferred latch for "reg_rd[31]" at regs.vhd(28) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 28
-Info (10041): Inferred latch for "reg_rd[32]" at regs.vhd(28) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 28
-Info (10041): Inferred latch for "reg_rd[33]" at regs.vhd(28) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 28
-Info (10041): Inferred latch for "reg_rd[34]" at regs.vhd(28) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 28
-Info (12128): Elaborating entity "rd_reg" for hierarchy "rd_reg:rd_reg_instance" File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/DUT.vhd Line: 232
-Warning (10631): VHDL Process Statement warning at pipe_reg.vhdl(85): inferring latch(es) for signal or variable "alu_a", which holds its previous value in one or more paths through the process File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 85
-Warning (10631): VHDL Process Statement warning at pipe_reg.vhdl(85): inferring latch(es) for signal or variable "alu_b", which holds its previous value in one or more paths through the process File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 85
-Warning (10631): VHDL Process Statement warning at pipe_reg.vhdl(85): inferring latch(es) for signal or variable "ex_reg", which holds its previous value in one or more paths through the process File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 85
-Info (10041): Inferred latch for "ex_reg[0]" at pipe_reg.vhdl(85) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 85
-Info (10041): Inferred latch for "ex_reg[1]" at pipe_reg.vhdl(85) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 85
-Info (10041): Inferred latch for "ex_reg[2]" at pipe_reg.vhdl(85) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 85
-Info (10041): Inferred latch for "alu_b[0]" at pipe_reg.vhdl(85) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 85
-Info (10041): Inferred latch for "alu_b[1]" at pipe_reg.vhdl(85) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 85
-Info (10041): Inferred latch for "alu_b[2]" at pipe_reg.vhdl(85) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 85
-Info (10041): Inferred latch for "alu_b[3]" at pipe_reg.vhdl(85) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 85
-Info (10041): Inferred latch for "alu_b[4]" at pipe_reg.vhdl(85) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 85
-Info (10041): Inferred latch for "alu_b[5]" at pipe_reg.vhdl(85) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 85
-Info (10041): Inferred latch for "alu_b[6]" at pipe_reg.vhdl(85) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 85
-Info (10041): Inferred latch for "alu_b[7]" at pipe_reg.vhdl(85) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 85
-Info (10041): Inferred latch for "alu_b[8]" at pipe_reg.vhdl(85) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 85
-Info (10041): Inferred latch for "alu_b[9]" at pipe_reg.vhdl(85) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 85
-Info (10041): Inferred latch for "alu_b[10]" at pipe_reg.vhdl(85) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 85
-Info (10041): Inferred latch for "alu_b[11]" at pipe_reg.vhdl(85) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 85
-Info (10041): Inferred latch for "alu_b[12]" at pipe_reg.vhdl(85) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 85
-Info (10041): Inferred latch for "alu_b[13]" at pipe_reg.vhdl(85) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 85
-Info (10041): Inferred latch for "alu_b[14]" at pipe_reg.vhdl(85) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 85
-Info (10041): Inferred latch for "alu_b[15]" at pipe_reg.vhdl(85) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 85
-Info (10041): Inferred latch for "alu_a[0]" at pipe_reg.vhdl(85) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 85
-Info (10041): Inferred latch for "alu_a[1]" at pipe_reg.vhdl(85) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 85
-Info (10041): Inferred latch for "alu_a[2]" at pipe_reg.vhdl(85) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 85
-Info (10041): Inferred latch for "alu_a[3]" at pipe_reg.vhdl(85) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 85
-Info (10041): Inferred latch for "alu_a[4]" at pipe_reg.vhdl(85) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 85
-Info (10041): Inferred latch for "alu_a[5]" at pipe_reg.vhdl(85) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 85
-Info (10041): Inferred latch for "alu_a[6]" at pipe_reg.vhdl(85) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 85
-Info (10041): Inferred latch for "alu_a[7]" at pipe_reg.vhdl(85) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 85
-Info (10041): Inferred latch for "alu_a[8]" at pipe_reg.vhdl(85) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 85
-Info (10041): Inferred latch for "alu_a[9]" at pipe_reg.vhdl(85) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 85
-Info (10041): Inferred latch for "alu_a[10]" at pipe_reg.vhdl(85) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 85
-Info (10041): Inferred latch for "alu_a[11]" at pipe_reg.vhdl(85) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 85
-Info (10041): Inferred latch for "alu_a[12]" at pipe_reg.vhdl(85) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 85
-Info (10041): Inferred latch for "alu_a[13]" at pipe_reg.vhdl(85) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 85
-Info (10041): Inferred latch for "alu_a[14]" at pipe_reg.vhdl(85) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 85
-Info (10041): Inferred latch for "alu_a[15]" at pipe_reg.vhdl(85) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 85
-Info (12128): Elaborating entity "execute_reg" for hierarchy "execute_reg:execute_reg_instance" File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/DUT.vhd Line: 244
-Warning (10631): VHDL Process Statement warning at pipe_reg.vhdl(127): inferring latch(es) for signal or variable "mem_reg", which holds its previous value in one or more paths through the process File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 127
-Info (10041): Inferred latch for "mem_reg[0]" at pipe_reg.vhdl(127) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 127
-Info (10041): Inferred latch for "mem_reg[1]" at pipe_reg.vhdl(127) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 127
-Info (10041): Inferred latch for "mem_reg[2]" at pipe_reg.vhdl(127) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 127
-Info (10041): Inferred latch for "mem_reg[3]" at pipe_reg.vhdl(127) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 127
-Info (10041): Inferred latch for "mem_reg[4]" at pipe_reg.vhdl(127) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 127
-Info (10041): Inferred latch for "mem_reg[5]" at pipe_reg.vhdl(127) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 127
-Info (10041): Inferred latch for "mem_reg[6]" at pipe_reg.vhdl(127) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 127
-Info (10041): Inferred latch for "mem_reg[7]" at pipe_reg.vhdl(127) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 127
-Info (10041): Inferred latch for "mem_reg[8]" at pipe_reg.vhdl(127) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 127
-Info (10041): Inferred latch for "mem_reg[9]" at pipe_reg.vhdl(127) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 127
-Info (10041): Inferred latch for "mem_reg[10]" at pipe_reg.vhdl(127) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 127
-Info (10041): Inferred latch for "mem_reg[11]" at pipe_reg.vhdl(127) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 127
-Info (10041): Inferred latch for "mem_reg[12]" at pipe_reg.vhdl(127) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 127
-Info (10041): Inferred latch for "mem_reg[13]" at pipe_reg.vhdl(127) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 127
-Info (10041): Inferred latch for "mem_reg[14]" at pipe_reg.vhdl(127) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 127
-Info (10041): Inferred latch for "mem_reg[15]" at pipe_reg.vhdl(127) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 127
-Info (10041): Inferred latch for "mem_reg[16]" at pipe_reg.vhdl(127) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 127
-Info (10041): Inferred latch for "mem_reg[17]" at pipe_reg.vhdl(127) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 127
-Info (10041): Inferred latch for "mem_reg[18]" at pipe_reg.vhdl(127) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 127
-Info (12128): Elaborating entity "alu" for hierarchy "alu:alu_instance" File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/DUT.vhd Line: 256
+Warning (10492): VHDL Process Statement warning at regs.vhd(33): signal "regs" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 33
+Warning (10492): VHDL Process Statement warning at regs.vhd(36): signal "regs" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 36
+Warning (10492): VHDL Process Statement warning at regs.vhd(37): signal "imm" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 37
+Warning (10631): VHDL Process Statement warning at regs.vhd(29): inferring latch(es) for signal or variable "reg_rd", which holds its previous value in one or more paths through the process File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 29
+Info (10041): Inferred latch for "reg_rd[0]" at regs.vhd(29) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 29
+Info (10041): Inferred latch for "reg_rd[1]" at regs.vhd(29) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 29
+Info (10041): Inferred latch for "reg_rd[2]" at regs.vhd(29) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 29
+Info (10041): Inferred latch for "reg_rd[3]" at regs.vhd(29) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 29
+Info (10041): Inferred latch for "reg_rd[4]" at regs.vhd(29) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 29
+Info (10041): Inferred latch for "reg_rd[5]" at regs.vhd(29) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 29
+Info (10041): Inferred latch for "reg_rd[6]" at regs.vhd(29) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 29
+Info (10041): Inferred latch for "reg_rd[7]" at regs.vhd(29) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 29
+Info (10041): Inferred latch for "reg_rd[8]" at regs.vhd(29) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 29
+Info (10041): Inferred latch for "reg_rd[9]" at regs.vhd(29) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 29
+Info (10041): Inferred latch for "reg_rd[10]" at regs.vhd(29) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 29
+Info (10041): Inferred latch for "reg_rd[11]" at regs.vhd(29) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 29
+Info (10041): Inferred latch for "reg_rd[12]" at regs.vhd(29) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 29
+Info (10041): Inferred latch for "reg_rd[13]" at regs.vhd(29) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 29
+Info (10041): Inferred latch for "reg_rd[14]" at regs.vhd(29) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 29
+Info (10041): Inferred latch for "reg_rd[15]" at regs.vhd(29) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 29
+Info (10041): Inferred latch for "reg_rd[16]" at regs.vhd(29) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 29
+Info (10041): Inferred latch for "reg_rd[17]" at regs.vhd(29) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 29
+Info (10041): Inferred latch for "reg_rd[18]" at regs.vhd(29) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 29
+Info (10041): Inferred latch for "reg_rd[19]" at regs.vhd(29) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 29
+Info (10041): Inferred latch for "reg_rd[20]" at regs.vhd(29) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 29
+Info (10041): Inferred latch for "reg_rd[21]" at regs.vhd(29) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 29
+Info (10041): Inferred latch for "reg_rd[22]" at regs.vhd(29) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 29
+Info (10041): Inferred latch for "reg_rd[23]" at regs.vhd(29) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 29
+Info (10041): Inferred latch for "reg_rd[24]" at regs.vhd(29) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 29
+Info (10041): Inferred latch for "reg_rd[25]" at regs.vhd(29) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 29
+Info (10041): Inferred latch for "reg_rd[26]" at regs.vhd(29) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 29
+Info (10041): Inferred latch for "reg_rd[27]" at regs.vhd(29) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 29
+Info (10041): Inferred latch for "reg_rd[28]" at regs.vhd(29) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 29
+Info (10041): Inferred latch for "reg_rd[29]" at regs.vhd(29) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 29
+Info (10041): Inferred latch for "reg_rd[30]" at regs.vhd(29) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 29
+Info (10041): Inferred latch for "reg_rd[31]" at regs.vhd(29) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 29
+Info (10041): Inferred latch for "reg_rd[32]" at regs.vhd(29) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 29
+Info (10041): Inferred latch for "reg_rd[33]" at regs.vhd(29) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 29
+Info (10041): Inferred latch for "reg_rd[34]" at regs.vhd(29) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/regs.vhd Line: 29
+Info (12128): Elaborating entity "rd_reg" for hierarchy "rd_reg:rd_reg_instance" File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/DUT.vhd Line: 243
+Warning (10631): VHDL Process Statement warning at pipe_reg.vhdl(96): inferring latch(es) for signal or variable "alu_a", which holds its previous value in one or more paths through the process File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Warning (10631): VHDL Process Statement warning at pipe_reg.vhdl(96): inferring latch(es) for signal or variable "alu_b", which holds its previous value in one or more paths through the process File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Warning (10631): VHDL Process Statement warning at pipe_reg.vhdl(96): inferring latch(es) for signal or variable "ex_reg", which holds its previous value in one or more paths through the process File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Warning (10631): VHDL Process Statement warning at pipe_reg.vhdl(96): inferring latch(es) for signal or variable "exec_j", which holds its previous value in one or more paths through the process File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "exec_j[0]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "exec_j[1]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "exec_j[2]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "exec_j[3]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "exec_j[4]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "exec_j[5]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "exec_j[6]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "exec_j[7]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "exec_j[8]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "exec_j[9]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "exec_j[10]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "exec_j[11]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "exec_j[12]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "exec_j[13]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "exec_j[14]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "exec_j[15]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "exec_j[16]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "exec_j[17]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "exec_j[18]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "ex_reg[0]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "ex_reg[1]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "ex_reg[2]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "alu_b[0]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "alu_b[1]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "alu_b[2]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "alu_b[3]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "alu_b[4]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "alu_b[5]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "alu_b[6]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "alu_b[7]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "alu_b[8]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "alu_b[9]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "alu_b[10]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "alu_b[11]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "alu_b[12]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "alu_b[13]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "alu_b[14]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "alu_b[15]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "alu_a[0]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "alu_a[1]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "alu_a[2]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "alu_a[3]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "alu_a[4]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "alu_a[5]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "alu_a[6]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "alu_a[7]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "alu_a[8]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "alu_a[9]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "alu_a[10]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "alu_a[11]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "alu_a[12]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "alu_a[13]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "alu_a[14]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (10041): Inferred latch for "alu_a[15]" at pipe_reg.vhdl(96) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 96
+Info (12128): Elaborating entity "execute_reg" for hierarchy "execute_reg:execute_reg_instance" File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/DUT.vhd Line: 257
+Warning (10631): VHDL Process Statement warning at pipe_reg.vhdl(148): inferring latch(es) for signal or variable "mem_reg", which holds its previous value in one or more paths through the process File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 148
+Info (10041): Inferred latch for "mem_reg[0]" at pipe_reg.vhdl(148) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 148
+Info (10041): Inferred latch for "mem_reg[1]" at pipe_reg.vhdl(148) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 148
+Info (10041): Inferred latch for "mem_reg[2]" at pipe_reg.vhdl(148) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 148
+Info (10041): Inferred latch for "mem_reg[3]" at pipe_reg.vhdl(148) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 148
+Info (10041): Inferred latch for "mem_reg[4]" at pipe_reg.vhdl(148) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 148
+Info (10041): Inferred latch for "mem_reg[5]" at pipe_reg.vhdl(148) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 148
+Info (10041): Inferred latch for "mem_reg[6]" at pipe_reg.vhdl(148) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 148
+Info (10041): Inferred latch for "mem_reg[7]" at pipe_reg.vhdl(148) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 148
+Info (10041): Inferred latch for "mem_reg[8]" at pipe_reg.vhdl(148) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 148
+Info (10041): Inferred latch for "mem_reg[9]" at pipe_reg.vhdl(148) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 148
+Info (10041): Inferred latch for "mem_reg[10]" at pipe_reg.vhdl(148) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 148
+Info (10041): Inferred latch for "mem_reg[11]" at pipe_reg.vhdl(148) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 148
+Info (10041): Inferred latch for "mem_reg[12]" at pipe_reg.vhdl(148) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 148
+Info (10041): Inferred latch for "mem_reg[13]" at pipe_reg.vhdl(148) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 148
+Info (10041): Inferred latch for "mem_reg[14]" at pipe_reg.vhdl(148) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 148
+Info (10041): Inferred latch for "mem_reg[15]" at pipe_reg.vhdl(148) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 148
+Info (10041): Inferred latch for "mem_reg[16]" at pipe_reg.vhdl(148) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 148
+Info (10041): Inferred latch for "mem_reg[17]" at pipe_reg.vhdl(148) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 148
+Info (10041): Inferred latch for "mem_reg[18]" at pipe_reg.vhdl(148) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 148
+Info (12128): Elaborating entity "alu" for hierarchy "alu:alu_instance" File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/DUT.vhd Line: 270
 Warning (10492): VHDL Process Statement warning at alu.vhd(25): signal "carry" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/alu.vhd Line: 25
 Warning (10492): VHDL Process Statement warning at alu.vhd(25): signal "zero" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/alu.vhd Line: 25
 Warning (10631): VHDL Process Statement warning at alu.vhd(20): inferring latch(es) for signal or variable "no_write", which holds its previous value in one or more paths through the process File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/alu.vhd Line: 20
@@ -523,42 +545,39 @@ Info (10041): Inferred latch for "ex_reg[14]" at alu.vhd(20) File: /home/winston
 Info (10041): Inferred latch for "ex_reg[15]" at alu.vhd(20) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/alu.vhd Line: 20
 Info (10041): Inferred latch for "carry" at alu.vhd(20) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/alu.vhd Line: 20
 Info (10041): Inferred latch for "no_write" at alu.vhd(20) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/alu.vhd Line: 20
-Info (12128): Elaborating entity "mem" for hierarchy "mem:mem_instance" File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/DUT.vhd Line: 267
+Info (12128): Elaborating entity "mem" for hierarchy "mem:mem_instance" File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/DUT.vhd Line: 281
 Warning (10541): VHDL Signal Declaration warning at mem.vhd(12): used implicit default value for signal "mem_data" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/mem.vhd Line: 12
-Info (12128): Elaborating entity "memory_reg" for hierarchy "memory_reg:mem_reg_instance" File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/DUT.vhd Line: 275
-Warning (10631): VHDL Process Statement warning at pipe_reg.vhdl(170): inferring latch(es) for signal or variable "wb_in", which holds its previous value in one or more paths through the process File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 170
-Info (10041): Inferred latch for "wb_in[0]" at pipe_reg.vhdl(170) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 170
-Info (10041): Inferred latch for "wb_in[1]" at pipe_reg.vhdl(170) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 170
-Info (10041): Inferred latch for "wb_in[2]" at pipe_reg.vhdl(170) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 170
-Info (10041): Inferred latch for "wb_in[3]" at pipe_reg.vhdl(170) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 170
-Info (10041): Inferred latch for "wb_in[4]" at pipe_reg.vhdl(170) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 170
-Info (10041): Inferred latch for "wb_in[5]" at pipe_reg.vhdl(170) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 170
-Info (10041): Inferred latch for "wb_in[6]" at pipe_reg.vhdl(170) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 170
-Info (10041): Inferred latch for "wb_in[7]" at pipe_reg.vhdl(170) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 170
-Info (10041): Inferred latch for "wb_in[8]" at pipe_reg.vhdl(170) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 170
-Info (10041): Inferred latch for "wb_in[9]" at pipe_reg.vhdl(170) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 170
-Info (10041): Inferred latch for "wb_in[10]" at pipe_reg.vhdl(170) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 170
-Info (10041): Inferred latch for "wb_in[11]" at pipe_reg.vhdl(170) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 170
-Info (10041): Inferred latch for "wb_in[12]" at pipe_reg.vhdl(170) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 170
-Info (10041): Inferred latch for "wb_in[13]" at pipe_reg.vhdl(170) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 170
-Info (10041): Inferred latch for "wb_in[14]" at pipe_reg.vhdl(170) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 170
-Info (10041): Inferred latch for "wb_in[15]" at pipe_reg.vhdl(170) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 170
-Info (10041): Inferred latch for "wb_in[16]" at pipe_reg.vhdl(170) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 170
-Info (10041): Inferred latch for "wb_in[17]" at pipe_reg.vhdl(170) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 170
-Info (10041): Inferred latch for "wb_in[18]" at pipe_reg.vhdl(170) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 170
-Info (12128): Elaborating entity "pc" for hierarchy "pc:pc_instance" File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/DUT.vhd Line: 286
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "output_vector[1]" is stuck at GND File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/DUT.vhd Line: 5
-    Warning (13410): Pin "output_vector[2]" is stuck at GND File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/DUT.vhd Line: 5
-    Warning (13410): Pin "output_vector[3]" is stuck at GND File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/DUT.vhd Line: 5
-Info (17049): 37 registers lost all their fanouts during netlist optimizations.
-Info (21057): Implemented 12 device resources after synthesis - the final resource count might be different
+Info (12128): Elaborating entity "memory_reg" for hierarchy "memory_reg:mem_reg_instance" File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/DUT.vhd Line: 289
+Warning (10492): VHDL Process Statement warning at pipe_reg.vhdl(196): signal "opcode5" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 196
+Warning (10631): VHDL Process Statement warning at pipe_reg.vhdl(193): inferring latch(es) for signal or variable "wb_in", which holds its previous value in one or more paths through the process File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 193
+Info (10041): Inferred latch for "wb_in[0]" at pipe_reg.vhdl(193) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 193
+Info (10041): Inferred latch for "wb_in[1]" at pipe_reg.vhdl(193) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 193
+Info (10041): Inferred latch for "wb_in[2]" at pipe_reg.vhdl(193) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 193
+Info (10041): Inferred latch for "wb_in[3]" at pipe_reg.vhdl(193) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 193
+Info (10041): Inferred latch for "wb_in[4]" at pipe_reg.vhdl(193) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 193
+Info (10041): Inferred latch for "wb_in[5]" at pipe_reg.vhdl(193) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 193
+Info (10041): Inferred latch for "wb_in[6]" at pipe_reg.vhdl(193) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 193
+Info (10041): Inferred latch for "wb_in[7]" at pipe_reg.vhdl(193) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 193
+Info (10041): Inferred latch for "wb_in[8]" at pipe_reg.vhdl(193) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 193
+Info (10041): Inferred latch for "wb_in[9]" at pipe_reg.vhdl(193) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 193
+Info (10041): Inferred latch for "wb_in[10]" at pipe_reg.vhdl(193) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 193
+Info (10041): Inferred latch for "wb_in[11]" at pipe_reg.vhdl(193) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 193
+Info (10041): Inferred latch for "wb_in[12]" at pipe_reg.vhdl(193) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 193
+Info (10041): Inferred latch for "wb_in[13]" at pipe_reg.vhdl(193) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 193
+Info (10041): Inferred latch for "wb_in[14]" at pipe_reg.vhdl(193) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 193
+Info (10041): Inferred latch for "wb_in[15]" at pipe_reg.vhdl(193) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 193
+Info (10041): Inferred latch for "wb_in[16]" at pipe_reg.vhdl(193) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 193
+Info (10041): Inferred latch for "wb_in[17]" at pipe_reg.vhdl(193) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 193
+Info (10041): Inferred latch for "wb_in[18]" at pipe_reg.vhdl(193) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 193
+Info (12128): Elaborating entity "pc" for hierarchy "pc:pc_instance" File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/DUT.vhd Line: 300
+Info (17049): 11 registers lost all their fanouts during netlist optimizations.
+Info (21057): Implemented 18 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 1 input pins
     Info (21059): Implemented 4 output pins
-    Info (21061): Implemented 7 logic cells
+    Info (21061): Implemented 13 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 26 warnings
-    Info: Peak virtual memory: 398 megabytes
-    Info: Processing ended: Sat Apr 30 02:58:35 2022
+    Info: Peak virtual memory: 401 megabytes
+    Info: Processing ended: Sat Apr 30 04:42:34 2022
     Info: Elapsed time: 00:00:09
     Info: Total CPU time (on all processors): 00:00:24
 

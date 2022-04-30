@@ -115,7 +115,7 @@ GND*                         : C15       :        :                   :         
 VCCIO3                       : C16       : power  :                   : 3.3V    : 3         :                
 GND*                         : D1        :        :                   :         : 1         :                
 GND*                         : D2        :        :                   :         : 1         :                
-output_vector[0]             : D3        : output : 3.3-V LVTTL       :         : 1         : N              
+GND*                         : D3        :        :                   :         : 1         :                
 GND*                         : D4        :        :                   :         : 2         :                
 GND*                         : D5        :        :                   :         : 2         :                
 GND*                         : D6        :        :                   :         : 2         :                
@@ -143,7 +143,7 @@ GND*                         : E11       :        :                   :         
 GND*                         : E12       :        :                   :         : 3         :                
 GND*                         : E13       :        :                   :         : 3         :                
 GND*                         : E14       :        :                   :         : 3         :                
-output_vector[1]             : E15       : output : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : E15       :        :                   :         : 3         :                
 GND*                         : E16       :        :                   :         : 3         :                
 GND*                         : F1        :        :                   :         : 1         :                
 GND*                         : F2        :        :                   :         : 1         :                
@@ -162,7 +162,7 @@ GND*                         : F14       :        :                   :         
 GND*                         : F15       :        :                   :         : 3         :                
 GND*                         : F16       :        :                   :         : 3         :                
 GND*                         : G1        :        :                   :         : 1         :                
-output_vector[2]             : G2        : output : 3.3-V LVTTL       :         : 1         : N              
+GND*                         : G2        :        :                   :         : 1         :                
 GND*                         : G3        :        :                   :         : 1         :                
 GND*                         : G4        :        :                   :         : 1         :                
 GND*                         : G5        :        :                   :         : 1         :                
@@ -226,10 +226,10 @@ GND*                         : K14       :        :                   :         
 GND*                         : K15       :        :                   :         : 3         :                
 GND*                         : K16       :        :                   :         : 3         :                
 GND*                         : L1        :        :                   :         : 1         :                
-GND*                         : L2        :        :                   :         : 1         :                
+output_vector[2]             : L2        : output : 3.3-V LVTTL       :         : 1         : N              
 GND*                         : L3        :        :                   :         : 1         :                
 GND*                         : L4        :        :                   :         : 1         :                
-GND*                         : L5        :        :                   :         : 1         :                
+output_vector[1]             : L5        : output : 3.3-V LVTTL       :         : 1         : N              
 TDI                          : L6        : input  :                   :         : 1         :                
 VCCINT                       : L7        : power  :                   : 1.8V    :           :                
 VCCIO4                       : L8        : power  :                   : 3.3V    : 4         :                
@@ -241,8 +241,8 @@ GND*                         : L13       :        :                   :         
 GND*                         : L14       :        :                   :         : 3         :                
 GND*                         : L15       :        :                   :         : 3         :                
 GND*                         : L16       :        :                   :         : 3         :                
-GND*                         : M1        :        :                   :         : 1         :                
-GND*                         : M2        :        :                   :         : 1         :                
+output_vector[3]             : M1        : output : 3.3-V LVTTL       :         : 1         : N              
+output_vector[0]             : M2        : output : 3.3-V LVTTL       :         : 1         : N              
 GND*                         : M3        :        :                   :         : 1         :                
 GND*                         : M4        :        :                   :         : 1         :                
 TDO                          : M5        : output :                   :         : 1         :                
@@ -263,7 +263,7 @@ GND*                         : N3        :        :                   :         
 TMS                          : N4        : input  :                   :         : 1         :                
 GND*                         : N5        :        :                   :         : 4         :                
 GND*                         : N6        :        :                   :         : 4         :                
-output_vector[3]             : N7        : output : 3.3-V LVTTL       :         : 4         : N              
+GND*                         : N7        :        :                   :         : 4         :                
 GND*                         : N8        :        :                   :         : 4         :                
 GND*                         : N9        :        :                   :         : 4         :                
 GND*                         : N10       :        :                   :         : 4         :                
