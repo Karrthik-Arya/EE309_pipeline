@@ -23,11 +23,11 @@ signal ir_store: ins_array := ( x"0000", x"0000", x"0000", x"0000", x"0000", x"0
 begin
 	write_proc: process(clk)
 	begin
-	if(rising_edge(clk)) then
+	if(rising_edge(clk) and not(ir_store(5)= x"FFFF")) then
 			for i in 4 downto 0 loop
 				ir_store(i+1) <= ir_store(i);--used comparator
 			end loop;
-			if(not(ir_store(1)= x"FFFF")) then
+			if(not(ir_store(0)= x"FFFF")) then
 				ir_store(0) <= mem;
 			end if;
 	end if;

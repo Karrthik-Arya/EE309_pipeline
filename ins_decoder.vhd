@@ -23,7 +23,7 @@ begin
 	
 	read_proc: process(ins_store, op_code)
 	begin
-	if(op_code="0001") then
+	if(op_code="0001" or op_code="0010") then
 		id_reg(11 downto 9) <=ins_store(11 downto 9);
 		id_reg(8 downto 6)  <= ins_store(8 downto 6);
 		id_reg(5 downto 3)  <= ins_store(5 downto 3);
@@ -31,7 +31,7 @@ begin
 		id_reg(11 downto 9) <=ins_store(11 downto 9);
 		id_reg(8 downto 6) <= ins_store(8 downto 6);
 		id_reg(5 downto 0)<= ins_store(5 downto 0);
-	elsif(op_code="0011") then
+	elsif(op_code="0011" or op_code="0111") then
 		id_reg<=ins_store;
 	end if;
 	end process;

@@ -25,7 +25,7 @@ architecture DutWrap of DUT is
 	
 	component mem is 
 	port(
-	--exe_out_alu: in std_logic_vector(15 downto 0);
+		exe_out: in std_logic_vector(15 downto 0);
 	 opcode5: in std_logic_vector(3 downto 0);
 	 clk : in std_logic;
 	 ins_addr: in std_logic_vector(15 downto 0);
@@ -155,7 +155,8 @@ component execute_reg is
 		clk: in std_logic;
 		no_write_in: in std_logic;
 			no_write_out: out std_logic;
-			rd_j: in std_logic_vector(18 downto 0)
+			rd_j: in std_logic_vector(18 downto 0);
+			mem_a:out std_logic_vector(15 downto 0)
 	);
 end component;
 
@@ -167,11 +168,12 @@ component memory_reg is
 		clk: in std_logic;
 		wb_in: out std_logic_vector(18 downto 0);
 		no_write_in: in std_logic;
-			no_write_out: out std_logic
+			no_write_out: out std_logic;
+		mem_data: in std_logic_vector(15 downto 0)
 	);
 end component;
 
-signal w_ir_if, w_if_id, w_id_reg, w_rd_alua, w_rd_alub, w_ex_alu, curr_ins, w_pc_mem: std_logic_vector(15 downto 0);
+signal w_ir_if, w_if_id, w_id_reg, w_rd_alua, w_rd_alub, w_ex_alu, curr_ins, w_pc_mem, w_exe_mem, w_data: std_logic_vector(15 downto 0);
 signal w_reg_a1, w_reg_a2, w_reg_a3, w_rd_ex: std_logic_vector(2 downto 0);
 signal w_wb, w_exec_mem,w_wb_mem, w_exec_j: std_logic_vector(18 downto 0);
 signal w_rd_reg: std_logic_vector(34 downto 0);
@@ -264,7 +266,8 @@ begin
 		clk => input_vector(0),
 		no_write_in => w_no_alu,
 		no_write_out => w_no_mem,
-		rd_j=> w_exec_j
+		rd_j=> w_exec_j,
+		mem_a=> w_exe_mem
 			);	
 		
 		alu_instance: alu
@@ -283,7 +286,9 @@ begin
 				clk => input_vector(0),
 				opcode5=>opcode5,
 				ins_addr=> w_pc_mem,
-				ir_data=>curr_ins
+				ir_data=>curr_ins,
+				exe_out=>w_exe_mem,
+				mem_data=>w_data
 				);
 			
 		mem_reg_instance: memory_reg
@@ -294,7 +299,8 @@ begin
 			exec_reg=>	w_exec_mem,
 			wb_in => w_wb,
 			no_write_in=> w_no_mem,
-			no_write_out=> wb_no_write
+			no_write_out=> wb_no_write,
+			mem_data=> w_data
 			);	
 				
 			pc_instance: pc

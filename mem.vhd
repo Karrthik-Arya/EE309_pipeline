@@ -4,7 +4,7 @@ use ieee.numeric_std.all;
 
 entity mem is
 	port(
-	 --exe_out_alu: in std_logic_vector(15 downto 0);
+	 exe_out: in std_logic_vector(15 downto 0);
 	 opcode5: in std_logic_vector(3 downto 0);
 	 clk : in std_logic;
 	 ins_addr: in std_logic_vector(15 downto 0);
@@ -16,7 +16,7 @@ entity mem is
 architecture working of mem is
 	type mem_array is array (0 to 31 ) of std_logic_vector (15 downto 0);
 	signal mem_store: mem_array :=(
-   x"0000",x"0000", x"0000", x"0000",
+   x"0000",x"0005", x"0009", x"0000",
 	x"0000",x"0000", x"0000", x"0000",
 	x"0000",x"0000", x"0000", x"0000",
 	x"0000",x"0000", x"0000", x"0000",
@@ -28,7 +28,7 @@ architecture working of mem is
 	
 	
 	signal mem_ins: mem_array := (
-	b"0011000001000011", x"FFFF",  x"0000", x"0000",
+	b"0111000001000001", x"FFFF",  x"0000", x"0000",
 	x"0000", x"0000", x"0000", x"0000",
 	x"0000",x"0000", x"0000", x"0000",
 	x"0000",x"0000", x"0000", x"0000",
@@ -45,7 +45,7 @@ architecture working of mem is
 	end process;
 	mem_read: process( opcode5)
 	begin
-		
+		mem_data<= mem_store(to_integer(unsigned(exe_out)));
 	end process;
 	ir_data <= mem_ins(to_integer(unsigned(ins_addr)));
 end working;
