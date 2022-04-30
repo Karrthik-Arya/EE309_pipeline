@@ -211,7 +211,7 @@ begin
 	begin 
 		if(falling_edge(clk)) then
 			no_write<=no_write_in;
-			if (opcode5="0001" or opcode5="0000" or opcode5="0011" or opcode6="0010") then
+			if (opcode5="0001" or opcode5="0000" or opcode5="0011" or opcode5="0010") then
 				mem_store<= exec_reg;
 				
 			elsif (opcode5="0111") then

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for DUT
-Sat Apr 30 16:45:37 2022
+Sat Apr 30 17:24:45 2022
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -43,7 +43,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                              ;
 +-----------------------------+---------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Sat Apr 30 16:45:37 2022       ;
+; Analysis & Synthesis Status ; Successful - Sat Apr 30 17:24:45 2022       ;
 ; Quartus Prime Version       ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name               ; DUT                                         ;
 ; Top-level Entity Name       ; DUT                                         ;
@@ -330,7 +330,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Sat Apr 30 16:45:25 2022
+    Info: Processing started: Sat Apr 30 17:24:36 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off pipeline -c DUT
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
@@ -612,8 +612,6 @@ Info (10041): Inferred latch for "ex_reg[15]" at alu.vhd(20) File: /home/winston
 Info (10041): Inferred latch for "carry" at alu.vhd(20) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/alu.vhd Line: 20
 Info (10041): Inferred latch for "no_write" at alu.vhd(20) File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/alu.vhd Line: 20
 Info (12128): Elaborating entity "mem" for hierarchy "mem:mem_instance" File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/DUT.vhd Line: 284
-Warning (10492): VHDL Process Statement warning at mem.vhd(48): signal "mem_store" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/mem.vhd Line: 48
-Warning (10492): VHDL Process Statement warning at mem.vhd(48): signal "exe_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/mem.vhd Line: 48
 Info (12128): Elaborating entity "memory_reg" for hierarchy "memory_reg:mem_reg_instance" File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/DUT.vhd Line: 294
 Warning (10492): VHDL Process Statement warning at pipe_reg.vhdl(205): signal "opcode5" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 205
 Warning (10631): VHDL Process Statement warning at pipe_reg.vhdl(202): inferring latch(es) for signal or variable "wb_in", which holds its previous value in one or more paths through the process File: /home/winston/Documents/Acads/sem_2/EE309/EE309_pipeline/pipe_reg.vhdl Line: 202
@@ -642,10 +640,10 @@ Info (21057): Implemented 27 device resources after synthesis - the final resour
     Info (21058): Implemented 1 input pins
     Info (21059): Implemented 4 output pins
     Info (21061): Implemented 22 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 31 warnings
-    Info: Peak virtual memory: 400 megabytes
-    Info: Processing ended: Sat Apr 30 16:45:37 2022
-    Info: Elapsed time: 00:00:12
-    Info: Total CPU time (on all processors): 00:00:32
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 29 warnings
+    Info: Peak virtual memory: 399 megabytes
+    Info: Processing ended: Sat Apr 30 17:24:45 2022
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:24
 
 

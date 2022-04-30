@@ -45,8 +45,9 @@ architecture working of mem is
 	end process;
 	mem_read: process( opcode5)
 	begin
-		mem_data<= mem_store(to_integer(unsigned(exe_out)));
+		
 	end process;
+	mem_data<= mem_store(to_integer(unsigned(exe_out)));
 	ir_data <= mem_ins(to_integer(unsigned(ins_addr)));
 end working;
 	
